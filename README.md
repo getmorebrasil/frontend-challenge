@@ -10,47 +10,22 @@ Para essa página será fornecido uma que retorna uma lista de lojas, segue exem
 ```json  
 [
   {
+    "id":1,
     "name":"Ri Happy",
     "takeback":4.335500000000001,
-    "rating":4.9,
-    "url":"https://www.rihappy.com.br/",
     "image_blob":"data:image/png;base64,...",
-    "category":[
-      "Moda e Acessórios",
-      "Brinquedos e Jogos"
-    ]
   },
   {
+    "id":2,
     "name":"Havan",
     "takeback":3.575,
-    "rating":4.8,
-    "url":"https://www.havan.com.br/",
     "image_blob":"data:image/png;base64,...",
-    "category":[
-      "Alimentos e Bebidas",
-      "Beleza e Saúde",
-      "Celulares e Smartphones",
-      "Eletrodomésticos",
-      "Eletrônicos e Tecnologia",
-      "Esporte e Lazer",
-      "Livros CDs e DVDs",
-      "Loja de Departamentos",
-      "Moda e Acessórios",
-      "Brinquedos e Jogos",
-      "Móveis e Decoração"
-    ]
   },
   {
+    "id":3,
     "name":"Netshoes",
     "takeback":6.003,
-    "rating":4.5,
-    "url":"https://www.netshoes.com.br/",
     "image_blob":"data:image/png;base64,...",
-    "category":[
-      "Esporte e Lazer",
-      "Loja de Departamentos",
-      "Moda e Acessórios"
-    ]
   }
 ]
 ```
@@ -60,7 +35,7 @@ Disponível em http://challenge.getmore.com.br/stores
 Para essa página será fornecido uma rota para detalhes de uma rede específica
 ```json
 {
-  "id": "1",
+  "id":1,
   "name": "Ri Happy",
   "takeback": 4.335500000000001,
   "rating": 4.9,
