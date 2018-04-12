@@ -1,6 +1,6 @@
 # Desafio frontend    
 
-Você foi contratado para desenvolver um aplicativo mobile. O aplicativo terá duas páginas:  
+Você foi contratado para desenvolver um aplicativo web. O aplicativo terá duas páginas:  
 
 - Mostrar lojas;
 - Detalhes de uma loja;
