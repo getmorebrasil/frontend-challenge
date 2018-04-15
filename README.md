@@ -47,7 +47,7 @@ Para essa página será fornecido uma rota para detalhes de uma rede específica
   ]
 }
 ```
-Disponível em http://challenge.getmore.com.br/store/:id
+Disponível em http://challenge.getmore.com.br/stores/:id substitua `:id` pelo valor do atributo `id` da loja desejada. Por exemplo, para o json disponível acima a rota seria http://challenge.getmore.com.br/stores/1 
 
 ## Requisitos
 Os requisitos para essas páginas são:
