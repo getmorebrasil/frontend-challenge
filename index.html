@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mostrar lojas</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <nav class="navbar bg-primary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><b>&nbsp Mostrar lojas</b></a>
+    </div>
+  </nav>
+  <div class="py-4">
+    <div class="container">
+      <div class="row" id="stores_container">
+        <!-- Stores will be added here -->
+      </div>
+    </div>
+  </div>
+  <!-- Modal to show store details -->
+  <div class="modal fade" id="store_modal" tabindex="-1" role="dialog" aria-labelledby="store_modal_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100 mx-4" id="modal_title_id">Nome loja</h4>
+          <h5 class="modal-title text-right w-100 mx-4" id="modal_rating_id">Rating: 4.8</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal_close_id"><span aria-hidden="true" class="">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img src="" class="img my-2 w-100" id="modal_image_id">
+              <p class="lead py-3" id="modal_takeback_id"><b>3,45% de Takeback</b></p>
+            </div>
+            <div class="col-md-6">
+              <ul class="" id="modal_category_list_id">
+                <!-- Categories will be added here -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="modal_button_id" class="btn btn-primary btn-block btn-lg">Visitar site da loja</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/cardScript.js"></script>
+  <script src="js/modalScript.js"></script>
+  <script src="js/getStoresInfo.js"></script>
+</body>
+</html>
