@@ -69,6 +69,7 @@ function createColumn(element_card) {
 
 // Create all the elements to make a bootstrap card, with the store information,
 // then insert the card into the HTML
+// This function is called by the 'getStoresList' function.
 function insertStoreIntoHTML(store, store_index) {
   var element_name = createCardTitle(store.name);
   var element_takeback = createCardText(store.takeback);
@@ -78,4 +79,21 @@ function insertStoreIntoHTML(store, store_index) {
   var element_card = createCard(element_clickable);
   var element_column = createColumn(element_card);
   document.getElementById("stores_container").appendChild(element_column);
+  stores_list[store_index] = store;
+}
+
+// Get the stores_list length (amount), then set the "amount_id" element value.
+// This function is called by the 'getStoresList' function.
+function setStoreAmountElement(amount) {
+  var element_amount = document.getElementById("amount_id");
+  element_amount.innerHTML = amount + " lojas encontradas";
+}
+
+// Remove all child nodes from the "stores_container" element.
+// This function is called by the 'getStoresList' function.
+function clearAllStoreCards() {
+  var element_stores_container = document.getElementById("stores_container");
+  while(element_stores_container.lastChild) {
+    element_stores_container.removeChild(element_stores_container.lastChild);
+  }
 }
