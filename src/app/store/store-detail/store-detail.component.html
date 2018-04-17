@@ -1,3 +1,18 @@
-<p>
-  store-detail works!
-</p>
+<div class="card">
+  <img class="card-img-top" src="{{ store.image_blob }}" alt="Card image cap">
+  <div class="card-body"><p class="btn btn-dark" (click)="voltar()">
+    Voltar</p>
+    <h5 class="card-title">{{ store?.name }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h5>Takeback:</h5> {{ store?.takeback }}</li>
+    <li class="list-group-item"><h5>rating:</h5> {{ store?.rating }}</li>
+    <li class="list-group-item"><h5>Url:</h5> {{ store?.url }}</li>
+    <li class="list-group-item"><h5>Categoria:</h5></li>
+    <li class="list-group-item"
+      *ngFor="let category of store.category"
+      >
+        <a>{{ category }}</a>
+      </li>
+  </ul>
+</div>

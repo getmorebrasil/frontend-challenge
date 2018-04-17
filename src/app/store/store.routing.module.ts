@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,7 +8,6 @@ import { StoreDetailComponent } from './store-detail/store-detail.component';
 const routes: Routes = [
   { path: 'store/:id', component: StoreDetailComponent },
   { path: 'stores', component: StoreComponent }
-
 ];
 
 @NgModule({
