@@ -32,6 +32,9 @@ $ cd my-theme-folder
 
 # Instale as dependencias
 $ npm install
+
+#Rode o servidor
+$ ng serve
 ```
 
 ### tecnologias
