@@ -1,3 +1,13 @@
-<p>
-  store works!
-</p>
+<div class="stores container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <ul class="list-group stores-list">
+      <li class="list-group-item"
+      *ngFor="let store of stores"
+      >
+        <a [routerLink]="['/stores', store.id]" >{{ store.name }}</a>
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>
