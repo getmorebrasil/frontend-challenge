@@ -1,6 +1,8 @@
 // DISCLAIMER:
 // This script was developed using the folling guide as reference
 // https://www.w3schools.com/js/js_json_parse.asp
+
+// Start Point
 getStoresList("http://challenge.getmore.com.br/stores", "Do not sort");
 
 // Get a list of all stores and sort it.
