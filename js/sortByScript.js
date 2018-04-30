@@ -6,7 +6,6 @@ function setDropdownButtonsAction() {
   setDropdownIDButton();
   setDropdownNameButton();
   setDropdownTakebackButton();
-  setDropdownRatingButton();
 }
 
 // This auxiliary function is called by the 'setDropdownButtonsAction' function.
@@ -36,22 +35,12 @@ function setDropdownTakebackButton() {
   }
 }
 
-// This auxiliary function is called by the 'setDropdownButtonsAction' function.
-function setDropdownRatingButton() {
-  var elementRatingBtn = document.getElementById("sortByRating");
-  elementRatingBtn.href = "javascript:void(0);";
-  elementRatingBtn.onclick = function() {
-    getStoresList("http://challenge.getmore.com.br/stores", "rating");
-  }
-}
-
 // Sort the store_list, if the sortBy parameter is valid, then return it.
 function sortStoresList(storesList, sortBy) {
   switch (sortBy) {
     case "id": return sortByID(storesList);
     case "name": return sortByName(storesList);
     case "takeback": return sortByTakeback(storesList);
-    case "rating":  return sortByRating(storesList);
     default: return storesList;
   }
 }
@@ -69,8 +58,4 @@ function sortByName() {
 
 function sortByTakeback() {
   return storesList.sort(function(a,b) {return (a.takeback < b.takeback) ? 1 : ((b.takeback < a.takeback) ? -1 : 0);});
-}
-
-function sortByRating() {
-  return storesList.sort(function(a,b) {return (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0);});
 }
