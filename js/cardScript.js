@@ -79,7 +79,6 @@ function insertStoreIntoHTML(store, storeIndex) {
   var elementCard = createCard(elementClickable);
   var elementColumn = createColumn(elementCard);
   document.getElementById("stores_container").appendChild(elementColumn);
-  storesList[storeIndex] = store;
 }
 
 // Get the storesList length (amount), then set the "amount_id" element value.

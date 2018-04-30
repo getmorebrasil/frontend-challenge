@@ -26,6 +26,9 @@ function setModalImage(storeImage) {
 //This auxiliary function is called by the 'showStoreModal' function.
 function addCategoryListToModal(storeDetails) {
   var elementCategoryList = document.getElementById("modal_category_list_id");
+  while(elementCategoryList.lastChild) {
+    elementCategoryList.removeChild(elementCategoryList.lastChild);
+  }
   for(var i=0; i<storeDetails.category.length; i++) {
     var elementLi = document.createElement("li");
     elementLi.appendChild(document.createTextNode(storeDetails.category[i]));
