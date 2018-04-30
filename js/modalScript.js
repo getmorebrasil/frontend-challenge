@@ -1,43 +1,43 @@
 //Set the modal title (store name)
 //This auxiliary function is called by the 'showStoreModal' function.
-function setModalTitle(store_name) {
-  document.getElementById("modal_title_id").innerHTML = store_name;
+function setModalTitle(storeName) {
+  document.getElementById("modal_title_id").innerHTML = storeName;
 }
 
 //Set the modal rating (store rating)
 //This auxiliary function is called by the 'showStoreModal' function.
-function setModalRating(store_rating) {
-  document.getElementById("modal_rating_id").innerHTML = store_rating;
+function setModalRating(storeRating) {
+  document.getElementById("modal_rating_id").innerHTML = storeRating;
 }
 
 //Set the modal text (store takeback)
 //This auxiliary function is called by the 'showStoreModal' function.
-function setModalTakeback(store_takeback) {
-  document.getElementById("modal_takeback_id").innerHTML = store_takeback;
+function setModalTakeback(storeTakeback) {
+  document.getElementById("modal_takeback_id").innerHTML = storeTakeback;
 }
 
 //Set the modal image (store image)
 //This auxiliary function is called by the 'showStoreModal' function.
-function setModalImage(store_image) {
-  document.getElementById("modal_image_id").src = store_image;
+function setModalImage(storeImage) {
+  document.getElementById("modal_image_id").src = storeImage;
 }
 
 //Create a list element for each store category
 //This auxiliary function is called by the 'showStoreModal' function.
-function addCategoryListToModal(store_details) {
-  var element_category_list = document.getElementById("modal_category_list_id");
-  for(var i=0; i<store_details.category.length; i++) {
-    var element_li = document.createElement("li");
-    element_li.appendChild(document.createTextNode(store_details.category[i]));
-    element_category_list.appendChild(element_li);
+function addCategoryListToModal(storeDetails) {
+  var elementCategoryList = document.getElementById("modal_category_list_id");
+  for(var i=0; i<storeDetails.category.length; i++) {
+    var elementLi = document.createElement("li");
+    elementLi.appendChild(document.createTextNode(storeDetails.category[i]));
+    elementCategoryList.appendChild(elementLi);
   }
 }
 
 //Set the modal button click action (store URL)
 //This auxiliary function is called by the 'showStoreModal' function.
-function setModalButtonAction(store_url) {
+function setModalButtonAction(storeURL) {
   $('#modal_button_id').click(function() {
-    window.location = store_url;
+    window.location = storeURL;
   });
 }
 
@@ -57,13 +57,13 @@ function showModal() {
 
 // Set the properties of the bootstrap modal, with the store information,
 // then make it visible
-function showStoreModal(store_details) {
-  setModalTitle(store_details.name);
-  setModalRating("Rating: " + store_details.rating)
-  setModalTakeback(store_details.takeback.toFixed(2) + "% de Takeback");
-  setModalImage(store_details.image_blob);
-  addCategoryListToModal(store_details);
-  setModalButtonAction(store_details.url);
+function showStoreModal(storeDetails) {
+  setModalTitle(storeDetails.name);
+  setModalRating("Rating: " + storeDetails.rating)
+  setModalTakeback(storeDetails.takeback.toFixed(2) + "% de Takeback");
+  setModalImage(storeDetails.image_blob);
+  addCategoryListToModal(storeDetails);
+  setModalButtonAction(storeDetails.url);
   setModalCloseButtonAction();
   showModal();
 }
