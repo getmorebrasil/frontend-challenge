@@ -1,5 +1,5 @@
 ## Breve descrição da solução desenvolvida
-* O projeto foi desenvolvido utilizando React, Redux e Bootstrap.
+* O projeto foi desenvolvido utilizando React, Redux e Semantic UI.
 
 <br><br>
 
