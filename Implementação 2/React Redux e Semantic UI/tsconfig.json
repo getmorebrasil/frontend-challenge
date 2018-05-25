@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "paths": {
+      "@src/*": ["src/*"],
+      "*": ["src/_vendor/*", "node_modules/*"]
+    },
+    "lib": ["ES2017", "es2015.promise", "dom"]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+} 
