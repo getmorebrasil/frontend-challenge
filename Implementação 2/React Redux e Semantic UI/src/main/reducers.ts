@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import storesReducer from '../StoresGrid/storesReducer'
+import storesGridReducer from '../StoresGrid/storesGridReducer'
 
 const rootReducer = combineReducers ({
-    stores: storesReducer
+    storesGrid: storesGridReducer
 })
 
 export default rootReducer

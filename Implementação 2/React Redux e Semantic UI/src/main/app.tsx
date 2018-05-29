@@ -9,11 +9,14 @@ import { Grid } from 'semantic-ui-react';
 class App extends React.Component<any, any> {
     render() {
         return (
-            <Grid>
-                {/* <PageHeader /> */}
-                <StoresGrid />
-            </Grid>
-                
+            < Grid divided='vertically'>
+                <Grid.Column>
+                    <PageHeader />
+                </Grid.Column>
+                <Grid.Column style={{marginTop: '10em'}}>
+                    <StoresGrid />
+                </Grid.Column>
+            </Grid >
         )
     }
 }
