@@ -1,45 +1,37 @@
 import * as React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Header, Modal } from 'semantic-ui-react'
 import { closeModal } from '../StoreModal/storeModalActions'
+import ModalButtons from './modalButtons'
+import ModalContent from './modalContent'
+import ModalHeader from './modalHeader'
 
-const modalStyle = { marginTop: '6em' }
+const modalStyle = {
+    marginTop: 'auto',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+}
+let ModalButtonsAny = ModalButtons as any
 
 
 class StoreModal extends React.Component<any, any> {
-    constructor(props) {
-        super(props)
-        this.handleCloseModal = this.handleCloseModal.bind(this)
-    }
-
-    handleCloseModal() {
-        this.props.closeModal()
-    }
-
     render() {
         return (
-            <Modal 
-              open={this.props.isOpen} 
-              style={modalStyle} 
-              size={'tiny'}
-              closeOnDimmerClick >
-                <Modal.Header>{this.props.store.name}</Modal.Header>
+            <Modal open={this.props.isOpen} style={modalStyle} size={'tiny'} >
+                <Modal.Header >
+                    <ModalHeader store={this.props.store} />
+                </Modal.Header>
                 <Modal.Content image>
-                    <Image wrapped size='medium' src='https://react.semantic-ui.com/assets/images/wireframe/image.png' />
-                    <Modal.Description>
-                        <p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>
-                    </Modal.Description>
+                    <ModalContent store={this.props.store} />
                 </Modal.Content>
-                <Modal.Actions>
-                    <Button red onClick={this.handleCloseModal}>
-                        Fechar <Icon name='close' />
-                    </Button>
+                <Modal.Actions >
+                    <ModalButtonsAny url={this.props.store.url} />
                 </Modal.Actions>
             </Modal>
         )
     }
 }
 const mapStateToProps = (state: any) => ({ isOpen: state.storeModal.isOpen, store: state.storeModal.store })
-const mapDispatchToProps = (dispatch: any) => bindActionCreators({closeModal}, dispatch)
+const mapDispatchToProps = (dispatch: any) => bindActionCreators({}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(StoreModal)
