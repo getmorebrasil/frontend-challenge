@@ -5,7 +5,7 @@ import { Grid, Container } from 'semantic-ui-react';
 import StoreCard from '../StoreCard/storeCard'
 import { getStoresList } from './storesGridActions'
 
-const gridStyle = { marginTop: '6em', marginLeft: '2.5em', marginRight: '2.5em' }
+const gridStyle = { marginTop: '1.5em', marginLeft: '2.5em', marginRight: '2.5em' }
 const numberOfColumnsInARow = 5
 let StoreCardAny = StoreCard as any
 

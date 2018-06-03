@@ -8,7 +8,7 @@ import ModalContent from './modalContent'
 import ModalHeader from './modalHeader'
 
 const modalStyle = {
-    marginTop: 'auto',
+    marginTop: '8em',
     marginLeft: 'auto',
     marginRight: 'auto'
 }
