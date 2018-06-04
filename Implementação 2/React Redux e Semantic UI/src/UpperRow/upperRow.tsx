@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { orderByID, orderByName, orderByTakeback } from './upperRowActions'
+import { sortStoresByID, sortStoresByName, sortStoresByTakeback } from './upperRowActions'
 import { Container, Dropdown, Grid, Statistic } from 'semantic-ui-react'
 
 const gridStyle = { marginTop: '5em', marginLeft: '2.5em', marginRight: '2.5em' }
@@ -16,13 +16,13 @@ class UpperRow extends React.Component<any, any> {
     }
 
     handleClickID() {
-        this.props.orderByID()
+        this.props.sortStoresByID()
     }
     handleClickName() {
-        this.props.orderByName()
+        this.props.sortStoresByName()
     }
     handleClickTakeback() {
-        this.props.orderByTakeback()
+        this.props.sortStoresByTakeback()
     }
 
     render() {
@@ -49,5 +49,5 @@ class UpperRow extends React.Component<any, any> {
     }
 }
 const mapStateToProps = (state: any) => ({ amount: state.upperRow.amount })
-const mapDispatchToProps = dispatch => bindActionCreators({ orderByID, orderByName, orderByTakeback }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ sortStoresByID, sortStoresByName, sortStoresByTakeback }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(UpperRow)

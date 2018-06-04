@@ -1,17 +1,25 @@
-export const orderByID = () => {
+import { sortByID, sortByName, sortByTakeback } from '../sortBy'
+
+export const sortStoresByID = () => {
     return (dispatch, getState) => {
-        dispatch({ type: 'STORE_LIST_ORDER_BY_ID' })
+        const storesList = [...getState().storesGrid.storesList]
+        const storesSorted = sortByID(storesList)
+        dispatch({ type: 'STORES_GRID_UPDATED', payload: storesSorted })
     }
 }
 
-export const orderByName = () => {
+export const sortStoresByName = () => {
     return (dispatch, getState) => {
-        dispatch({ type: 'STORE_LIST_ORDER_BY_NAME' })
+        const storesList = [...getState().storesGrid.storesList]
+        const storesSorted = sortByName(storesList)
+        dispatch({ type: 'STORES_GRID_UPDATED', payload: storesSorted })
     }
 }
 
-export const orderByTakeback = () => {
+export const sortStoresByTakeback = () => {
     return (dispatch, getState) => {
-        dispatch({ type: 'STORE_LIST_ORDER_BY_TAKEBACK' })
+        const storesList = [...getState().storesGrid.storesList]
+        const storesSorted = sortByTakeback(storesList)
+        dispatch({ type: 'STORES_GRID_UPDATED', payload: storesSorted })
     }
 }
