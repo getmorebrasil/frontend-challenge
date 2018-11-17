@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.card {
+    border-radius: 10px solid #d3d3d3;
+}
+
+.card-img-top{
+    width: 120px;
+    height: 60px;
+    margin: auto;
+	display: block;
+} 
+
+span {
+    font-size: 12px;
+}
+
+.btn {
+    margin-top: 20px
+}
