@@ -1,10 +1,16 @@
-import React from 'react';
+import React from 'react';   // If you use jsx anywhere in file, you must import React
+import { BrowserRouter } from 'react-router-dom'; // For anyone to access routes we must use BrowserRouter tags
 
-function App() {  // Isto e um componente
+import Routes from './routes';
+import Header from './components/Header';
+
+
+function App() {  // This function is a component. It must return .jsx format
   return (
-    <div className="App">
-      <p>Hello</p>
-    </div>
+    <BrowserRouter> {/* You may only access routes from inside <BrowserRouter> tags */}
+      <Header />
+      <Routes />
+    </BrowserRouter>
   );
 }
 

@@ -1,4 +1,4 @@
-/* CSS global. Estilo padrao*/
+/* Global CSS. Default style for the website*/
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-body {  /* Estilo geral do body*/
+body {
     background: #fafafa;
     font: 14px Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased !important;
