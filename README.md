@@ -1,90 +1,68 @@
-# Desafio frontend    
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Você foi contratado para desenvolver um aplicativo web. O aplicativo terá duas páginas:  
+## Available Scripts
 
-- Mostrar lojas;
-- Detalhes de uma loja;
+In the project directory, you can run:
 
-## Página de mostrar uma lista de lojas  
-Para essa página será fornecido uma que retorna uma lista de lojas, segue exemplo de um retorno: 
-```json  
-[
-  {
-    "id":1,
-    "name":"Ri Happy",
-    "takeback":4.335500000000001,
-    "image_blob":"data:image/png;base64,...",
-  },
-  {
-    "id":2,
-    "name":"Havan",
-    "takeback":3.575,
-    "image_blob":"data:image/png;base64,...",
-  },
-  {
-    "id":3,
-    "name":"Netshoes",
-    "takeback":6.003,
-    "image_blob":"data:image/png;base64,...",
-  }
-]
-```
-Disponível em http://challenge.getmore.com.br/stores
+### `npm start`
 
-## Página de mostrar detalhes de uma loja 
-Para essa página será fornecido uma rota para detalhes de uma rede específica
-```json
-{
-  "id":1,
-  "name": "Ri Happy",
-  "takeback": 4.335500000000001,
-  "rating": 4.9,
-  "url": "https://www.rihappy.com.br/",
-  "image_blob": "data:image/png;base64,...",
-  "category": [
-    "Moda e Acessórios",
-    "Brinquedos e Jogos"
-  ]
-}
-```
-Disponível em http://challenge.getmore.com.br/stores/:id substitua `:id` pelo valor do atributo `id` da loja desejada. Por exemplo, para o json disponível acima a rota seria http://challenge.getmore.com.br/stores/1 
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Requisitos
-Os requisitos para essas páginas são:
-- Dispor todos os dados (exceto o id) servidos pelo servidor (como os dados serão dispostos fica à seu critério, faz parte da avaliação);
-- Tratar erros de rede;
-- Criar um Readme com uma breve descrição do projeto e de como rodar;
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-## Requisitos adicionais
-Esses requisitos não são obrigatórios:
-- Permitir ao usuário a ordenar as lojas com qualquer um de seus atributos;
-- Filtragem de atributos de loja;
-- Responsivo para celulares e tablets;
-- Caching de dados;
+### `npm test`
 
-## Como começo?
-Aqui vão as etapas:
-- Faça um fork desse repositório;
-- Crie uma Pull Request com seu código pronto;
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Tecnologias
-Você poderá utilizar quaisquer tecnologias frontend para desenvolver, aqui vão algumas sugestões:
+### `npm run build`
 
-### Frameworks
-- React;
-- Angular;
-- Vue;
-- PWA
-- Ember
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Frameworks UI
-- Semantic UI;
-- Bootstrap;
-- Materialize;
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-## Requisitos para avaliação
-- Uso do git (commits concisos, títulos auto-explicativos, etc);
-- Boas práticas de programação (uso de padrões, nomes de identificadores, tamanho de funções, perfomance);
-- Escolha de arquitetura (MVC, MVP, MVI, MVVC, VIPER, etc);
-- Uso de bibliotecas para auxiliar o desenvolvimento;
-- Uso de scripts (para execução do programa, otimização de imagens, etc);
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
