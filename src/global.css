@@ -1,0 +1,14 @@
+/* CSS global. Estilo padrao*/
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {  /* Estilo geral do body*/
+    background: #fafafa;
+    font: 14px Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+}
