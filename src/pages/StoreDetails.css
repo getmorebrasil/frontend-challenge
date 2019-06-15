@@ -9,6 +9,7 @@ section#store-details {
 section#store-details .box {
     background: #FFF;
     border: solid 1px #DDD;
+    padding: 2rem;
     margin-top: 20px;
     width: 100%;
     display: flex;

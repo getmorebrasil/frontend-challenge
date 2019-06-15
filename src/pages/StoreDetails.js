@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from '../services/api';
 import './StoreDetails.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class StoreDetails extends Component {
     state = {
@@ -36,14 +36,15 @@ class StoreDetails extends Component {
                         <li>
                             <span>Rating: {details.rating}</span>
                         </li>
-
-                        {details.category && details.category.map((category) =>
-                            <li>{category}</li>
-                        )}
-
                         <li>
-                            <p>Site: <a href={details.url}> {details.url} </a></p>
+                            <span>Categorias: </span>
                         </li>
+                        <li>
+                            {details.category && details.category.map((category) =>
+                                <span>{category}, </span>
+                            )}
+                        </li>
+                        <p>Site: <a href={details.url}> {details.url} </a></p>
 
                         <Link to='/'>
                             <span>Back to home </span>
