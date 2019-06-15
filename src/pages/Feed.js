@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../services/api";
+import "./Feed.css";
 
 class Feed extends Component {
     state = {
@@ -20,14 +21,24 @@ class Feed extends Component {
         const { feed } = this.state;
         return (
             <section id='store-list'>
+
                 {/* lists data. 1 article per store */}
                 {feed.map((data) =>
                     <article>
-                        <a href={"/stores/" + data.id} >
-                            <p>{data.name}</p>
-                            <img src={data.image_blob} alt="storefront" />
-                        </a>
-                        <p>{data.takeback}</p>
+                        <img src={data.image_blob} alt="storefront" />
+                        <div className='details'>
+                            <ul>
+                                <li>
+                                    <strong> {data.name} </strong>
+                                </li>
+                                <li>
+                                    <span>Takeback: {data.takeback.toFixed(2)}%</span>
+                                </li>
+                                <li>
+                                    <a href={"/stores/" + data.id} >Ver detalhes</a>
+                                </li>
+                            </ul>
+                        </div>
                     </article>
                 )}
 

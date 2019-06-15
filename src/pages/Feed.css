@@ -1,0 +1,40 @@
+section#store-list {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 30px;
+    
+}
+
+
+
+section#store-list article {
+    background: #FFF;
+    border: solid 1px #DDD;
+    margin-top: 20px;
+    width: 100%;
+    
+    /* justify-content: space-between; */
+    display: flex;
+}
+
+section#store-list article .details {
+    width: 50%;
+    margin-left: 10px;
+}
+
+section#store-list ul {
+    margin-top: 10px;
+    margin-right: 10px;
+    list-style-type: none;
+    align-self: center;
+
+}
+
+section#store-list article img {
+    height: 60%;
+    width: 30%;
+
+    align-self: center;
+}
+
