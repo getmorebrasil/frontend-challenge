@@ -9,7 +9,7 @@ function Routes() {
     return(
         <Switch> {/* Ensures Routes returns the correct component based on URl */}
             <Route path="/" exact component={Feed}/> 
-            <Route path="/store" component={StoreDetails}/> 
+            <Route path="/stores/:id" component={StoreDetails}/> {/* :id acts like a "variable" of sorts */}
         </Switch>
     );
 }
