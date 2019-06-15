@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "../services/api";
 import "./Feed.css";
+import {Link} from 'react-router-dom';
 
 class Feed extends Component {
     state = {
@@ -24,7 +25,7 @@ class Feed extends Component {
 
                 {/* lists data. 1 article per store */}
                 {feed.map((data) =>
-                    <article>
+                    <article className='p-2'>
                         <img src={data.image_blob} alt="storefront" />
                         <div className='details'>
                             <ul>
@@ -35,7 +36,9 @@ class Feed extends Component {
                                     <span>Takeback: {data.takeback.toFixed(2)}%</span>
                                 </li>
                                 <li>
-                                    <a href={"/stores/" + data.id} >Ver detalhes</a>
+                                    <Link to={`/stores/${data.id}`}>
+                                        <button className='btn btn-primary mt-1'>Ver detalhes</button>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

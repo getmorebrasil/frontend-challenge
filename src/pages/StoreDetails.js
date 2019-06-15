@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from '../services/api';
 import './StoreDetails.css';
+import {Link} from 'react-router-dom';
 
 class StoreDetails extends Component {
     state = {
@@ -19,6 +20,8 @@ class StoreDetails extends Component {
 
     render() {
         const { details } = this.state;
+        console.log(details.category);
+        // details.category.map(c=>console.log(c));
         return (
             <section id='store-details'>
                 <div className='box'>
@@ -27,19 +30,24 @@ class StoreDetails extends Component {
                         <li>
                             <strong>{details.name}</strong>
                         </li>
-                        <span>Takeback: {details.takeback}%</span>
+                        <li>
+                            <span>Takeback: {details.takeback}%</span>
+                        </li>
                         <li>
                             <span>Rating: {details.rating}</span>
                         </li>
-                        <p>Site: <a href={details.url}> {details.url} </a></p>
 
-                        {/* Don't understand why I cannot map details.category. Will revisit later. */}
-                        {/* {details.map((category) =>
-                        <p>{category}</p>
-                        )} */}
-                        <p>
-                            <a href='/'> Back to home</a>
-                        </p>
+                        {details.category && details.category.map((category) =>
+                            <li>{category}</li>
+                        )}
+
+                        <li>
+                            <p>Site: <a href={details.url}> {details.url} </a></p>
+                        </li>
+
+                        <Link to='/'>
+                            <span>Back to home </span>
+                        </Link>
                     </ul>
                 </div>
             </section>
