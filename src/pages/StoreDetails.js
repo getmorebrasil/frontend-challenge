@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from '../services/api';
+import './StoreDetails.css';
 
 class StoreDetails extends Component {
     state = {
@@ -20,17 +21,27 @@ class StoreDetails extends Component {
         const { details } = this.state;
         return (
             <section id='store-details'>
-                <h1>{details.name}</h1>
-                <p>{details.takeback}</p>
-                <p>{details.rating}</p>
-                <a href={details.url}> link </a>
-                <img src={details.image_blob} alt="storefront" />
-                
-                {/* Don't understand why I cannot map details.category. Will revisit later. */}
+                <div className='box'>
+                    <img src={details.image_blob} alt="storefront" />
+                    <ul>
+                        <li>
+                            <strong>{details.name}</strong>
+                        </li>
+                        <span>Takeback: {details.takeback}%</span>
+                        <li>
+                            <span>Rating: {details.rating}</span>
+                        </li>
+                        <p>Site: <a href={details.url}> {details.url} </a></p>
 
-                {/* {details.map((category) =>
-                    <p>{category}</p>
-                )} */}
+                        {/* Don't understand why I cannot map details.category. Will revisit later. */}
+                        {/* {details.map((category) =>
+                        <p>{category}</p>
+                        )} */}
+                        <p>
+                            <a href='/'> Back to home</a>
+                        </p>
+                    </ul>
+                </div>
             </section>
         );
     }

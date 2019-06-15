@@ -1,6 +1,6 @@
 section#store-list {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 0 30px;
     
@@ -20,7 +20,7 @@ section#store-list article {
 
 section#store-list article .details {
     width: 50%;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 section#store-list ul {
@@ -32,8 +32,8 @@ section#store-list ul {
 }
 
 section#store-list article img {
-    height: 60%;
-    width: 30%;
+    height: 70%;
+    width: 35%;
 
     align-self: center;
 }

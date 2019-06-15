@@ -1,0 +1,26 @@
+section#store-details {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+section#store-details .box {
+    background: #FFF;
+    border: solid 1px #DDD;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+section#store-details .box img{
+    height: 100%;
+}
+
+section#store-details .box ul {
+    margin-top: 10px;
+    margin-left: 10px;
+    list-style-type: none;
+    align-self: center;
+}
