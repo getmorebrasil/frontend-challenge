@@ -31,7 +31,7 @@ Fique à vontade para escolher qualquer dados disponíveis publicamente em api n
 - Fetching assíncrono usando hooks
 - Quantidade de detalhes disponíveis na API escolhido
 - Aplicação construida com [NextJs](https://nextjs.org/)
-- Uso de componentes [Material-Ui](https://material-ui.com/)
+- Uso de componentes da lib [Material-Ui](https://material-ui.com/)
 - Deploy em site de hospedagem (ex: Heroku)
 
 ## Como começo?
