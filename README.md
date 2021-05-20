@@ -32,7 +32,7 @@ Fique à vontade para escolher qualquer dados disponíveis publicamente em api n
 - Quantidade de informações disponíveis na API escolhida
 - Aplicação construida com [NextJs](https://nextjs.org/)
 - Uso de componentes da lib [Material-Ui](https://material-ui.com/)
-- Uso de styled-components
+- Uso de [styled-components](https://styled-components.com/)
 - Deploy em site de hospedagem (ex: Heroku)
 
 ## Como começo?
