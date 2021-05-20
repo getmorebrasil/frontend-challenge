@@ -29,9 +29,10 @@ Fique à vontade para escolher qualquer dados disponíveis publicamente em api n
 
 ## Bônus
 - Fetching assíncrono usando hooks
-- Quantidade de detalhes disponíveis na API escolhido
+- Quantidade de informações disponíveis na API escolhida
 - Aplicação construida com [NextJs](https://nextjs.org/)
 - Uso de componentes da lib [Material-Ui](https://material-ui.com/)
+- Uso de styled-components
 - Deploy em site de hospedagem (ex: Heroku)
 
 ## Como começo?
