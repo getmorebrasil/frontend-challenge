@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
  
 const GlobalStyle = createGlobalStyle`
   * {
@@ -63,6 +63,13 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+`;
+
+export const centerFlexContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 `;
  
 export default GlobalStyle;
