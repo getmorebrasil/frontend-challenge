@@ -28,6 +28,7 @@ Fique à vontade para escolher qualquer dados disponíveis publicamente em api n
 - UX do site (layout agradável, leiturabilidade, usabilidade, etc);
 
 ## Bônus
+
 - Fetching assíncrono usando hooks
 - Quantidade de informações disponíveis na API escolhida
 - Aplicação construida com [NextJs](https://nextjs.org/)
@@ -41,3 +42,7 @@ Aqui vão as etapas:
 
 - Faça um fork desse repositório;
 - Crie uma Pull Request com seu código pronto;
+
+## Solução:
+
+- Link do Figma: https://www.figma.com/file/MZuCXErmUgDoA59OekCmpO/GETMOVIES?node-id=0%3A1
