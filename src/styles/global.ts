@@ -1,5 +1,31 @@
 import { createGlobalStyle, css } from 'styled-components';
  
+export const centerFlexContainer = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
+
+export const scrollBarStyle = css`
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: blue transparent;
+
+  &::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.neutralColor};
+    border-radius: 10px;
+  }
+`;
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -36,6 +62,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Poppins", sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    ${scrollBarStyle};
   }
 
   code {
@@ -63,13 +91,6 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
-`;
-
-export const centerFlexContainer = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 `;
  
 export default GlobalStyle;

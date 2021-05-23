@@ -1,12 +1,7 @@
 import ClipLoader from "react-spinners/ClipLoader";
 import { useTheme } from "../../../hooks";
+import { IButtonProps } from "../../../libs/interfaces/atoms";
 import { Container } from "./styles";
-
-interface IButtonProps {
-  handleAction(): void;
-  isLoading: boolean;
-  text: string;
-}
 
 const Button: React.FC<IButtonProps> = ({ handleAction, isLoading, text }) => {
   const { theme } = useTheme();
