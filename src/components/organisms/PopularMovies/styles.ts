@@ -1,0 +1,104 @@
+import styled from 'styled-components';
+import { scrollBarStyle } from '../../../styles/global';
+
+export const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  position: absolute;
+  z-index: 100;
+  padding: 0 5rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: -11rem;
+
+  & > h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+`;
+
+export const MoviesList = styled.div`
+  display: flex;
+  align-items: baseline;
+  padding: 1px;
+  gap: 1.8rem;
+  overflow-x: scroll;
+
+  & > div:last-of-type {
+    visibility: hidden;
+  }
+
+  ${scrollBarStyle};
+`;
+
+export const MovieCard = styled.div<{ imagePath: string }>`
+  flex: 0 0 180px;
+  height: 260px;
+  background: white;
+  margin: 1rem 0;
+  background: ${({ imagePath }) => `url(https://image.tmdb.org/t/p/w342${imagePath})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  :hover {
+    transform: scale(1.05);
+    margin: 0 0.8rem;
+  }
+
+  &::after {
+    position: absolute;
+    top: -1px; bottom: -1px;
+    left: -1px; right: -1px;
+    filter: brightness(0.7);
+    background: ${({ theme }) => `linear-gradient(to top, transparent, ${theme.colors.primary})`};
+    content: '';
+    z-index: -100;
+    border-radius: 10px;
+  }
+`;
+
+export const Overlay = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, transparent, black 98%);
+  z-index: 200;
+
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding: 0.8rem;
+
+  & > p {
+    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    font-weight: 700;
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+  }
+`
+
+export const Classification = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > p {
+    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    font-weight: 400;
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+
+    margin-right: 1rem;
+  }
+`;
