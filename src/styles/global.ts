@@ -13,19 +13,19 @@ const GlobalStyle = createGlobalStyle`
 
   @media (max-width: 1080px) {
     html {
-      font-size: 90%;
+      font-size: 8px;
     }
   }
 
   @media (max-width: 720px) {
     html {
-      font-size: 80%;
+      font-size: 12px;
     }
   }
 
   @media (max-width: 580px) {
     html {
-      font-size: 70%;
+      font-size: 14px;
     }
   }
 

@@ -1,7 +1,13 @@
+import { Header } from "../../molecules";
 import { Container } from "./styles";
 
 const Home: React.FC = () => {
-  return <Container>HOME</Container>;
+  return (
+    <>
+      <Header />
+      <Container>HOME</Container>
+    </>
+  );
 };
 
 export default Home;

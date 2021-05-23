@@ -10,6 +10,7 @@ export interface Theme {
     primary: string,
     secondary: string,
     neutralColor: string,
+    darkNeutralColor: string,
     contrastColor: string,
     background: string,
     border: string,
