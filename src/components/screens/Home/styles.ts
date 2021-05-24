@@ -28,11 +28,29 @@ export const ShowCase = styled.section<{ imagePath: string }>`
       color: ${({ theme }) => theme.name === "light" ? theme.colors.contrastColor : theme.colors.secondary};
     }
   }
+
+  @media only screen and (max-width: 900px) {
+    justify-content: flex-start;
+    flex-direction: column;
+    position: unset;
+
+    & > button {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 4.4rem;
   font-weight: 300;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 680px) {
+    font-size: 1.8rem;
+  }
 `;
 
 export const LeftSide = styled.aside`
@@ -48,5 +66,30 @@ export const LeftSide = styled.aside`
     font-size: 1.7rem;
     font-weight: 300;
     margin-top: 1rem;
+  }
+
+  @media only screen and (max-width: 900px) {
+    & > h3 {
+      font-size: 1.7rem;
+      margin-top: 2rem;
+    }
+
+    & > h4 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+    }
+  }
+
+
+  @media only screen and (max-width: 680px) {
+    & > h3 {
+      font-size: 1.4rem;
+      margin-top: 1.8rem;
+    }
+
+    & > h4 {
+      font-size: 1.2rem;
+      margin-top: 1.8rem;
+    }
   }
 `;

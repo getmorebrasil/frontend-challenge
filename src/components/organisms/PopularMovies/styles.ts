@@ -16,6 +16,7 @@ export const Container = styled.section`
     font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
+    color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 
@@ -66,16 +67,16 @@ export const MovieCard = styled.div<{ imagePath: string }>`
 `;
 
 export const Overlay = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-end;
+
   width: 100%;
   height: 100%;
   border-radius: 10px;
   background: linear-gradient(to bottom, transparent, black 98%);
   z-index: 200;
-
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  justify-content: flex-end;
   padding: 0.8rem;
 
   & > p {

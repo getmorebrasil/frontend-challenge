@@ -9,6 +9,26 @@ export const Container = styled.header`
 
   background: ${({ theme }) =>
     theme.name === 'light' ? theme.colors.contrastColor : theme.colors.darkNeutralColor};
+
+  @media only screen and (max-width: 1080px) {
+    padding: 0 4rem;
+  }
+
+  @media only screen and (max-width: 720px) {
+    padding: 0 2rem;
+  }
+
+  @media only screen and (max-width: 680px) {
+    justify-content: center;
+
+    & > div {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 560px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const GroupActions = styled.section`
