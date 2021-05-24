@@ -1,3 +1,4 @@
+import { useHistory } from "react-router";
 import { Button } from "../../atoms";
 import { Header, Footer } from "../../molecules";
 import { PopularMovies, MoreMovies } from "../../organisms";
@@ -5,6 +6,8 @@ import { PopularMovies, MoreMovies } from "../../organisms";
 import { Container, ShowCase, Title, LeftSide } from "./styles";
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
   return (
     <>
       <Header />
@@ -24,8 +27,7 @@ const Home: React.FC = () => {
 
           <Button
             text="Watch Now"
-            isLoading={false}
-            handleAction={() => console.log("Watching...")}
+            handleAction={() => history.push("/detail")}
           />
         </ShowCase>
 

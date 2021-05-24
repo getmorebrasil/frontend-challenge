@@ -141,13 +141,6 @@ export const RightSide = styled.div`
   text-align: right;
   margin-right: 4rem;
 
-  & > p {
-    font-family: 'Montserrat';
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-
   & button {
     margin: 4rem 0 6rem 0;
   }
@@ -163,7 +156,6 @@ export const RightSide = styled.div`
     }
   }
 
-
   @media only screen and (max-width: 1080px) {
     margin-right: 0;
 
@@ -177,33 +169,6 @@ export const RightSide = styled.div`
 
     & > p {
       display: none;
-    }
-  }
-`;
-
-export const Classification = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 1rem;
-
-  & p {
-    font-family: 'Montserrat';
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.border};
-    margin-top: 0.8rem;
-    text-transform: uppercase;
-  }
-
-  @media only screen and (max-width: 680px) {
-    flex-direction: column;
-    justify-content: center;
-    margin-top: -1rem;
-
-    & p {
-      margin-bottom: 1rem;
     }
   }
 `;

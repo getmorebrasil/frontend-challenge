@@ -2,10 +2,10 @@ import { useCallback } from "react";
 import { useHistory } from "react-router";
 import { ICONS } from "../../../constants";
 import { useTheme } from "../../../hooks";
-import { Logo, FlexOffset } from "../../atoms";
+import { Logo, BackActionIcon, FlexOffset } from "../../atoms";
 import { Container, GroupActions, ThemeSwitch } from "./styles";
 
-const Header: React.FC = () => {
+const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
   const { theme, toggleTheme } = useTheme();
   const history = useHistory();
 
@@ -19,6 +19,8 @@ const Header: React.FC = () => {
 
   return (
     <Container>
+      {withBackAction && <BackActionIcon />}
+
       <Logo size={68} />
 
       <GroupActions>

@@ -1,5 +1,5 @@
 export interface IButtonProps {
   handleAction(): void;
-  isLoading: boolean;
+  isLoading?: boolean;
   text: string;
 }

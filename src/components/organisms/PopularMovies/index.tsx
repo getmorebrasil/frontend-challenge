@@ -1,12 +1,7 @@
-import {
-  Container,
-  MoviesList,
-  MovieCard,
-  Overlay,
-  Classification,
-} from "./styles";
+import { Container, MoviesList, MovieCard, Overlay } from "./styles";
 
-import { Stars } from "../../molecules";
+import { Categories } from "../../atoms";
+import { Classification } from "../../molecules";
 
 const PopularMovies: React.FC = () => {
   return (
@@ -15,32 +10,23 @@ const PopularMovies: React.FC = () => {
       <MoviesList>
         <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
           <Overlay>
-            <p>Ficção científica, Ação, Drama</p>
-            <Classification>
-              <p>Classification</p>
-              <Stars size={1.2} classification={8} />
-            </Classification>
+            <Categories>Ficção científica, Ação, Drama</Categories>
+            <Classification classification={8} starsSize={1.2} />
           </Overlay>
         </MovieCard>
         <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
           <Overlay>
-            <p>Ficção científica, Ação, Drama</p>
-            <Classification>
-              <p>Classification</p>
-              <Stars size={1.2} classification={10} />
-            </Classification>
+            <Categories>Ficção científica, Ação, Drama</Categories>
+            <Classification classification={8} starsSize={1.2} />
           </Overlay>
         </MovieCard>
         <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
           <Overlay>
-            <p>Ficção científica, Ação, Drama</p>
-            <Classification>
-              <p>Classification</p>
-              <Stars size={1.2} classification={5} />
-            </Classification>
+            <Categories>Ficção científica, Ação, Drama</Categories>
+            <Classification classification={8} starsSize={1.2} />
           </Overlay>
         </MovieCard>
-        <div>offset to scale last</div>
+        <div>&copy;</div>
       </MoviesList>
     </Container>
   );

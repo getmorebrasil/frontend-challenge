@@ -6,6 +6,7 @@ import fullStar from "../assets/full-star.png";
 import logo from "../assets/logo.png";
 import darkLogo from "../assets/dark-logo.png";
 import star from "../assets/star.png";
+import backIcon from "../assets/back-icon.png";
 
 const IMAGES = {
   background,
@@ -15,6 +16,7 @@ const IMAGES = {
   logo,
   darkLogo,
   star,
+  backIcon,
 };
 
 export default IMAGES;

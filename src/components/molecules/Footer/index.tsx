@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 import { FlexOffset } from "../../atoms";
 
-const Header: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <Container>
       <FlexOffset />
@@ -10,4 +10,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Footer;

@@ -79,27 +79,20 @@ export const Overlay = styled.div`
   z-index: 200;
   padding: 0.8rem;
 
-  & > p {
-    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
-    font-weight: 700;
-    font-family: 'Montserrat';
-    font-size: 0.8rem;
+  & > summary {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > p {
+      color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+      font-weight: 400;
+      font-family: 'Montserrat';
+      font-size: 0.8rem;
+      text-transform: uppercase;
+
+      margin-right: 1rem;
+    }
   }
 `
-
-export const Classification = styled.div`
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  & > p {
-    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
-    font-weight: 400;
-    font-family: 'Montserrat';
-    font-size: 0.8rem;
-    text-transform: uppercase;
-
-    margin-right: 1rem;
-  }
-`;

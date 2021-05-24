@@ -1,12 +1,11 @@
-import { Button } from "../../atoms";
-import { Stars } from "../../molecules";
+import { Button, Categories } from "../../atoms";
+import { Classification } from "../../molecules";
 
 import {
   Container,
   Movie,
   MoviePoster,
   CenterContent,
-  Classification,
   RightSide,
 } from "./styles";
 
@@ -32,16 +31,11 @@ const PopularMovies: React.FC = () => {
           </p>
         </CenterContent>
         <RightSide>
-          <p>Ficção científica, Ação, Drama</p>
-
-          <Classification>
-            <p>Classification</p>
-            <Stars classification={8.7} />
-          </Classification>
+          <Categories fontSize={1.6}>Ficção científica, Ação, Drama</Categories>
+          <Classification classification={6.7} />
 
           <Button
             text="Get Details"
-            isLoading={false}
             handleAction={() => console.log("Getting details...")}
           />
 
@@ -71,14 +65,10 @@ const PopularMovies: React.FC = () => {
         <RightSide>
           <p>Ficção científica, Ação, Drama</p>
 
-          <Classification>
-            <p>Classification</p>
-            <Stars classification={6.7} />
-          </Classification>
+          <Classification classification={6.7} />
 
           <Button
             text="Get Details"
-            isLoading={false}
             handleAction={() => console.log("Getting details...")}
           />
 
