@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link as LinkScroll} from 'react-scroll';
-//import { RiCurrencyLine, RiCurrencyFill } from "react-icons/ri";
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 
 export const HeroContainer = styled.div`
@@ -47,6 +46,9 @@ export const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
+  @media screen and (max-width: 768px) {
+    object-fit: fill;
+  }
 `;
 
 export const HeroContent = styled.div`
@@ -60,8 +62,12 @@ export const HeroContent = styled.div`
 `;
 
 export const MenuIcon = styled.img`
-    width: 180px;
-    height: 65px;
+    width: 380px;
+    height: 190px;
+    
+    @media screen and (max-width: 768px) {
+    width: 280px;
+  }
 `;
 
 export const HeroH1 = styled.h1`
@@ -112,7 +118,7 @@ export const HeroButton = styled(LinkScroll)`
     
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #3b88c3 !important;
+        background: #3b88c3;
         border-color: none;
         color: white;
         outline: none;

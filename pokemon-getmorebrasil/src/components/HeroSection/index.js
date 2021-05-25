@@ -35,7 +35,7 @@ const HeroSection = () => {
             onMouseEnter={onHover}
             onMouseLeave={onHover}
           >
-           <CatchPokedex /> Catch 'Em All
+           <CatchPokedex /> Catch Them!
           </HeroButton>
         </HeroBtnWrapper>
       </HeroContent>

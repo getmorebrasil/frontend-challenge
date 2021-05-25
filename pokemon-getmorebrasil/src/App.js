@@ -1,12 +1,15 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import HeroSection from './components/HeroSection';
+import Pokedex from './components/Pokedex';
+import Pokemon from "./components/Pokemon";
+import FooterBar from './components/FooterBar';
+import { Route, Switch } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
-  
   height: 100%;
   background: #7abcff; /* Old browsers */
   background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
@@ -24,10 +27,15 @@ function App() {
     <>
     <GlobalStyle />
     <HeroSection />
-      <div className="App">
-        <h1> Hero Section </h1>
-
-      </div>
+    <Switch>
+        <Route path="/" exact render={(props) => <Pokedex {...props} />} />
+        <Route
+          path="/:pokemonId"
+          exact
+          render={(props) => <Pokemon {...props} />}
+        />
+    </Switch>
+    <FooterBar />    
     </>
   );
 }
