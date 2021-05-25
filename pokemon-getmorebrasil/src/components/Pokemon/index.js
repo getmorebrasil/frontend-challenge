@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LinearProgressBar from "../ProgressBar";
-import { PokemonProfile, Section, Container, Label, ButtonUI } from "./Pokemon";
+import { PokemonProfile, Section, Container, Label, ButtonUI } from "./styles";
 import { Typography } from "@material-ui/core";
 import axios from "axios";
 

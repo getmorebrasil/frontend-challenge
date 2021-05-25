@@ -12,27 +12,27 @@ export const Section = styled.div`
   border: 1px solid #bbb;
   border-radius: 10px;
   transition: all 0.3s linear;
-  background: #f3aaaa; /* Old browsers */
-  background: -moz-linear-gradient(top, #f3aaaa 0%, #febf04 100%); /* FF3.6+ */
+  background: #3f51b5; /* Old browsers */
+  background: -moz-linear-gradient(top, #F9B81F0%, #febf04 100%); /* FF3.6+ */
   background: -webkit-gradient(
     linear,
     left top,
     left bottom,
-    color-stop(0%, #f3aaaa),
+    color-stop(0%, #3f51b5),
     color-stop(100%, #febf04)
   ); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(
     top,
-    #f3aaaa 0%,
+    #F9B81F0%,
     #febf04 100%
   ); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(
     top,
-    #f3aaaa 0%,
+    #F9B81F0%,
     #febf04 100%
   ); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f3aaaa 0%, #febf04 100%); /* IE10+ */
-  background: linear-gradient(top, #f3aaaa 0%, #febf04 100%); /* W3C */
+  background: -ms-linear-gradient(top, #F9B81F0%, #febf04 100%); /* IE10+ */
+  background: linear-gradient(top, #F9B81F0%, #febf04 100%); /* W3C */
   &:hover {
     -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
       inset rgba(0, 0, 0, 0.15) 0px -10px 20px;

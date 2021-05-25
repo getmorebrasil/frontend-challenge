@@ -8,17 +8,12 @@ export const NavBar = styled.div`
   font-size: 8rem;
 `;
 
-export const MenuIcon = styled.img`
-    width: 180px;
-    height: 65px;
-`;
-
 export const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 9,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
@@ -27,16 +22,9 @@ export const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
     marginLeft: 0,
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
+    
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -55,9 +43,6 @@ searchInput: {
   width: "150px",
   margin: "5px",
 },
-  inputRoot: {
-    color: 'inherit',
-  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
@@ -80,7 +65,6 @@ searchInput: {
     },
     cardContent: {
       textAlign: "center",
-      background: "#F9B81F",
       '&:hover': {
         transition: '0.7s',
         background: "#3b88c3",
