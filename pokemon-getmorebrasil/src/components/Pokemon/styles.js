@@ -62,7 +62,7 @@ export const PokemonProfile = styled.img`
   height: 300px;
 `;
 
-export const Label = styled.label`
+export const ButtonReturn = styled.label`
   background-color: yellow;
   top: 10rem;
   right: 0;
@@ -93,4 +93,3 @@ export const Label = styled.label`
   }
 `;
 
-export const ButtonUI = styled(Button)``;

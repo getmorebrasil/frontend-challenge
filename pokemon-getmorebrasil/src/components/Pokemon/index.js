@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LinearProgressBar from "../ProgressBar";
-import { PokemonProfile, Section, Container, Label, ButtonUI } from "./styles";
+import { PokemonProfile, Section, Container, ButtonReturn } from "./styles";
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import { Typography } from "@material-ui/core";
 import axios from "axios";
@@ -78,11 +78,9 @@ const Pokemon = (props) => {
         <Typography> Pokemon not found!</Typography>
       )}
       {pokemon !== undefined && (
-        <Label>
-          <ButtonUI onClick={() => history.push("/")}>
+        <ButtonReturn onClick={() => history.push("/")}>
             <BackspaceIcon />
-          </ButtonUI>
-        </Label>
+        </ButtonReturn>
       )}
     </>
   );

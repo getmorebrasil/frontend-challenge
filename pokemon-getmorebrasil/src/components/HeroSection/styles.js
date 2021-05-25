@@ -26,6 +26,11 @@ export const HeroContainer = styled.div`
       linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
     z-index: 2;
   }
+  @media screen and (max-width: 768px) {
+    object-fit: fill;
+    width: 70%;
+    height: 70%;
+  }  
 `;
 
 export const HeroBg = styled.div`
@@ -114,7 +119,6 @@ export const HeroButton = styled(LinkScroll)`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #3b88c3;
@@ -130,9 +134,13 @@ export const HeroBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    margin-top: -70px;
+    margin-bottom: 32px;
+  }  
 `;
 
 export const CatchPokedex = styled(DonutLargeIcon)`
   margin-left: 8px;
-  font-size: 20px;
+  font-size: 20px; 
 `;
