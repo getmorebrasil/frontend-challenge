@@ -3,7 +3,7 @@ import { animateScroll } from "react-scroll";
 import { MenuIcon } from "./styles";
 import PokeLogo from "../../assets/images/pokemonLogo.svg";
 
-const MenuLogo = () => {
+const Header = () => {
   const toggleHome = () => {
     animateScroll.scrollToTop();
   };
@@ -11,4 +11,4 @@ const MenuLogo = () => {
   return <MenuIcon src={PokeLogo} onClick={toggleHome} />;
 };
 
-export default MenuLogo;
+export default Header;

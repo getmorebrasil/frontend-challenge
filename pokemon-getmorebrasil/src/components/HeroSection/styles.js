@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Link as LinkScroll} from 'react-scroll';
-import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import styled from "styled-components";
+import { Link as LinkScroll } from "react-scroll";
+import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 
 export const HeroContainer = styled.div`
   background: #0c0c0c;
@@ -11,7 +11,6 @@ export const HeroContainer = styled.div`
   height: 800px;
   position: relative;
   z-index: 1;
-  /* black shadow effect on all HeroContainer */
   :before {
     content: "";
     position: absolute;
@@ -62,10 +61,10 @@ export const HeroContent = styled.div`
 `;
 
 export const MenuIcon = styled.img`
-    width: 380px;
-    height: 190px;
-    
-    @media screen and (max-width: 768px) {
+  width: 380px;
+  height: 190px;
+
+  @media screen and (max-width: 768px) {
     width: 280px;
   }
 `;
@@ -101,30 +100,30 @@ export const HeroP = styled.p`
 `;
 
 export const HeroButton = styled(LinkScroll)`
-    border-radius: 50px;
-    background: #F9B81F;
-    white-space: nowrap;
-    padding: ${ ({ big }) => (big ? '14px 48px' : '12px 30px') };
-    color: #010606;
-    font-size: ${ ({ fontBig }) => (fontBig ? '20px' : '16px') };
-    text-decoration: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border-radius: 50px;
+  background: #f9b81f;
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
+  color: #010606;
+  font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
     transition: all 0.2s ease-in-out;
-    
-    &:hover {
-        transition: all 0.2s ease-in-out;
-        background: #3b88c3;
-        border-color: none;
-        color: white;
-        outline: none;
-        text-decoration: none;
-    }
-`; 
+    background: #3b88c3;
+    border-color: none;
+    color: white;
+    outline: none;
+    text-decoration: none;
+  }
+`;
 
 export const HeroBtnWrapper = styled.div`
   margin-top: 32px;
@@ -133,7 +132,7 @@ export const HeroBtnWrapper = styled.div`
   align-items: center;
 `;
 
-export const CatchPokedex = styled(GpsFixedIcon)`
+export const CatchPokedex = styled(DonutLargeIcon)`
   margin-left: 8px;
   font-size: 20px;
 `;

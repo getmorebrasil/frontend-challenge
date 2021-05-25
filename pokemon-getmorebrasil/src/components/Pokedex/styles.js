@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+      fontWeight: 'bold',
     },
   },
   search: {
@@ -42,6 +43,7 @@ export const useStyles = makeStyles((theme) => ({
 searchInput: {
   width: "150px",
   margin: "5px",
+  fontWeight: "bold",
 },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -59,17 +61,21 @@ searchInput: {
       paddingTop: "2rem",
       paddingLeft: "5rem",
       paddingRight: "5rem",
+      fontWeight: "bold",
     },
     cardMedia: {
       margin: "auto",
+      fontWeight: "bold",
     },
     cardContent: {
       textAlign: "center",
+      fontWeight: "bold",
       '&:hover': {
         transition: '0.7s',
         background: "#3b88c3",
         color: "white",
         cursor: "pointer",
+        fontWeight: "bold",
      },
     },
     searchContainer: {
@@ -89,6 +95,7 @@ export const PokedexDiv = styled.div`
 export const PokedexP = styled.p`
     font-weight: 900;
     text-align: center;
+    font-weight: bold;
 `;
 
 export const CardMediaUI = styled(CardMedia)`

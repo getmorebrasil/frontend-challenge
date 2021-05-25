@@ -9,7 +9,7 @@ import {
   AppBar,
   TextField,
 } from "@material-ui/core";
-import MenuLogo from "../MenuLogo";
+import Header from "../Header";
 import { PokemonSelector } from "@charkour/react-reactions";
 import LinearProgressBar from "../ProgressBar";
 import { fetchApi } from "../api";
@@ -75,13 +75,13 @@ const PokeDex = (props) => {
 
   return (
     <>
-      <NavBar id="calculator">
+      <NavBar id="pokedex">
         <AppBar className={classes.AppBar}>
           <Toolbar>
             <Typography 
               className={classes.title} 
               variant="h6" noWrap>
-              <MenuLogo />
+              <Header />
             </Typography>
             <div className={classes.searchContainer}>
               <TextField

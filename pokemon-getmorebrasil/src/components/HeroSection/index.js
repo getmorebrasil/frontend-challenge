@@ -28,14 +28,14 @@ const HeroSection = () => {
       <MenuIcon src={PokeLogo} />
         <HeroBtnWrapper>
           <HeroButton
-            to="calculator"
+            to="pokedex"
             smooth={true}
             duration={1900}
             offset={-90}
             onMouseEnter={onHover}
             onMouseLeave={onHover}
           >
-           <CatchPokedex /> CATCH
+           <CatchPokedex /> Catch!
           </HeroButton>
         </HeroBtnWrapper>
       </HeroContent>

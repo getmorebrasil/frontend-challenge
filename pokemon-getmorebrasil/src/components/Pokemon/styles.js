@@ -63,26 +63,34 @@ export const PokemonProfile = styled.img`
 `;
 
 export const Label = styled.label`
+  background-color: yellow;
   top: 10rem;
   right: 0;
   position: fixed;
   transform: translate(0, 24px) scale(1);
+  border-radius: 10px;
+  background: #f9b81f;
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
+  color: #010606;
+  font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #3b88c3;
+    border-color: none;
+    color: white;
+    outline: none;
+    text-decoration: none;
+  }
 `;
 
-export const ButtonUI = styled(Button)`
-  margin-top: 20px;
-  padding: 8px 10px;
-  line-height: 1.2;
-  border-radius: 5px 0 0 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3), inset 0 1px rgba(255,255,255,.6);
-  border: 1px solid rgba(0,0,0,.15);
-  border-right-color: rgba(0, 0, 0, 0.15);
-  border-right-style: solid;
-  border-right-width: 1px;
-  border-right: 0;
-  font-size: 20px;
-  background-color: #3f51b5;
-  color: #fff;
-  cursor: pointer;
-  
-`;
+export const ButtonUI = styled(Button)``;
