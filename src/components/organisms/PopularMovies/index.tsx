@@ -1,6 +1,6 @@
 import { Container, MoviesList, MovieCard, Overlay } from "./styles";
 
-import { Categories } from "../../atoms";
+import { Categories, ContentOffset } from "../../atoms";
 import { Classification } from "../../molecules";
 
 const PopularMovies: React.FC = () => {
@@ -26,7 +26,7 @@ const PopularMovies: React.FC = () => {
             <Classification classification={8} starsSize={1.2} />
           </Overlay>
         </MovieCard>
-        <div>&copy;</div>
+        <ContentOffset />
       </MoviesList>
     </Container>
   );

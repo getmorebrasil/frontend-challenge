@@ -27,10 +27,6 @@ export const MoviesList = styled.div`
   gap: 1.8rem;
   overflow-x: scroll;
 
-  & > div:last-of-type {
-    visibility: hidden;
-  }
-
   ${scrollBarStyle};
 `;
 

@@ -14,6 +14,12 @@ export const Container = styled.section`
     margin-bottom: 4rem;
     color: ${({ theme }) => theme.colors.secondary};
   }
+
+  @media (max-width: 680px) {
+    & > h2 {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 export const RolesList = styled.div`
@@ -21,6 +27,14 @@ export const RolesList = styled.div`
   grid-template-columns: repeat(auto-fit, 174.7px);
   padding: 1px;
   gap: 1.8rem;
+
+  @media (max-width: 680px) {
+    gap: 0.8rem;
+  }
+
+  @media (max-width: 520px) {
+    margin: 0 auto;
+  }
 `;
 
 export const Artist = styled.div<{ imagePath: string }>`
