@@ -155,7 +155,7 @@ export const HeroBtnWrapper = styled.div`
   }
 `;
 
-export const CatchPokedex = styled(DonutLargeIcon)`
+export const CatchIcon = styled(DonutLargeIcon)`
   margin-left: 8px;
   font-size: 20px;
 `;

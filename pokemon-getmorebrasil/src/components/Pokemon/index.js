@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import LinearProgressBar from "../ProgressBar";
-import { PokemonProfile, Section, Container, ButtonReturn } from "./styles";
+import LoadingBar from "../LoadingBar";
+import { CardSection, CardContainer, PokeImage, ButtonReturn } from "./styles";
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import { Typography } from "@material-ui/core";
 import axios from "axios";
@@ -32,25 +32,25 @@ const Pokemon = (props) => {
 
     return (
       <>
-        <Section id="pokedex">
-          <Container>
+        <CardSection id="pokedex">
+          <CardContainer>
             <Typography variant="h3">{`${name}`}</Typography>
-            <PokemonProfile src={imageUrl} alt="Image" />
-            <Typography variant="h5">Information</Typography>
+            <PokeImage src={imageUrl} alt="Image" />
+            <Typography variant="h5"> Information </Typography>
             <Typography>Species: {species.name}</Typography>
-            <Typography variant="h6"> Type:</Typography>
+            <Typography variant="h6"> Type🔻</Typography>
             {types.map((typeInfo) => {
               const { type } = typeInfo;
               const { name } = type;
               return <Typography key={name}> {`${name}`}</Typography>;
             })}
-            <Typography variant="h6"> Powers:</Typography>
+            <Typography variant="h6"> Powers🔻</Typography>
             {abilities.map((abilityInfo) => {
               const { ability } = abilityInfo;
               const { name } = ability;
               return <Typography key={name}> {`${name}`}</Typography>;
             })}
-            <Typography variant="h6"> Status:</Typography>
+            <Typography variant="h6"> Status🔻</Typography>
             {stats.map((statInfo) => {
               const { stat } = statInfo;
               const { name } = stat;
@@ -62,15 +62,15 @@ const Pokemon = (props) => {
                 </Typography>
               );
             })}
-          </Container>
-        </Section>
+          </CardContainer>
+        </CardSection>
       </>
     );
   };
   return (
     <>
       {pokemon  === undefined && (
-        <LinearProgressBar />
+        <LoadingBar />
       )}
       {pokemon !== undefined &&
         pokemon && generatePokemonJSX(pokemon)}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavBar, useStyles, CardMediaUI, PokedexDiv } from "./styles";
+import { NavBar, useStyles, CardSprite, PokeContainer } from "./styles";
 import {
   Grid,
   Card,
@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import Header from "../Header";
 import { PokemonSelector } from "@charkour/react-reactions";
-import LinearProgressBar from "../ProgressBar";
+import LoadingBar from "../LoadingBar";
 import { fetchApi } from "../api";
 
 const PokeDex = (props) => {
@@ -47,7 +47,7 @@ const PokeDex = (props) => {
     return (
       <Grid item xs={4} key={pokemonId}>
         <Card onClick={clicked}>
-          <CardMediaUI className={classes.cardMedia} image={sprite} />
+          <CardSprite className={classes.cardMedia} image={sprite} />
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${name}`}</Typography>
           </CardContent>
@@ -65,12 +65,12 @@ const PokeDex = (props) => {
     setFilter(event.target.value);
   };
 
-  const pokemonCard = pokemonData ? (
+  const pokemonCardsList = pokemonData ? (
     <Grid container spacing={2} className={classes.cardContainer}>
       {pokemonMap}
     </Grid>
   ) : (
-    <LinearProgressBar />
+    <LoadingBar />
   );
 
   return (
@@ -95,7 +95,7 @@ const PokeDex = (props) => {
           </Toolbar>
         </AppBar>
       </NavBar>
-      <PokedexDiv>{pokemonCard}</PokedexDiv>
+      <PokeContainer>{pokemonCardsList}</PokeContainer>
     </>
   );
 };

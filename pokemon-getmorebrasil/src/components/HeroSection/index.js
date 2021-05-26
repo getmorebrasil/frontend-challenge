@@ -9,7 +9,7 @@ import {
   HeroContent,
   HeroButton,
   HeroBtnWrapper,
-  CatchPokedex,
+  CatchIcon,
 } from "./styles";
 
 const HeroSection = () => {
@@ -35,7 +35,7 @@ const HeroSection = () => {
             onMouseEnter={onHover}
             onMouseLeave={onHover}
           >
-           <CatchPokedex /> Catch Them All!
+           <CatchIcon /> Catch Them All!
           </HeroButton>
         </HeroBtnWrapper>
       </HeroContent>

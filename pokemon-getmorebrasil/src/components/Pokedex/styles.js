@@ -110,16 +110,11 @@ export const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const PokedexDiv = styled.div`
+export const PokeContainer = styled.div`
   margin-top: 100px;
 `;
-export const PokedexP = styled.p`
-  font-weight: 900;
-  text-align: center;
-  font-weight: bold;
-`;
 
-export const CardMediaUI = styled(CardMedia)`
+export const CardSprite = styled(CardMedia)`
   width: 130px;
   height: 130px;
   border-radius: 50px;

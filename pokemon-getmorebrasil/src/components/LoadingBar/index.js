@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ProgressBar = () => {
+const LoadingBar = () => {
   const classes = useStyles();
   const [progress, setProgress] = React.useState(10);
 
@@ -56,4 +56,4 @@ const ProgressBar = () => {
   );
 };
 
-export default ProgressBar;
+export default LoadingBar;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Section = styled.div`
+export const CardSection = styled.div`
   width: 550px;
   margin: auto;
   margin-top: 40px;
@@ -49,7 +49,7 @@ export const Section = styled.div`
   }
 `;
 
-export const Container = styled.div`
+export const CardContainer = styled.div`
   text-align: center;
   padding: 8px;
   background-color: #f6d743;
@@ -65,7 +65,7 @@ export const Container = styled.div`
   }
 `;
 
-export const PokemonProfile = styled.img`
+export const PokeImage = styled.img`
   width: 300px;
   height: 300px;
   @media screen and (max-width: 768px) {
@@ -95,13 +95,13 @@ export const ButtonReturn = styled.label`
   align-items: center;
   transition: all 0.2s ease-in-out;
   -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -125,4 +125,3 @@ export const ButtonReturn = styled.label`
     height: 1rem;
   }
 `;
-
