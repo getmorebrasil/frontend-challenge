@@ -8,7 +8,7 @@
 
 ### About
 
-Pokemon V2 uses a SearchBar feature to search for pokemons with useEffect hook in React. Since not all pokemons are available with photos and attributes, I chose to set a limit on their appearance in 897 - the limit was made to avoid visual breaks with photos inside the cards. Otherwise if the user enters a wrong Pokemon name, a progress bar (obtained from the material's UI) is activated and visually simulates an uninterrupted search on the API system. When users also click on each creatures, a new Card area opens and reveals more information like type, powers and attributes. 
+Pokemon V2 uses a SearchBar feature to search for pokemons with useEffect hook in React. Since not all pokemons are available with photos and attributes, I chose to set a limit on their appearance in 897 - the limit was made to avoid visual breaks inside the cards. After a user click on each creatures, a new Card area reveals more information like type, powers and attributes. Otherwise if the user enters a wrong Pokemon name, a progress bar (obtained from the material's UI) is activated and visually simulates an uninterrupted search on the API system... 
 
 
 ### Getting Started
@@ -18,7 +18,7 @@ Pokemon V2 uses a SearchBar feature to search for pokemons with useEffect hook i
 
 ### Required:
 
-As you see, **Pokemon V2** runs on [Node.js](https://nodejs.org/), so before you can continue, please ensure that you have it installed with NPM or Yarn. Once you have Node installed, you will need the React (17.01) library. So, to start the project in your machine, open your terminal inside the GlobeCoin folder and type "NPM Install" or "Yarn Install".
+As you see, **Pokemon V2** runs on [Node.js](https://nodejs.org/), so before you can continue, please ensure that you have it installed with NPM or Yarn. Once you have Node installed, you will need the React (17.01) library. So, to start the project in your machine, open your terminal inside the Pokemon V2 folder and type "NPM Install" or "Yarn Install".
 
 ### Additional packages
 - [Axios](https://github.com/axios/axios) (To capture the Pokemon API information)
