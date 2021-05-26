@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import GlobalStyle from './styles';
 import HeroSection from './components/HeroSection';
 import Pokedex from './components/Pokedex';
@@ -10,14 +10,16 @@ function App() {
   return (
     <>
     <GlobalStyle />
-    <HeroSection />
     <Switch>
-        <Route path="/" exact render={(props) => <Pokedex {...props} />} />
         <Route
-          path="/:pokemonId"
+          path="/:pokemonId" 
           exact
           render={(props) => <Pokemon {...props} />}
         />
+        <Fragment>
+        <HeroSection />
+          <Route path="/" exact render={(props) => <Pokedex {...props} />} />
+        </Fragment>
     </Switch>
     <FooterBar />    
     </>
