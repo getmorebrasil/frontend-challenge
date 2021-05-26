@@ -1,0 +1,18 @@
+/**
+ * Colors
+ */
+
+@mixin make-colors($colors, $attr, $prefix) {
+  @each $value-short, $value-long in $colors {
+    .#{$prefix}-#{$value-short} {
+      #{$attr}: #{$value-long};
+    }
+  }
+}
+
+@if $use-text-colors {
+  @include make-colors($colors, 'color', 'text');
+}
+@if $use-bg-colors {
+  @include make-colors($colors, 'background-color', 'bg');
+}

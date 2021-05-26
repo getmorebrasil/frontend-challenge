@@ -1,0 +1,27 @@
+/**
+ * Global
+ *
+ * !default Flag
+ * When building a library, a framework, a grid system or any piece of Sass
+ * that is intended to be distributed and used by external developers,
+ * all configuration variables should be defined with the !default flag
+ * so they can be overwritten.
+ */
+
+// Bootstrap
+// .row, .container, .col, .col-sm etc..
+$enable-grid-classes: true !default;
+
+// Utilities
+$use-aspect-ratio: true !default;
+$use-background-size: true !default;
+$use-clearfix: true !default;
+$use-text-colors: true !default;
+$use-bg-colors: true !default;
+$use-font-family: true !default;
+$use-font-size: true !default;
+$use-font-weight: true !default;
+$use-spacing: true !default;
+$use-spacing-responsive: true !default;
+$use-text-alignment: true !default;
+$use-text-style: true !default;

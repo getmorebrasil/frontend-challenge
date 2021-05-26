@@ -1,0 +1,96 @@
+/**
+ * Headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: 0;
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+  text-transform: $headings-text-transform;
+}
+
+// @include font-size(xs, sm, md, lg, xl);
+
+h1,
+.h1 {
+  @include font-size(
+    rem(28),
+    '',
+    rem(32),
+    rem(40),
+    ''
+  );
+}
+
+h2,
+.h2 {
+  @include font-size(
+    rem(24),
+    '',
+    rem(26),
+    rem(32),
+    ''
+  );
+}
+
+h3,
+.h3 {
+  @include font-size(
+    rem(22),
+    '',
+    rem(24),
+    rem(28),
+    ''
+  );
+}
+
+h4,
+.h4 {
+  @include font-size(
+    rem(20),
+    '',
+    rem(22),
+    rem(24),
+    ''
+  );
+}
+
+h5,
+.h5 {
+  @include font-size(
+    rem(18),
+    '',
+    rem(20),
+    '',
+    ''
+  );
+}
+
+h6,
+.h6 {
+  @include font-size(
+    rem(16),
+    '',
+    rem(18),
+    '',
+    ''
+  );
+}
+
+.demo-title {
+  color: firebrick;
+}

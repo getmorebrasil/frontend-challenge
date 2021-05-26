@@ -1,0 +1,42 @@
+/**
+ * Typography
+ */
+
+// Font Family
+$font-family-sans: blinkmacsystemfont, -apple-system, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-serif: georgia, "Times New Roman", times, serif !default;
+$font-family-mono: menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family: $font-family-sans;
+
+// Font Size
+$font-size-base: 1rem !default;
+$font-size-xs: .75rem !default;
+$font-size-sm: .875rem !default;
+$font-size-lg: 1.125rem !default;
+$font-size-xl: 1.25rem !default;
+$font-size-xxl: 1.5rem !default;
+
+// Font Line Height
+$line-height-base: 1.5 !default;
+
+// Font Weight
+$font-weight-hairline: 100 !default;
+$font-weight-thin: 200 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extrabold: 800 !default;
+$font-weight-black: 900 !default;
+
+// Paragraph
+$paragraph-margin-bottom: 1rem !default;
+
+// Headings
+$headings-margin-bottom: 1rem !default;
+$headings-font-family: $font-family !default;
+$headings-font-weight: $font-weight-medium !default;
+$headings-line-height: 1.2 !default;
+$headings-color: inherit !default;
+$headings-text-transform: inherit !default;

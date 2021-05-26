@@ -1,0 +1,62 @@
+/*!
+ * Project: Project Name
+ * Author: Name
+ * E-mail: E-mail
+ * Website:
+ */
+
+/**
+ * This is where all of the stylesheets are compiled.
+ * They are processed in the order they are imported
+ * to ensure the consistent increase of specificity.
+ *
+ *    ITCSS Methodology: Inverted Triangle CSS
+ *
+ *    **************   1. Settings
+ *     ************    2. Tools
+ *      **********     3. Generic
+ *       ********      4. Elements
+ *        ******       5. Objects
+ *         ****        6. Components
+ *          **         7. Utilities
+ *
+ * 1. Settings.........Global configuration and variables.
+ * 2. Tools............Functions and mixins.
+ * 3. Generic..........Ground zero styles.
+ *                     (normalizing.css, box-sizing etc...)
+ * 4. Elements.........Unclassed (bare) HTML element
+ *                     (like H1, Ul, A etc...)
+ * 5. Objects..........Common non-cosmetic structural design patterns.
+ *                     e.g containers, rows, grids, colums etc...
+ * 6. Components.......Specific cosmetic elements of UI.
+ *                     e.g. buttons, forms, header, footer etc...
+ * 7. Utilities........Helpers and overrides.
+ *
+ *    Modules..........Multi-part components.
+ *                     e.g. Navbar (HTML, CSS and JS).
+ *    Shame............All the CSS, hacks and things we are not proud of.
+ */
+
+/*
+@import 'settings!**!*.scss';
+@import 'tools!**!*.scss';
+@import 'generic!**!*.scss';
+@import 'elements!**!*.scss';
+@import 'objects!**!*.scss';
+@import 'components!**!*.scss';
+@import 'utilities!**!*.scss';
+@import '../modules!**!*.scss';
+@import 'shame';
+
+*/
+@import "settings/_global";
+@import "settings/colors";
+
+@import 'utilities/_colors';
+@import 'utilities/_effecs';
+@import "components/movie-row";
+@import 'components/featured';
+@import 'components/lists';
+
+@import "layout/body";
+@import "layout/header";

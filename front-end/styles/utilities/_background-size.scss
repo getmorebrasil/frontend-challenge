@@ -1,0 +1,17 @@
+/**
+ * Background Size
+ */
+
+@if $use-background-size {
+
+  .bg-auto {
+    background-size: auto;
+  }
+  .bg-cover {
+    background-size: cover;
+  }
+  .bg-contain {
+    background-size: contain;
+  }
+
+}
