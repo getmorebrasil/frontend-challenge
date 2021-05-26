@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: white;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+footer {
+  margin: 50px auto;
+  text-align: center;
+}
+
+// loader logo
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nfLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 37px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+.nfLoader:after {
+  content: '';
+  background-image: url(https://assets.nflxext.com/en_us/pages/wiplayer/site-spinner.png);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  position: absolute;
+  margin: -6px;
+  width: inherit;
+  height: inherit;
+  animation: nfLoader-spin 0.3s linear infinite, 1 !important;
+  -webkit-animation: nfLoader-spin 0.3s linear infinite, 1 !important;
+}
+@keyframes nfLoader-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes nfLoader-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

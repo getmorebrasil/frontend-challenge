@@ -1,0 +1,79 @@
+/**
+ * Spacing
+ * Utilities for controlling an element's padding and margin.
+ * Based on https://github.com/tailwindcss/tailwindcss
+ */
+
+@mixin make-space($values, $prefixes, $grid-breakpoints) {
+  @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+    // xs
+    @if ($breakpoint-value == 0) {
+      @each $prefix-short, $prefix-long in $prefixes {
+        @each $value-short, $value-long in $values {
+
+          @if ($prefix-short == 'p' and $value-short == 'auto') or
+            ($prefix-short == 'pt' and $value-short == 'auto') or
+            ($prefix-short == 'pr' and $value-short == 'auto') or
+            ($prefix-short == 'pb' and $value-short == 'auto') or
+            ($prefix-short == 'pl' and $value-short == 'auto') or
+            ($prefix-short == 'px' and $value-short == 'auto') or
+            ($prefix-short == 'py' and $value-short == 'auto') {
+          } @else {
+            .#{$prefix-short}-#{$value-short} {
+              @if (length($prefix-long)) {
+                @each $a in $prefix-long {
+                  #{$a}: #{$value-long};
+                }
+              } @else {
+                #{$prefix-long}: #{$value-long};
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@mixin make-space-responsive($values, $prefixes, $grid-breakpoints) {
+  @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+    // sm, md, lg, xl
+    @if ($breakpoint-value != 0) {
+      @media screen and (min-width: $breakpoint-value) {
+        @each $prefix-short, $prefix-long in $prefixes {
+          @each $value-short, $value-long in $values {
+
+            @if ($prefix-short == 'p' and $value-short == 'auto') or
+              ($prefix-short == 'pt' and $value-short == 'auto') or
+              ($prefix-short == 'pr' and $value-short == 'auto') or
+              ($prefix-short == 'pb' and $value-short == 'auto') or
+              ($prefix-short == 'pl' and $value-short == 'auto') or
+              ($prefix-short == 'px' and $value-short == 'auto') or
+              ($prefix-short == 'py' and $value-short == 'auto') {
+            } @else {
+              .#{$breakpoint-name}-#{$prefix-short}-#{$value-short} {
+                @if (length($prefix-long)) {
+                  @each $a in $prefix-long {
+                    #{$a}: #{$value-long};
+                  }
+                } @else {
+                  #{$prefix-long}: #{$value-long};
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $use-spacing {
+  @include make-space($space-values, $space-prefixes, $grid-breakpoints);
+}
+
+@if $use-spacing-responsive {
+  @include make-space-responsive($space-values, $space-prefixes, $grid-breakpoints);
+}
