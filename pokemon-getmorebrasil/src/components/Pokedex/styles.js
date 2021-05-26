@@ -66,6 +66,7 @@ export const useStyles = makeStyles((theme) => ({
     ["@media(max-width: 359px)"]: {
       width: "100%",
       display: "flex",
+      padding: "10px",
       alignItems: "center",
       flexDirection: "column",
     },
@@ -74,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: "auto",
     fontWeight: "bold",
     ["@media(max-width: 500px)"]: {
-      padding: "1.2rem",
+      padding: "0.9rem",
     },
     ["@media(max-width: 360px)"]: {
       padding: "3px",
@@ -96,7 +97,6 @@ export const useStyles = makeStyles((theme) => ({
       color: "white",
       cursor: "pointer",
       fontWeight: "bold",
-      
     },
   },
   searchContainer: {

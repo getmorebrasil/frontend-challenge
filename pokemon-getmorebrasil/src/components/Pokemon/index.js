@@ -34,9 +34,9 @@ const Pokemon = (props) => {
       <>
         <Section id="pokedex">
           <Container>
-            <Typography variant="h1">{`${name}`}</Typography>
+            <Typography variant="h3">{`${name}`}</Typography>
             <PokemonProfile src={imageUrl} alt="Image" />
-            <Typography variant="h3">Information</Typography>
+            <Typography variant="h5">Information</Typography>
             <Typography>Species: {species.name}</Typography>
             <Typography variant="h6"> Type:</Typography>
             {types.map((typeInfo) => {

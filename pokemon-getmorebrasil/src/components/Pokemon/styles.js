@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Button } from "@material-ui/core";
 
 export const Section = styled.div`
   width: 550px;
@@ -43,6 +42,11 @@ export const Section = styled.div`
     box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
       inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 18rem;
+    height: 38rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -55,11 +59,19 @@ export const Container = styled.div`
   margin: 10px;
   min-width: 150px;
   flex-grow: 1;
+  @media screen and (max-width: 768px) {
+    width: 15.5rem;
+    height: 35.5rem;
+  }
 `;
 
 export const PokemonProfile = styled.img`
   width: 300px;
   height: 300px;
+  @media screen and (max-width: 768px) {
+    width: 7rem;
+    height: 7rem;
+  }
 `;
 
 export const ButtonReturn = styled.label`
@@ -82,6 +94,14 @@ export const ButtonReturn = styled.label`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -90,6 +110,19 @@ export const ButtonReturn = styled.label`
     color: white;
     outline: none;
     text-decoration: none;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 1rem;
+    height: 1rem;
   }
 `;
 

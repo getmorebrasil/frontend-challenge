@@ -28,9 +28,9 @@ export const HeroContainer = styled.div`
   }
   @media screen and (max-width: 768px) {
     object-fit: fill;
-    width: 70%;
-    height: 70%;
-  }  
+    width: 30%;
+    height: 30%;
+  }
 `;
 
 export const HeroBg = styled.div`
@@ -68,7 +68,6 @@ export const HeroContent = styled.div`
 export const MenuIcon = styled.img`
   width: 380px;
   height: 190px;
-
   @media screen and (max-width: 768px) {
     width: 280px;
   }
@@ -119,6 +118,14 @@ export const HeroButton = styled(LinkScroll)`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #3b88c3;
@@ -126,6 +133,14 @@ export const HeroButton = styled(LinkScroll)`
     color: white;
     outline: none;
     text-decoration: none;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
   }
 `;
 
@@ -135,12 +150,12 @@ export const HeroBtnWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   @media screen and (max-width: 768px) {
-    margin-top: -70px;
-    margin-bottom: 32px;
-  }  
+    margin-top: -100px;
+    margin-bottom: 45px;
+  }
 `;
 
 export const CatchPokedex = styled(DonutLargeIcon)`
   margin-left: 8px;
-  font-size: 20px; 
+  font-size: 20px;
 `;

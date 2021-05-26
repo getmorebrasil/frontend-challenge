@@ -7,7 +7,7 @@ export const FooterContainer = styled.div`
   align-items: center;
   font-size: 1rem;
   bottom: 0;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 export const FooterText = styled.p`
@@ -19,4 +19,3 @@ export const FooterText = styled.p`
   font-weight: 900;
   text-align: center;
 `;
-
