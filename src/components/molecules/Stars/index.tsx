@@ -9,7 +9,6 @@ const Stars: React.FC<StarsProps> = ({ size, classification }) => {
 
     const result = [1, 2, 3, 4, 5].map((current) => {
       const currentVariableValue = fiveAverageClassification - current;
-      console.log(currentVariableValue);
 
       if (currentVariableValue >= 0) return "full";
       if (currentVariableValue > -1) return "half";

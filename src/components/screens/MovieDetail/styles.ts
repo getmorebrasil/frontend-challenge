@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.main`
   min-height: calc(100vh - 60px);
@@ -9,7 +9,7 @@ export const Container = styled.main`
   }
 `;
 
-export const ShowCase = styled.section<{ imagePath: string }>`
+export const ShowCase = styled.section`
   display: flex;
   justify-content: space-between;
   text-align: right;
@@ -34,13 +34,14 @@ export const ShowCase = styled.section<{ imagePath: string }>`
   }
 
   @media (max-width: 860px) {
+    height: 47rem;
     margin-bottom: 7rem;
   }
 `;
 
 export const MoviePoster = styled.img`
   display: block;
-  max-width: 400px;
+  max-width: 394px;
   margin-top: -5rem;
   border-radius: 0 0 10px 10px;
 
@@ -70,7 +71,7 @@ export const RightSide = styled.aside`
     font-size: 1.4rem;
     font-weight: 300;
     background: ${({ theme }) => theme.colors.background};
-    margin-top: 1rem;
+    margin-top: 2.8rem;
 
     & > span {
       color: ${({ theme }) => theme.colors.primary};
@@ -92,8 +93,8 @@ export const RightSide = styled.aside`
   & > h4 {
     max-width: 700px;
     font-weight: 400;
-    margin-top: 3.2rem;
-    font-size: 1.4rem;
+    margin-top: 4rem;
+    font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.border};
 
     @media (max-width: 1280px) {
@@ -134,20 +135,6 @@ export const Title = styled.h1`
   }
 `;
 
-const showCaseText = css`
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  font-weight: 300;
-
-  & > span {
-    font-weight: 700;
-  }
-
-  @media (max-width: 720px) {
-    font-size: 1rem;
-  }
-`;
-
 export const MainInfo = styled.section`
   display: flex;
   align-items: flex-end;
@@ -164,14 +151,6 @@ export const MainInfo = styled.section`
       flex-direction: column;
       gap: 1rem;
     }
-  }
-
-  & > h5 {
-    ${showCaseText};
-  }
-
-  & > h6 {
-    ${showCaseText};
   }
 
   & strong {

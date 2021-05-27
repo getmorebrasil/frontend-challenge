@@ -14,7 +14,7 @@ export const ShowCase = styled.section<{ imagePath: string }>`
   background: #333;
   padding: 5rem 5rem 0;
   position: relative;
-  background: ${({ imagePath }) => `url(https://image.tmdb.org/t/p/w1280${imagePath})`} rgba(0, 0, 0, 0.8);
+  background: ${({ imagePath }) => imagePath && `url(https://image.tmdb.org/t/p/w1280${imagePath})`} rgba(0, 0, 0, 0.8);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,9 +63,13 @@ export const LeftSide = styled.aside`
   }
 
   & > h4 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 300;
     margin-top: 1rem;
+
+    @media only screen and (max-width: 1100px) {
+      max-width: 580px;
+    }
   }
 
   @media only screen and (max-width: 900px) {

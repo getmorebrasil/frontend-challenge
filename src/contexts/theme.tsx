@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { IThemeContextData, Theme } from "../libs/interfaces/contexts";
+import { IThemeContextData, ITheme } from "../libs/interfaces/contexts";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../styles/themes";
 
@@ -8,7 +8,7 @@ export const ThemeContext = React.createContext<IThemeContextData>(
 );
 
 const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(darkTheme);
+  const [theme, setTheme] = useState<ITheme>(darkTheme);
 
   const toggleTheme = useCallback(() => {
     if (theme.name === "dark") {

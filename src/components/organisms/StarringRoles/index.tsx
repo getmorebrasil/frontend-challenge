@@ -1,25 +1,27 @@
+import { truncateString } from "../../../helpers";
+import { StarringRolesProps } from "../../../libs/types/organisms";
 import { Container, RolesList, Artist, Overlay } from "./styles";
 
-const PopularMovies: React.FC = () => {
+const StarringRoles: React.FC<StarringRolesProps> = ({ data }) => {
   return (
     <Container>
       <h2>Starring Roles</h2>
       <RolesList>
-        <Artist imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
-          <Overlay>
-            <p>Lewis Tan</p>
-            <p>Cole Young</p>
-          </Overlay>
-        </Artist>
-        <Artist imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
-          <Overlay>
-            <p>Lewis Tan</p>
-            <p>Cole Young</p>
-          </Overlay>
-        </Artist>
+        {data.map((cast) => {
+          if (!cast.profile_path) return null;
+
+          return (
+            <Artist key={cast.id} imagePath={cast.profile_path}>
+              <Overlay>
+                <p>{truncateString(cast.name, 28)}</p>
+                <p>{truncateString(cast.character, 28)}</p>
+              </Overlay>
+            </Artist>
+          );
+        })}
       </RolesList>
     </Container>
   );
 };
 
-export default PopularMovies;
+export default StarringRoles;

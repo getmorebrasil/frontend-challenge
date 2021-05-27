@@ -70,7 +70,7 @@ export const CenterContent = styled.div`
 
   & > h2 {
     color: ${({ theme }) => theme.colors.secondary};
-    font-size: 2.6rem;
+    font-size: 2.42rem;
     font-weight: 500;
   }
 
@@ -84,7 +84,7 @@ export const CenterContent = styled.div`
 
   & > p {
     color: ${({ theme }) => theme.colors.neutralColor};
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     max-width: 550px;
   }
@@ -108,11 +108,11 @@ export const CenterContent = styled.div`
 
   @media only screen and (max-width: 1080px) {
     & > h2 {
-      font-size: 2.3rem;
+      font-size: 2.1rem;
     }
 
     & > h3 {
-      margin-top: 2rem;
+      margin-top: 1.8rem;
       margin-bottom: 1.4rem;
       font-size: 2.2rem;
     }
@@ -124,15 +124,15 @@ export const CenterContent = styled.div`
 
   @media only screen and (max-width: 680px) {
     & > h2 {
-      font-size: 1.8rem;
-    }
-
-    & > h3 {
       font-size: 1.4rem;
     }
 
-    & > p {
+    & > h3 {
       font-size: 1.2rem;
+    }
+
+    & > p {
+      font-size: 1rem;
     }
   }
 `;
@@ -142,7 +142,7 @@ export const RightSide = styled.div`
   margin-right: 4rem;
 
   & button {
-    margin: 4rem 0 6rem 0;
+    margin: 4rem auto 6rem auto;
   }
 
   & h5 {
@@ -169,6 +169,14 @@ export const RightSide = styled.div`
 
     & > p {
       display: none;
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    text-align: center;
+
+    & > summary {
+      margin-top: 0.6rem;
     }
   }
 `;

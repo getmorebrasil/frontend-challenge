@@ -16,7 +16,7 @@ export const Container = styled.section`
     font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
   }
 `;
 
@@ -78,7 +78,7 @@ export const Overlay = styled.div`
   & > summary {
     margin-top: 1rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 
     & > p {

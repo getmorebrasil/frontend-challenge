@@ -1,31 +1,46 @@
+import { useCallback } from "react";
+import { useHistory } from "react-router";
+import { Classification } from "../../molecules";
+import { truncateString } from "../../../helpers";
+import { Categories, ContentOffset } from "../../atoms";
+import { PopularMoviesProps } from "../../../libs/types/organisms";
 import { Container, MoviesList, MovieCard, Overlay } from "./styles";
 
-import { Categories, ContentOffset } from "../../atoms";
-import { Classification } from "../../molecules";
+const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
+  const history = useHistory();
 
-const PopularMovies: React.FC = () => {
+  const handleGetDetail = useCallback(
+    (movieId: number) => {
+      history.push({
+        pathname: "/detail",
+        state: { movieId },
+      });
+    },
+    [history]
+  );
+
   return (
     <Container>
       <h2>Populars</h2>
+
       <MoviesList>
-        <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
-          <Overlay>
-            <Categories>Ficção científica, Ação, Drama</Categories>
-            <Classification classification={8} starsSize={1.2} />
-          </Overlay>
-        </MovieCard>
-        <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
-          <Overlay>
-            <Categories>Ficção científica, Ação, Drama</Categories>
-            <Classification classification={8} starsSize={1.2} />
-          </Overlay>
-        </MovieCard>
-        <MovieCard imagePath="/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg">
-          <Overlay>
-            <Categories>Ficção científica, Ação, Drama</Categories>
-            <Classification classification={8} starsSize={1.2} />
-          </Overlay>
-        </MovieCard>
+        {data.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            imagePath={movie.poster_path}
+            onClick={() => handleGetDetail(movie.id)}
+          >
+            <Overlay>
+              <Categories>
+                {truncateString(movie.formattedGenres, 35)}
+              </Categories>
+              <Classification
+                classification={movie.vote_average}
+                starsSize={1.2}
+              />
+            </Overlay>
+          </MovieCard>
+        ))}
         <ContentOffset />
       </MoviesList>
     </Container>

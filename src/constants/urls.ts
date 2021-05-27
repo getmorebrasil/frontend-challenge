@@ -1,4 +1,5 @@
 const POPULARS = "movie/popular";
+const GENRES = "genre/movie/list";
 const TOP_RATED = "movie/top_rated";
 
 function IMAGE(path: string) {
@@ -15,10 +16,11 @@ function DETAIL(id: string) {
 
 const URLS = {
   IMAGE,
+  DETAIL,
+  GENRES,
   CREDITS,
   POPULARS,
   TOP_RATED,
-  DETAIL
 };
 
 export default URLS;

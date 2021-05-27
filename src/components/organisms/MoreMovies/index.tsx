@@ -1,3 +1,6 @@
+import { useHistory } from "react-router";
+import { truncateString } from "../../../helpers";
+import { MoreMoviesProps } from "../../../libs/types/organisms";
 import { Button, Categories } from "../../atoms";
 import { Classification } from "../../molecules";
 
@@ -9,74 +12,47 @@ import {
   RightSide,
 } from "./styles";
 
-const PopularMovies: React.FC = () => {
+const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
+  const history = useHistory();
+
   return (
     <Container>
       <h2>More Movies</h2>
-      <Movie>
-        <MoviePoster
-          src={
-            "https://image.tmdb.org/t/p/w342/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg"
-          }
-        />
-        <CenterContent>
-          <h2>Godzilla vs. Kong</h2>
-          <h3>Sinopse</h3>
-          <p>
-            Em uma época em que os monstros andam na Terra, a luta da humanidade
-            por seu futuro coloca Godzilla e Kong em rota de colisão que verá as
-            duas forças mais poderosas da natureza no planeta se confrontarem em
-            uma batalha espetacular para as idades. Enquanto Monarch embarca em
-            uma missão perigosa...
-          </p>
-        </CenterContent>
-        <RightSide>
-          <Categories fontSize={1.6}>Ficção científica, Ação, Drama</Categories>
-          <Classification classification={6.7} />
 
-          <Button
-            text="Get Details"
-            handleAction={() => console.log("Getting details...")}
+      {data.map((movie) => (
+        <Movie key={movie.id}>
+          <MoviePoster
+            src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
           />
+          <CenterContent>
+            <h2>{truncateString(movie.title, 30)}</h2>
+            <h3>Sinopse</h3>
+            <p>{truncateString(movie.overview, 250)}</p>
+          </CenterContent>
+          <RightSide>
+            <Categories fontSize={1.6}>
+              {truncateString(movie.formattedGenres, 24)}
+            </Categories>
+            <Classification classification={movie.vote_average} />
 
-          <h5>
-            Director <span>Simon McQuoid</span>
-          </h5>
-        </RightSide>
-      </Movie>
+            <Button
+              text="Get Details"
+              handleAction={() =>
+                history.push({
+                  pathname: "/detail",
+                  state: { movieId: movie.id },
+                })
+              }
+            />
 
-      <Movie>
-        <MoviePoster
-          src={
-            "https://image.tmdb.org/t/p/w342/xD9mc8JCVXA8T8u4Od7qOUBuGH4.jpg"
-          }
-        />
-        <CenterContent>
-          <h2>Godzilla vs. Kong</h2>
-          <h3>Sinopse</h3>
-          <p>
-            Em uma época em que os monstros andam na Terra, a luta da humanidade
-            por seu futuro coloca Godzilla e Kong em rota de colisão que verá as
-            duas forças mais poderosas da natureza no planeta se confrontarem em
-            uma batalha espetacular para as idades. Enquanto Monarch embarca em
-            uma missão perigosa...
-          </p>
-        </CenterContent>
-        <RightSide>
-          <p>Ficção científica, Ação, Drama</p>
-
-          <Classification classification={6.7} />
-
-          <Button
-            text="Get Details"
-            handleAction={() => console.log("Getting details...")}
-          />
-
-          <h5>
-            Director <span>Simon McQuoid</span>
-          </h5>
-        </RightSide>
-      </Movie>
+            {movie.directorName && (
+              <h5>
+                Director <span>{movie.directorName}</span>
+              </h5>
+            )}
+          </RightSide>
+        </Movie>
+      ))}
     </Container>
   );
 };

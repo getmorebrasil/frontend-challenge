@@ -1,3 +1,4 @@
+import ClipLoader from "react-spinners/ClipLoader";
 import { Header, Footer } from "../../molecules";
 import { StarringRoles } from "../../organisms";
 import { Classification } from "../../molecules";
@@ -12,60 +13,79 @@ import {
   RightSide,
 } from "./styles";
 import { Button } from "../../atoms";
+import { useHistory } from "react-router";
+import { useEffect, useState } from "react";
+import { useMovie, useTheme } from "../../../hooks";
+import { IMovie } from "../../../libs/interfaces/contexts";
+import { truncateString } from "../../../helpers";
 
 const MovieDetail: React.FC = () => {
+  const { theme } = useTheme();
+  const { getMovie } = useMovie();
+  const history = useHistory<{ movieId: number }>();
+  const [loading, setLoading] = useState(true);
+  const [movie, setMovie] = useState<IMovie>({} as IMovie);
+
+  useEffect(() => {
+    setMovie(getMovie(history.location.state.movieId));
+
+    setLoading(false);
+  }, [getMovie, history.location, history.location.state.movieId]);
+
   return (
     <Container>
       <Header withBackAction />
 
-      <ShowCase imagePath="/jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg">
-        <section>
-          <MoviePoster
-            src="https://image.tmdb.org/t/p/w500/4BSuFpQ2gd2WtO5ZK1fMjaMPMRc.jpg"
-            alt="Poster do Filme: Nome do filme"
-          />
-        </section>
+      {loading ? (
+        <ClipLoader size={20} color={theme.colors.neutralColor} />
+      ) : (
+        <>
+          <ShowCase>
+            <section>
+              <MoviePoster
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={`Poster do Filme: ${movie.title}`}
+              />
+            </section>
 
-        <RightSide>
-          <Title>Mulher-Maravilha 1984 (2020)</Title>
-          <MainInfo>
-            <div>
-              <Categories fontSize={1.6}>
-                Ficção científica, Ação, Drama
-              </Categories>
+            <RightSide>
+              <Title>{truncateString(movie.title, 28)}</Title>
+              <MainInfo>
+                <div>
+                  <Categories fontSize={1.6}>
+                    {truncateString(movie.formattedGenres, 32)}
+                  </Categories>
 
-              <Classification classification={8.7} />
-            </div>
+                  <Classification classification={8.7} />
+                </div>
+              </MainInfo>
 
-            <h5>
-              Released at <span>15/04/2021 (BR)</span> - Movie time{" "}
-              <span>1h 50m</span>
-            </h5>
+              <h3>
+                Director{" "}
+                <span>
+                  {movie.directorName ? movie.directorName : "Não encontrado"}
+                </span>{" "}
+                | Idioma original{" "}
+                <span>
+                  {movie.original_language
+                    ? movie.original_language
+                    : "Não encontrado"}
+                </span>{" "}
+                | Released at <span>{movie.release_date}</span>
+              </h3>
 
-            <h6>
-              Director <span>Simon McQuoid</span>
-            </h6>
-          </MainInfo>
+              <h4>{truncateString(movie.overview, 340)}</h4>
 
-          <h3>
-            Situação <span>Lançado</span> | Idioma original <span>Inglês</span>{" "}
-            | Orçamento <span>$20,000,000.00</span> | Receita{" "}
-            <span>$76,706,000.00</span>
-          </h3>
-          <h4>
-            Em 1984, Diana Prince entra em conflito com dois inimigos
-            formidáveis, Maxwell Lord e a Mulher-Leopardo, enquanto r eencontra
-            misteriosamente com seu antigo interesse amoroso Steve Trevor.
-          </h4>
+              <Button
+                text="Watch Now"
+                handleAction={() => history.push("/watching")}
+              />
+            </RightSide>
+          </ShowCase>
 
-          <Button
-            text="Watch Now"
-            handleAction={() => console.log("Watching...")}
-          />
-        </RightSide>
-      </ShowCase>
-
-      <StarringRoles />
+          {movie.credits && <StarringRoles data={movie.credits.cast} />}
+        </>
+      )}
 
       <Footer />
     </Container>
