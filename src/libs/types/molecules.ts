@@ -1,4 +1,4 @@
 export type ClassificationProps = {
-  classification: number;
-  starsSize?: number;
-};
+  classification: number
+  starsSize?: number
+}

@@ -1,5 +1,4 @@
+import movieService from './movieService'
+import genreService from './genreService'
 
-import movieService from "./movieService";
-import genreService from "./genreService";
-
-export { movieService, genreService };
+export { movieService, genreService }

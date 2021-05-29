@@ -1,19 +1,21 @@
-import { useHistory } from "react-router";
-import { truncateString } from "../../../helpers";
-import { MoreMoviesProps } from "../../../libs/types/organisms";
-import { Button, Categories } from "../../atoms";
-import { Classification } from "../../molecules";
+import { useCallback } from 'react'
+import { useRouter } from 'next/router'
+import { truncateString } from '../../../helpers'
+import { MoreMoviesProps } from '../../../libs/types/organisms'
+import { Button, Categories } from '../../atoms'
+import { Classification } from '../../molecules'
 
-import {
-  Container,
-  Movie,
-  MoviePoster,
-  CenterContent,
-  RightSide,
-} from "./styles";
+import { Container, Movie, MoviePoster, CenterContent, RightSide } from './styles'
 
 const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
-  const history = useHistory();
+  const router = useRouter()
+
+  const handleGetDetails = useCallback(
+    (movieId: number) => {
+      router.push(`/movie/${movieId}`)
+    },
+    [router]
+  )
 
   return (
     <Container>
@@ -21,29 +23,17 @@ const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
 
       {data.map((movie) => (
         <Movie key={movie.id}>
-          <MoviePoster
-            src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-          />
+          <MoviePoster src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} />
           <CenterContent>
             <h2>{truncateString(movie.title, 30)}</h2>
             <h3>Sinopse</h3>
             <p>{truncateString(movie.overview, 250)}</p>
           </CenterContent>
           <RightSide>
-            <Categories fontSize={1.6}>
-              {truncateString(movie.formattedGenres, 24)}
-            </Categories>
+            <Categories fontSize={1.6}>{truncateString(movie.formattedGenres, 24)}</Categories>
             <Classification classification={movie.vote_average} />
 
-            <Button
-              text="Get Details"
-              handleAction={() =>
-                history.push({
-                  pathname: "/detail",
-                  state: { movieId: movie.id },
-                })
-              }
-            />
+            <Button text="Get Details" handleAction={() => handleGetDetails(movie.id)} />
 
             {movie.directorName && (
               <h5>
@@ -54,7 +44,7 @@ const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
         </Movie>
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export default PopularMovies;
+export default PopularMovies

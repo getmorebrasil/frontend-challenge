@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { centerFlex } from '../../../styles/global'
 
 export const Container = styled.button`
-  display: flex;
+  ${centerFlex};
   justify-content: space-around;
-  align-items: center;
 
   width: 300px;
   height: 60px;

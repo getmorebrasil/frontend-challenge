@@ -1,21 +1,19 @@
-import { IMAGES } from "../../../constants";
-import { Container } from "./styles";
-import { LogoProps } from "../../../libs/types/atoms";
-import { useHistory } from "react-router-dom";
-import { useTheme } from "../../../hooks";
+import Link from 'next/link'
+import { Container } from './styles'
+import { useTheme } from '../../../hooks'
+import { IMAGES } from '../../../constants'
+import { LogoProps } from '../../../libs/types/atoms'
 
 const Logo: React.FC<LogoProps> = ({ size }) => {
-  const history = useHistory();
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
-    <Container size={size} onClick={() => history.push("/")}>
-      <img
-        src={theme.name === "light" ? IMAGES.darkLogo : IMAGES.logo}
-        alt="getmovies Logo"
-      />
+    <Container size={size}>
+      <Link href="/">
+        <img src={theme.name === 'light' ? IMAGES.darkLogo : IMAGES.logo} alt="getmovies Logo" />
+      </Link>
     </Container>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

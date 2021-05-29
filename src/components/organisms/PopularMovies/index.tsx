@@ -1,23 +1,20 @@
-import { useCallback } from "react";
-import { useHistory } from "react-router";
-import { Classification } from "../../molecules";
-import { truncateString } from "../../../helpers";
-import { Categories, ContentOffset } from "../../atoms";
-import { PopularMoviesProps } from "../../../libs/types/organisms";
-import { Container, MoviesList, MovieCard, Overlay } from "./styles";
+import { useCallback } from 'react'
+import { useRouter } from 'next/router'
+import { Classification } from '../../molecules'
+import { truncateString } from '../../../helpers'
+import { Categories, ContentOffset } from '../../atoms'
+import { PopularMoviesProps } from '../../../libs/types/organisms'
+import { Container, MoviesList, MovieCard, Overlay } from './styles'
 
 const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
-  const history = useHistory();
+  const router = useRouter()
 
   const handleGetDetail = useCallback(
     (movieId: number) => {
-      history.push({
-        pathname: "/detail",
-        state: { movieId },
-      });
+      router.push(`/movie/${movieId}`)
     },
-    [history]
-  );
+    [router]
+  )
 
   return (
     <Container>
@@ -31,20 +28,15 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
             onClick={() => handleGetDetail(movie.id)}
           >
             <Overlay>
-              <Categories>
-                {truncateString(movie.formattedGenres, 35)}
-              </Categories>
-              <Classification
-                classification={movie.vote_average}
-                starsSize={1.2}
-              />
+              <Categories>{truncateString(movie.formattedGenres, 35)}</Categories>
+              <Classification classification={movie.vote_average} starsSize={1.2} />
             </Overlay>
           </MovieCard>
         ))}
         <ContentOffset />
       </MoviesList>
     </Container>
-  );
-};
+  )
+}
 
-export default PopularMovies;
+export default PopularMovies

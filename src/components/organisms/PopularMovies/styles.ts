@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { scrollBarStyle } from '../../../styles/global';
+import styled from 'styled-components'
+import { backgroundImageStyle, scrollBarStyle } from '../../../styles/global'
 
 export const Container = styled.section`
   display: flex;
@@ -16,9 +16,10 @@ export const Container = styled.section`
     font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    color: ${({ theme }) =>
+      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
   }
-`;
+`
 
 export const MoviesList = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const MoviesList = styled.div`
   overflow-x: scroll;
 
   ${scrollBarStyle};
-`;
+`
 
 export const MovieCard = styled.div<{ imagePath: string }>`
   flex: 0 0 180px;
@@ -36,14 +37,12 @@ export const MovieCard = styled.div<{ imagePath: string }>`
   background: white;
   margin: 1rem 0;
   background: ${({ imagePath }) => `url(https://image.tmdb.org/t/p/w342${imagePath})`};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+
+  ${backgroundImageStyle};
 
   :hover {
     transform: scale(1.05);
@@ -52,15 +51,17 @@ export const MovieCard = styled.div<{ imagePath: string }>`
 
   &::after {
     position: absolute;
-    top: -1px; bottom: -1px;
-    left: -1px; right: -1px;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
     filter: brightness(0.7);
     background: ${({ theme }) => `linear-gradient(to top, transparent, ${theme.colors.primary})`};
     content: '';
     z-index: -100;
     border-radius: 10px;
   }
-`;
+`
 
 export const Overlay = styled.div`
   display: flex;
@@ -82,7 +83,8 @@ export const Overlay = styled.div`
     justify-content: space-between;
 
     & > p {
-      color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+      color: ${({ theme }) =>
+        theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
       font-weight: 400;
       font-family: 'Montserrat';
       font-size: 0.8rem;

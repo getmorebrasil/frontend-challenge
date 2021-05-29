@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { centerFlex } from '../../../styles/global'
 
 export const Container = styled.header`
-  display: flex;
+  ${centerFlex};
   justify-content: space-between;
-  align-items: center;
+
   height: 60px;
   padding: 0 5rem;
 
@@ -29,11 +30,11 @@ export const Container = styled.header`
   @media only screen and (max-width: 560px) {
     padding: 0 1rem;
   }
-`;
+`
 
 export const GroupActions = styled.section`
-  display: flex;
-  align-items: center;
+  ${centerFlex};
+  justify-content: flex-start;
   gap: 1.2rem;
 
   & > svg {
@@ -45,11 +46,10 @@ export const GroupActions = styled.section`
       filter: brightness(1);
     }
   }
-`;
+`
 
 export const ThemeSwitch = styled.div`
-  display: flex;
-  align-items: center;
+  ${centerFlex};
   justify-content: space-between;
 
   margin-right: 0.8rem;
@@ -62,8 +62,7 @@ export const ThemeSwitch = styled.div`
   }
 
   & > div {
-    display: flex;
-    align-items: center;
+    ${centerFlex};
     justify-content: space-between;
 
     width: 50px;
@@ -86,4 +85,4 @@ export const ThemeSwitch = styled.div`
         theme.name === 'light' ? theme.colors.contrastColor : theme.colors.neutralColor};
     }
   }
-`;
+`

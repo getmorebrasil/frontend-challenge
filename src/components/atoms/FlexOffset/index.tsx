@@ -1,7 +1,5 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
-const FlexOffset: React.FC = () => {
-  return <Container />;
-};
+const FlexOffset: React.FC = () => <Container />
 
-export default FlexOffset;
+export default FlexOffset

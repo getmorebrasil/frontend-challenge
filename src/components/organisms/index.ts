@@ -1,5 +1,5 @@
-import MoreMovies from "./MoreMovies";
-import PopularMovies from "./PopularMovies";
-import StarringRoles from "./StarringRoles";
+import MoreMovies from './MoreMovies'
+import PopularMovies from './PopularMovies'
+import StarringRoles from './StarringRoles'
 
-export { MoreMovies, PopularMovies, StarringRoles };
+export { MoreMovies, PopularMovies, StarringRoles }

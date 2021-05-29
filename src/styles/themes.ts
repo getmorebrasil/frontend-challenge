@@ -8,7 +8,7 @@ export const darkTheme = {
     contrastColor: '#000',
     background: '#050408',
     border: '#ccc',
-  }
+  },
 }
 
 export const lightTheme = {
@@ -21,5 +21,5 @@ export const lightTheme = {
     contrastColor: '#fff',
     background: '#eee',
     border: '#777',
-  }
+  },
 }

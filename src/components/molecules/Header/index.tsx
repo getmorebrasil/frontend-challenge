@@ -1,21 +1,20 @@
-import { useCallback } from "react";
-import { useHistory } from "react-router";
-import { ICONS } from "../../../constants";
-import { useTheme } from "../../../hooks";
-import { Logo, BackActionIcon, FlexOffset } from "../../atoms";
-import { Container, GroupActions, ThemeSwitch } from "./styles";
+import { useCallback } from 'react'
+import { useRouter } from 'next/router'
+import { ICONS } from '../../../constants'
+import { useTheme } from '../../../hooks'
+import { Logo, BackActionIcon, FlexOffset } from '../../atoms'
+import { Container, GroupActions, ThemeSwitch } from './styles'
 
 const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
-  const { theme, toggleTheme } = useTheme();
-  const history = useHistory();
+  const { theme, toggleTheme } = useTheme()
+  const router = useRouter()
 
   const handleNavigatePerfil = useCallback(() => {
-    history.push("perfil");
-  }, [history]);
+    router.push('/perfil')
+  }, [router])
 
-  const handleLogout = useCallback(() => {
-    console.log("Logout!");
-  }, []);
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const handleLogout = useCallback(() => {}, [])
 
   return (
     <Container>
@@ -27,7 +26,7 @@ const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
         <ThemeSwitch>
           <label>Light mode?</label>
           <div onClick={() => toggleTheme()}>
-            {theme.name === "light" && <FlexOffset />}
+            {theme.name === 'light' && <FlexOffset />}
             <div />
           </div>
         </ThemeSwitch>
@@ -38,14 +37,10 @@ const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
           onClick={handleNavigatePerfil}
         />
 
-        <ICONS.IO.IoLogOutOutline
-          color={theme.colors.secondary}
-          size={32}
-          onClick={handleLogout}
-        />
+        <ICONS.IO.IoLogOutOutline color={theme.colors.secondary} size={32} onClick={handleLogout} />
       </GroupActions>
     </Container>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

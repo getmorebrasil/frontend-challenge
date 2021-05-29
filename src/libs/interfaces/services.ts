@@ -1,14 +1,15 @@
 export interface IResponse<Data> {
-  success: boolean;
-  status: number;
-  errors?: any;
-  data?: Data;
+  success: boolean
+  status: number
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  errors?: any
+  data?: Data
 }
 
 export interface ITheMovieDBListResponse<Data> {
-  page: number;
+  page: number
   results: Data[]
-  status: number;
-  total_pages: number;
-  total_results: number;
+  status: number
+  total_pages: number
+  total_results: number
 }

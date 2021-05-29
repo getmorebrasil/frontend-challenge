@@ -1,22 +1,16 @@
-import { useCallback } from "react";
-import { useHistory } from "react-router-dom";
-import { IMAGES } from "../../../constants";
-import { Container } from "./styles";
+import { useCallback } from 'react'
+import { useRouter } from 'next/router'
+import { IMAGES } from '../../../constants'
+import { Container } from './styles'
 
 const BackActionIcon: React.FC = () => {
-  const history = useHistory();
+  const router = useRouter()
 
   const handleBack = useCallback(() => {
-    history.goBack();
-  }, [history]);
+    router.back()
+  }, [router])
 
-  return (
-    <Container
-      src={IMAGES.backIcon}
-      alt="Voltar para página anterior"
-      onClick={handleBack}
-    />
-  );
-};
+  return <Container src={IMAGES.backIcon} alt="Voltar para página anterior" onClick={handleBack} />
+}
 
-export default BackActionIcon;
+export default BackActionIcon

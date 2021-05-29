@@ -1,6 +1,6 @@
 export default function capitalizeString(string: string, amount: number) {
-  if (!string) return "";
-  if (!amount || string.length <= amount) return string;
+  if (!string) return ''
+  if (!amount || string.length <= amount) return string
 
-  return string.slice(0, amount) + '...'
+  return `${string.slice(0, amount)}...`
 }

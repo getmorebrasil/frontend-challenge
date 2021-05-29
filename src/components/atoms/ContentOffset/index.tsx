@@ -1,7 +1,5 @@
-import { Container } from "./styles";
+import { Container } from './styles'
 
-const ContentOffset: React.FC = () => {
-  return <Container>&copy;</Container>;
-};
+const ContentOffset: React.FC = () => <Container>&copy;</Container>
 
-export default ContentOffset;
+export default ContentOffset

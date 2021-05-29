@@ -1,9 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { backgroundImageStyle, centerFlex } from '../../../styles/global'
 
 export const Container = styled.section`
+  ${centerFlex};
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  justify-content: center;
+
   z-index: 100;
   padding: 0 5rem;
   width: 100%;
@@ -20,9 +23,10 @@ export const Container = styled.section`
       font-size: 1.8rem;
     }
   }
-`;
+`
 
 export const RolesList = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 174.7px);
   padding: 1px;
@@ -35,25 +39,23 @@ export const RolesList = styled.div`
   @media (max-width: 520px) {
     margin: 0 auto;
   }
-`;
+`
 
 export const Artist = styled.div<{ imagePath: string }>`
   height: 260px;
   background: white;
   background: ${({ imagePath }) => `url(https://image.tmdb.org/t/p/w342${imagePath})`};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
+  ${backgroundImageStyle};
+
   :hover {
     transform: scale(1.05);
   }
-`;
+`
 
 export const Overlay = styled.div`
   display: flex;
@@ -69,7 +71,8 @@ export const Overlay = styled.div`
   padding: 0.8rem;
 
   & > p:first-of-type {
-    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    color: ${({ theme }) =>
+      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
     font-weight: 700;
     font-family: 'Montserrat';
     font-size: 1rem;
@@ -77,7 +80,8 @@ export const Overlay = styled.div`
   }
 
   & > p:last-of-type {
-    color: ${({ theme }) => theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    color: ${({ theme }) =>
+      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
     font-weight: 400;
     font-family: 'Montserrat';
     font-size: 1rem;

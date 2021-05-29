@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { centerFlex } from '../../../styles/global'
 
 export const Container = styled.summary`
-  display: flex;
-  align-items: center;
+  ${centerFlex};
   justify-content: space-between;
 
   margin-top: 1rem;
@@ -25,4 +25,4 @@ export const Container = styled.summary`
       margin-bottom: 1rem;
     }
   }
-`;
+`

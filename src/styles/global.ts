@@ -1,11 +1,22 @@
-import { createGlobalStyle, css } from 'styled-components';
- 
-export const centerFlexContainer = css`
+import { createGlobalStyle, css } from 'styled-components'
+
+export const centerFlex = css`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+`
+
+export const centerFlexContainer = css`
   min-height: 100vh;
-`;
+  ${centerFlex};
+`
+
+export const backgroundImageStyle = css`
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+`
 
 export const scrollBarStyle = css`
   &::-webkit-scrollbar {
@@ -17,14 +28,14 @@ export const scrollBarStyle = css`
   scrollbar-color: blue transparent;
 
   &::-webkit-scrollbar-track {
-    background: transparent;        /* color of the tracking area */
+    background: transparent; /* color of the tracking area */
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.colors.neutralColor};
     border-radius: 10px;
   }
-`;
+`
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -58,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-width: 100%;
     min-height: 100vh;
-    background: ${props => props.theme.colors.background};
+    background: ${(props) => props.theme.colors.background};
     font-family: "Poppins", sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -91,6 +102,6 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
-`;
- 
-export default GlobalStyle;
+`
+
+export default GlobalStyle

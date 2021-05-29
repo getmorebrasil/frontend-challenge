@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { centerFlex } from '../../../styles/global'
 
 export const Container = styled.section`
   display: flex;
@@ -28,15 +29,13 @@ export const Container = styled.section`
   @media only screen and (max-width: 560px) {
     margin-top: -4rem;
   }
-`;
+`
 
 export const Movie = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
+  ${centerFlex};
   gap: 5rem;
 
+  min-height: 350px;
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   background: ${({ theme }) => theme.colors.contrastColor};
@@ -52,7 +51,7 @@ export const Movie = styled.div`
     padding: 2rem;
     margin-top: -2rem;
   }
-`;
+`
 
 export const MoviePoster = styled.img`
   flex: 0 0 320px;
@@ -63,7 +62,7 @@ export const MoviePoster = styled.img`
   @media only screen and (max-width: 1080px) {
     display: none;
   }
-`;
+`
 
 export const CenterContent = styled.div`
   flex: 1;
@@ -135,7 +134,7 @@ export const CenterContent = styled.div`
       font-size: 1rem;
     }
   }
-`;
+`
 
 export const RightSide = styled.div`
   text-align: right;
@@ -179,4 +178,4 @@ export const RightSide = styled.div`
       margin-top: 0.6rem;
     }
   }
-`;
+`

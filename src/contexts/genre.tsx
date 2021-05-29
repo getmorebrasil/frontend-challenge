@@ -1,41 +1,37 @@
-import React, { useCallback, useState } from "react";
-import { IGenreContextData, IGenre } from "../libs/interfaces/contexts";
-import { IResponse } from "../libs/interfaces/services";
-import { genreService } from "../services";
+import React, { useCallback, useState } from 'react'
+import { IGenreContextData, IGenre } from '../libs/interfaces/contexts'
+import { IResponse } from '../libs/interfaces/services'
+import { genreService } from '../services'
 
-export const GenreContext = React.createContext<IGenreContextData>(
-  {} as IGenreContextData
-);
+export const GenreContext = React.createContext<IGenreContextData>({} as IGenreContextData)
 
 const GenreProvider: React.FC = ({ children }) => {
-  const [loading, setLoading] = useState(true);
-  const [genres, setGenres] = useState<IGenre[]>([]);
+  const [loading, setLoading] = useState(true)
+  const [genres, setGenres] = useState<IGenre[]>([])
 
   const getGenres = useCallback(async (): Promise<IResponse<IGenre[]>> => {
-    const response = await genreService.getGenres();
+    const response = await genreService.getGenres()
 
-    if (response.data) setGenres(response.data);
+    if (response.data) setGenres(response.data)
 
-    return response;
-  }, []);
+    return response
+  }, [])
 
   const formatGenres = useCallback(
     (genreIds: number[]) => {
-      let result = "";
+      let result = ''
 
       if (genres.length > 0) {
         result = genres
-          ?.map((genre) => {
-            return genreIds.includes(genre.id) && genre.name;
-          })
+          ?.map((genre) => genreIds.includes(genre.id) && genre.name)
           .filter((genre) => Boolean(genre) === true)
-          .join(", ");
+          .join(', ')
       }
 
-      return result;
+      return result
     },
     [genres]
-  );
+  )
 
   return (
     <GenreContext.Provider
@@ -49,7 +45,7 @@ const GenreProvider: React.FC = ({ children }) => {
     >
       {children}
     </GenreContext.Provider>
-  );
-};
+  )
+}
 
-export default GenreProvider;
+export default GenreProvider
