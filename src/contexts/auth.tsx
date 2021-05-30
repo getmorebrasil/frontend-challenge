@@ -47,6 +47,8 @@ const AuthProvider: React.FC = ({ children }) => {
         persistAuthenticate(response.data.token, response.data.user)
       }
 
+      setLoading(false)
+
       return response
     },
     [persistAuthenticate]

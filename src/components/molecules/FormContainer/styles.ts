@@ -5,20 +5,32 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-width: 580px;
-  min-height: 30rem;
-  border-radius: 1.5rem;
+  max-width: 450px;
+  min-height: 300px;
+  border-radius: 2rem;
   background: ${({ theme }) => theme.colors.contrastColor};
   margin: 8px;
-  padding: 0 4rem 4rem;
+  padding: 4rem;
+  border: 1px solid #ccc;
 `
 
 export const FormChildren = styled(Form)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   margin-top: 3rem;
+
+  & > img {
+    display: block;
+    margin: 4rem auto 0 auto;
+  }
+
+  & > button {
+    margin-top: 4rem;
+  }
+
   & > a {
     color: ${({ theme }) => theme.colors.primary};
     margin-top: 2rem;

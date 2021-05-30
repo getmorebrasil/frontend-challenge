@@ -1,27 +1,50 @@
 import { useCallback, useRef } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import Head from 'next/head'
 import { FormHandles } from '@unform/core'
 import styled from 'styled-components'
 import * as Yup from 'yup'
 import Swal from 'sweetalert2'
+import Link from 'next/link'
 import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
 import { signIn } from '../libs/validators'
 import { ISignIn } from '../libs/interfaces/pages'
 import { getValidationErrors } from '../utils'
 import { useAuth } from '../hooks'
-import { centerFlex } from '../styles/global'
+import { backgroundImageStyle, centerFlex } from '../styles/global'
 
 export const Container = styled.main`
   ${centerFlex};
-  height: 100vh;
+  ${backgroundImageStyle};
+  background: url('/background.jpg') rgba(0, 0, 0, 0.9);
+  min-height: 100vh;
+  padding: 3rem;
+`
+
+export const Content = styled.section`
+  ${centerFlex};
+  flex-direction: column;
+
+  & p {
+    margin-top: 2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: ${({ theme }) => theme.colors.secondary};
+    cursor: pointer;
+
+    & > span {
+      margin-left: 6px;
+      color: ${({ theme }) => theme.colors.primary};
+      text-decoration: underline;
+    }
+  }
 `
 
 export default function SignIn() {
   const formRef = useRef<FormHandles>(null)
   const router = useRouter()
-  const { loading, setLoading, createAuth } = useAuth()
+  const { loading, createAuth } = useAuth()
 
   const handleSubmit = useCallback(
     async (data: ISignIn): Promise<void> => {
@@ -50,22 +73,33 @@ export default function SignIn() {
 
           return
         }
+
         Swal.fire('Error...', 'Something went wrong!', 'error')
-      } finally {
-        setLoading(false)
       }
     },
-    [createAuth, router, setLoading]
+    [createAuth, router]
   )
 
   return (
-    <Container>
-      <FormContainer formRef={formRef} handleSubmit={handleSubmit}>
-        <Input name="email" label="Email" required />
-        <Input name="password" label="Password" required />
-        <Button text="Sign In" isLoading={loading} />
-        <Link href="/signup">Do not have an account? Sign Up</Link>
-      </FormContainer>
-    </Container>
+    <>
+      <Head>
+        <title>getmovies | Acessar contar</title>
+        <meta name="description" content="Acessar conta no portal getmovies" />
+      </Head>
+      <Container>
+        <Content>
+          <FormContainer formRef={formRef} handleSubmit={handleSubmit}>
+            <Input name="email" label="Email" required />
+            <Input name="password" label="Password" required />
+            <Button text="Sign In" isLoading={loading} />
+          </FormContainer>
+          <Link href="/signup">
+            <p>
+              Do not have an account? <span>Register now</span>
+            </p>
+          </Link>
+        </Content>
+      </Container>
+    </>
   )
 }

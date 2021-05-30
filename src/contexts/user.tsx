@@ -12,7 +12,7 @@ const UserProvider: React.FC = ({ children }) => {
 
   const storageUser = useCallback((userData) => {
     setUser(userData)
-    localStorage.setItem('@HuskyFire:user', JSON.stringify(userData))
+    localStorage.setItem('getmovies.user', JSON.stringify(userData))
   }, [])
 
   const persistAuthenticate = useCallback(
@@ -33,6 +33,8 @@ const UserProvider: React.FC = ({ children }) => {
       if (response.success && response?.data?.token) {
         persistAuthenticate(response.data.token, response.data.user)
       }
+
+      setLoading(false)
 
       return response
     },

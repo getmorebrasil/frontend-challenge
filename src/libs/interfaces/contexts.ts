@@ -15,6 +15,7 @@ export interface ITheme {
     contrastColor: string
     background: string
     border: string
+    error: string
   }
 }
 

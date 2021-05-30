@@ -9,7 +9,7 @@ export default async function getShowCaseMovie(): Promise<IResponse<IShowCaseIMo
       URLS.TOP_RATED
     )
 
-    return api.response.success(response.data, response.status)
+    return api.response.success(response.data.results[0], response.status)
   } catch (error) {
     return api.response.error(error)
   }

@@ -58,9 +58,9 @@ const MovieProvider: React.FC = ({ children }) => {
   )
 
   const getMovieCredits = useCallback(
-    async (_movies: IMovie[]): Promise<IMovie[]> => {
+    async (moviesToApplyCredits: IMovie[]): Promise<IMovie[]> => {
       const moviesWithCredits = await Promise.all(
-        _movies.map(async (movie) => {
+        moviesToApplyCredits.map(async (movie) => {
           const { data } = await movieService.listCredits(movie.id)
 
           const updatedMovie = extractDirectorName({ ...movie, credits: data })
@@ -75,10 +75,10 @@ const MovieProvider: React.FC = ({ children }) => {
   )
 
   const prepareMovies = useCallback(
-    async (__movies: IMovie[]) => {
-      if (__movies) {
+    async (moviesToPrepare: IMovie[]) => {
+      if (moviesToPrepare) {
         const responseData = await getMovieCredits(
-          __movies.map((movie) => {
+          moviesToPrepare.map((movie) => {
             const formattedGenres = formatGenres(movie.genre_ids)
 
             return { ...movie, formattedGenres }

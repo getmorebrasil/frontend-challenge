@@ -8,6 +8,7 @@ export const darkTheme = {
     contrastColor: '#000',
     background: '#050408',
     border: '#ccc',
+    error: '#E33D3D',
   },
 }
 
@@ -21,5 +22,6 @@ export const lightTheme = {
     contrastColor: '#fff',
     background: '#eee',
     border: '#777',
+    error: '#E33D3D',
   },
 }

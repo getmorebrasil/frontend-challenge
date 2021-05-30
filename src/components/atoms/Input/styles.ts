@@ -9,29 +9,35 @@ interface InputStyleProps {
 export const Container = styled.div<InputStyleProps>`
   width: inherit;
   margin-bottom: 1.5rem;
+
   & > label {
-    color: ${({ theme }) => theme.colors.secondary};
     font-weight: 600;
     font-size: 0.9rem;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.secondary};
   }
+
   & > input {
     width: inherit;
-    height: 3.3rem;
-    padding: 0.5rem;
+    height: 4rem;
+    padding: 0.8rem;
     margin-top: 0.6rem;
-    border-radius: 1.2rem;
-    border: 0.12rem solid ${({ theme }) => theme.colors.constrastColor};
-    background: ${({ theme }) => theme.colors.white};
+    border-radius: 1rem;
     color: ${({ theme }) => theme.colors.primary};
-    color: ${({ isFocused, isFilled, theme }) => (isFocused || isFilled) && theme.colors.border};
-    border-color: ${({ withError, theme }) => withError && theme.colors.primary};
-    border-color: ${({ isFocused, theme }) => isFocused && theme.colors.secondary};
+    background: ${({ theme }) => theme.colors.secondary};
+    border: 2px solid ${({ theme }) => theme.colors.border};
+    border-color: ${({ isFilled, theme }) => isFilled && theme.colors.primary};
+    border-color: ${({ isFocused, theme }) => isFocused && theme.colors.primary};
+    border-color: ${({ withError, theme }) => withError && theme.colors.error};
   }
-  & > p {
+
+  & > em {
+    display: block;
     width: inherit;
     font-size: 0.9rem;
-    color: ${({ theme }) => theme.colors.primary};
-    margin-top: 0.6rem;
-    margin-bottom: 0.2rem;
+    color: ${({ theme }) => theme.colors.error};
+    margin-top: 0.7rem;
+    margin-bottom: 0.3rem;
+    font-style: unset;
   }
 `

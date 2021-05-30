@@ -42,7 +42,7 @@ const Input: React.FC<IInputProps> = ({ name, label, required, ...rest }) => {
         {...rest}
       />
 
-      {!!error && <p>{error}</p>}
+      {!!error && <em>{error}</em>}
     </Container>
   )
 }
