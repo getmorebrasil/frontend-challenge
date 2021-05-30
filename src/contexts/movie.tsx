@@ -43,7 +43,7 @@ const MovieProvider: React.FC = ({ children }) => {
       if (response.success && response.data) {
         const movie = response.data
 
-        const { data } = await movieService.getMovieCredits(movie.id)
+        const { data } = await movieService.listCredits(movie.id)
 
         const updatedMovie = extractDirectorName({ ...movie, credits: data })
 
@@ -61,7 +61,7 @@ const MovieProvider: React.FC = ({ children }) => {
     async (_movies: IMovie[]): Promise<IMovie[]> => {
       const moviesWithCredits = await Promise.all(
         _movies.map(async (movie) => {
-          const { data } = await movieService.getMovieCredits(movie.id)
+          const { data } = await movieService.listCredits(movie.id)
 
           const updatedMovie = extractDirectorName({ ...movie, credits: data })
 
@@ -92,7 +92,7 @@ const MovieProvider: React.FC = ({ children }) => {
   )
 
   const getPopulars = useCallback(async (): Promise<IResponse<IMovie[]>> => {
-    const response = await movieService.getPopulars()
+    const response = await movieService.listPopulars()
 
     if (response.data) {
       const preparedMovies = await prepareMovies(response.data)
@@ -104,7 +104,7 @@ const MovieProvider: React.FC = ({ children }) => {
   }, [prepareMovies])
 
   const getMovies = useCallback(async (): Promise<IResponse<IMovie[]>> => {
-    const response = await movieService.getMovies()
+    const response = await movieService.listMovies()
 
     if (response.data) {
       const preparedMovies = await prepareMovies(response.data)

@@ -1,6 +1,4 @@
-const withImages = require("next-images");
-
-module.exports = withImages({
+module.exports = {
   esModule: true,
   webpack: (config) => {
     config.module.rules.push({
@@ -12,4 +10,4 @@ module.exports = withImages({
   images: {
     domains: ["image.tmdb.org"],
   },
-});
+}

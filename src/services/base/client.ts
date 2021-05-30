@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import Axios from 'axios'
+import axios from 'axios'
 
-export const client = Axios.create({
+const client = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: { language: 'pt-BR' },
   headers: {
@@ -11,14 +10,4 @@ export const client = Axios.create({
   },
 })
 
-export const mergeSuccess = (data: any, status: number) => ({
-  data,
-  status,
-  success: status === 200,
-})
-
-export const mergeError = (error: any) => ({
-  success: false,
-  status: error.response.status,
-  errors: error.response.data.errors,
-})
+export default client

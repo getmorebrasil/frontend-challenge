@@ -1,0 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const success = (data: any, status: number) => ({
+  data,
+  status,
+  success: status === 200,
+})
+
+const error = (requestError: any) => ({
+  success: false,
+  status: requestError.response.status,
+  errors: requestError.response.data.errors,
+})
+
+const response = { success, error }
+export default response

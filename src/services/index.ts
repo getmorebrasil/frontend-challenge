@@ -1,4 +1,6 @@
-import movieService from './movieService'
-import genreService from './genreService'
+import authService from './auth'
+import userService from './user'
+import movieService from './movie'
+import genreService from './genre'
 
-export { movieService, genreService }
+export { authService, userService, movieService, genreService }

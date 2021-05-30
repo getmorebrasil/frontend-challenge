@@ -18,6 +18,37 @@ export interface ITheme {
   }
 }
 
+export interface IUser {
+  id: string | number
+  email: string
+}
+
+export interface IAuth {
+  user: IUser
+  token: string
+}
+
+export interface ICredentials {
+  email: string
+  password: string
+}
+
+export interface IUserContextData {
+  user: IUser
+  loading: boolean
+  setLoading(state: boolean): void
+  createUser(userData: ICredentials): Promise<IResponse<IAuth>>
+}
+
+export interface IAuthContextData {
+  loading: boolean
+  isAuthenticated: boolean
+  setLoading(state: boolean): void
+  setIsAuthenticated(state: boolean): void
+  createAuth(credentials: ICredentials): Promise<IResponse<IAuth>>
+  logout(): void
+}
+
 export interface IMovie {
   id: number
   title: string

@@ -1,17 +1,15 @@
-import { QueryClient, QueryClientProvider } from 'react-query'
+import AuthProvider from './auth'
 import ThemeProvider from './theme'
 import MovieProvider from './movie'
 import GenreProvider from './genre'
 
-const queryClient = new QueryClient()
-
 const AppProvider: React.FC = ({ children }) => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
+  <ThemeProvider>
+    <AuthProvider>
       <GenreProvider>
         <MovieProvider>{children}</MovieProvider>
       </GenreProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+    </AuthProvider>
+  </ThemeProvider>
 )
 export default AppProvider

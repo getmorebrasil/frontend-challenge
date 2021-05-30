@@ -10,7 +10,7 @@ const GenreProvider: React.FC = ({ children }) => {
   const [genres, setGenres] = useState<IGenre[]>([])
 
   const getGenres = useCallback(async (): Promise<IResponse<IGenre[]>> => {
-    const response = await genreService.getGenres()
+    const response = await genreService.listGenres()
 
     if (response.data) setGenres(response.data)
 

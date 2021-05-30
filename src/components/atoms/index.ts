@@ -5,5 +5,6 @@ import Star from './Star'
 import BackActionIcon from './BackActionIcon'
 import Categories from './Categories'
 import ContentOffset from './ContentOffset'
+import Input from './Input'
 
-export { Button, Logo, FlexOffset, Star, BackActionIcon, Categories, ContentOffset }
+export { Button, Logo, FlexOffset, Star, BackActionIcon, Categories, ContentOffset, Input }
