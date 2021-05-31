@@ -13,8 +13,9 @@ const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
     router.push('/perfil')
   }, [router])
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const handleLogout = useCallback(() => {}, [])
+  const handleLogout = useCallback(() => {
+    router.push('/signin')
+  }, [router])
 
   return (
     <Container>

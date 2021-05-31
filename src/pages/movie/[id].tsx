@@ -39,12 +39,16 @@ const ShowCase = styled.section`
   }
 
   @media (max-width: 960px) {
-    margin-bottom: 12rem;
+    margin-bottom: 10rem;
   }
 
   @media (max-width: 860px) {
     height: 47rem;
-    margin-bottom: 7rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (max-width: 580px) {
+    height: 42rem;
   }
 `
 
@@ -117,7 +121,7 @@ const RightSide = styled.aside`
   }
 
   & > button {
-    margin-top: 16rem;
+    margin-top: 8rem;
     margin-left: auto;
     border-color: ${({ theme }) => theme.colors.secondary};
 

@@ -2,7 +2,7 @@
 const success = (data: any, status: number) => ({
   data,
   status,
-  success: status === 200,
+  success: status === 200 || status === 201,
 })
 
 const error = (requestError: any) => ({

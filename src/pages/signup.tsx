@@ -30,7 +30,8 @@ export const Content = styled.section`
     margin-top: 2rem;
     font-weight: 700;
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) =>
+      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
     cursor: pointer;
 
     & > span {

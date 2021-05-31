@@ -1,14 +1,16 @@
-import axios from 'axios'
 import api from '../base'
-import { URLS } from '../../constants'
 import { IAuth, ICredentials } from '../../libs/interfaces/contexts'
 import { IResponse } from '../../libs/interfaces/services'
 
 export default async function createUser(data: ICredentials): Promise<IResponse<IAuth>> {
   try {
-    const response = await axios.post(URLS.AUTH, data)
+    const promise = new Promise((resolve) => {
+      setTimeout(() => resolve(data), 2000)
+    })
 
-    return api.response.success(response.data.genres, response.status)
+    await promise
+
+    return api.response.success({ user: {}, token: 'token' }, 201)
   } catch (error) {
     return api.response.error(error)
   }

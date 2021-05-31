@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { IAuthContextData, IUser } from '../libs/interfaces/contexts'
 import { authService } from '../services'
 import { storageToken } from '../utils'
-import api from '../services/base'
+// import api from '../services/base'
 
 export const AuthContext = React.createContext<IAuthContextData>({} as IAuthContextData)
 
@@ -19,7 +19,7 @@ const AuthProvider: React.FC = ({ children }) => {
       setIsAuthenticated(true)
       storageToken(token)
       storageUser(user)
-      api.actions.applyToken(token, api.client)
+      // api.actions.applyToken(token, api.client)
     },
     [storageUser]
   )
@@ -58,7 +58,7 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem('getmovies.user')
     localStorage.removeItem('getmovies.token')
     setIsAuthenticated(false)
-    api.actions.unstickToken(api.client)
+    // api.actions.unstickToken(api.client)
   }, [])
 
   return (

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { IUserContextData, IUser } from '../libs/interfaces/contexts'
-import api from '../services/base'
+// import api from '../services/base'
 import { userService } from '../services'
 import { storageToken } from '../utils'
 
@@ -19,7 +19,7 @@ const UserProvider: React.FC = ({ children }) => {
     (token: string, userToPersist: IUser) => {
       storageUser(userToPersist)
       storageToken(token)
-      api.actions.applyToken(token, api.client)
+      // api.actions.applyToken(token, api.client)
     },
     [storageUser]
   )
