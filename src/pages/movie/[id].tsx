@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import styled from 'styled-components'
 import { Button, Categories } from '../../components/atoms'
 import { Classification, Header, Footer, Loading } from '../../components/molecules'
 import { StarringRoles } from '../../components/organisms'
-import { useMovie } from '../../hooks'
 import { IMovie } from '../../libs/interfaces/contexts'
 import { truncateString } from '../../helpers'
+import getMovie from '../../services/movie/get'
 
 const Container = styled.main`
   min-height: calc(100vh - 60px);
@@ -187,26 +188,13 @@ const MainInfo = styled.section`
   }
 `
 
-export default function Movie() {
-  const { getMovie } = useMovie()
+interface IMovieProps {
+  movie: IMovie
+  formattedMovie: IMovie
+}
+
+export default function Movie({ movie, formattedMovie }: IMovieProps) {
   const router = useRouter()
-
-  const [loading, setLoading] = useState(true)
-  const [movie, setMovie] = useState<IMovie>({} as IMovie)
-
-  useEffect(() => {
-    async function loadMovie(): Promise<void> {
-      const { id } = router.query
-
-      const { data } = await getMovie(Number(id))
-
-      if (data) setMovie(data)
-
-      setLoading(false)
-    }
-
-    loadMovie()
-  }, [getMovie, router.query])
 
   const handleWatchNow = useCallback(() => {
     router.push('/watching')
@@ -214,7 +202,7 @@ export default function Movie() {
 
   return (
     <>
-      {!loading && (
+      {!router.isFallback && (
         <Head>
           <title>Detalhes | {movie.title}</title>
           <meta name="description" content={movie.overview} />
@@ -224,51 +212,81 @@ export default function Movie() {
       <Container>
         <Header withBackAction />
 
-        {loading ? (
+        {router.isFallback ? (
           <Loading />
         ) : (
           <>
             <ShowCase>
               <section>
                 <MoviePoster
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={`Poster do Filme: ${movie.title}`}
+                  src={`https://image.tmdb.org/t/p/w500/${formattedMovie.poster_path}`}
+                  alt={`Poster do Filme: ${formattedMovie.title}`}
                 />
               </section>
 
               <RightSide>
-                <Title>{truncateString(movie.title, 38)}</Title>
+                <Title>{formattedMovie.title}</Title>
                 <MainInfo>
                   <div>
-                    <Categories fontSize={1.6}>
-                      {truncateString(movie.formattedGenres, 32)}
-                    </Categories>
+                    <Categories fontSize={1.6}>{formattedMovie.formattedGenres}</Categories>
 
                     <Classification classification={8.7} />
                   </div>
                 </MainInfo>
 
                 <h3>
-                  Director <span>{movie.directorName ? movie.directorName : 'Não encontrado'}</span>{' '}
+                  Director{' '}
+                  <span>
+                    {formattedMovie.directorName ? formattedMovie.directorName : 'Não encontrado'}
+                  </span>{' '}
                   | Language{' '}
                   <span>
-                    {movie.original_language ? movie.original_language : 'Não encontrado'}
+                    {formattedMovie.original_language
+                      ? formattedMovie.original_language
+                      : 'Não encontrado'}
                   </span>{' '}
-                  | Status <span>{movie.status}</span> | Released at{' '}
-                  <span>{movie.release_date}</span>
+                  | Status <span>{formattedMovie.status}</span> | Released at{' '}
+                  <span>{formattedMovie.release_date}</span>
                 </h3>
 
-                <h4>{truncateString(movie.overview, 344)}</h4>
+                <h4>{formattedMovie.overview}</h4>
 
                 <Button text="Watch Now" handleAction={handleWatchNow} />
               </RightSide>
             </ShowCase>
 
-            {movie.credits && <StarringRoles data={movie.credits.cast} />}
+            {formattedMovie.credits && <StarringRoles data={formattedMovie.credits.cast} />}
             <Footer />
           </>
         )}
       </Container>
     </>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data: movie } = await getMovie(Number(params?.id))
+
+  let formattedMovie = {} as IMovie
+
+  if (movie) {
+    formattedMovie = {
+      ...movie,
+      title: truncateString(movie.title, 38),
+      overview: truncateString(movie.overview, 344),
+      formattedGenres: truncateString(movie.formattedGenres, 32),
+    }
+  }
+
+  return {
+    props: { movie, formattedMovie },
+    revalidate: 60 * 60 * 24,
+  }
 }

@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, memo, useMemo } from 'react'
 import { Container } from './styles'
 import { Star } from '../../atoms'
 import { StarProps, StarsProps } from '../../../libs/types/atoms'
@@ -19,14 +19,24 @@ const Stars: React.FC<StarsProps> = ({ size, classification }) => {
     return result
   }, [classification])
 
+  const starsByClassification = useMemo(() => {
+    const result = getStarsByClassification()
+
+    return result
+  }, [getStarsByClassification])
+
   return (
     <Container size={size}>
-      {getStarsByClassification().map((type: string, index) => (
-        // eslint-disable-next-line react/no-array-index-key
+      {starsByClassification.map((type: string, index) => (
         <Star key={type + index} type={type as StarProps['type']} />
       ))}
     </Container>
   )
 }
 
-export default Stars
+export default memo(Stars, (prevProps, nextProps) => {
+  return (
+    Object.is(prevProps.size, nextProps.size) &&
+    Object.is(prevProps.classification, nextProps.classification)
+  )
+})

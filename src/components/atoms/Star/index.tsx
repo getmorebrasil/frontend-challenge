@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { IMAGES } from '../../../constants'
 import { StarProps } from '../../../libs/types/atoms'
 
@@ -10,7 +10,13 @@ const Star: React.FC<StarProps> = ({ type }) => {
     return IMAGES.star
   }, [type])
 
-  return <img src={getStarByType()} alt="Estrela de classificação" />
+  const starByType = useMemo(() => {
+    const result = getStarByType()
+
+    return result
+  }, [getStarByType])
+
+  return <img src={starByType} alt="Estrela de classificação" />
 }
 
 export default Star

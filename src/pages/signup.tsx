@@ -5,11 +5,8 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import Swal from 'sweetalert2'
-import * as Yup from 'yup'
 import { useAuth, useUser } from '../hooks'
-import { signUp } from '../libs/validators'
 import { ISignUp } from '../libs/interfaces/pages'
-import { getValidationErrors } from '../utils'
 import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
 import { centerFlex, backgroundImageStyle } from '../styles/global'
@@ -53,6 +50,8 @@ const SignUp: React.FC = () => {
       try {
         formRef.current?.setErrors({})
 
+        const { signUp } = await import('../libs/validators')
+
         await signUp.validate(data, {
           abortEarly: false,
         })
@@ -67,7 +66,10 @@ const SignUp: React.FC = () => {
           router.push('/signed')
         }
       } catch (error) {
-        if (error instanceof Yup.ValidationError) {
+        const { ValidationError } = await import('yup')
+        const { getValidationErrors } = await import('../utils')
+
+        if (error instanceof ValidationError) {
           const errors = getValidationErrors(error)
           formRef.current?.setErrors(errors)
 

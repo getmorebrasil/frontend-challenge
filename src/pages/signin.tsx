@@ -3,14 +3,11 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { FormHandles } from '@unform/core'
 import styled from 'styled-components'
-import * as Yup from 'yup'
-import Swal from 'sweetalert2'
 import Link from 'next/link'
+import Swal from 'sweetalert2'
 import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
-import { signIn } from '../libs/validators'
 import { ISignIn } from '../libs/interfaces/pages'
-import { getValidationErrors } from '../utils'
 import { useAuth } from '../hooks'
 import { backgroundImageStyle, centerFlex } from '../styles/global'
 
@@ -52,6 +49,8 @@ export default function SignIn() {
       try {
         formRef.current?.setErrors({})
 
+        const { signIn } = await import('../libs/validators')
+
         await signIn.validate(data, {
           abortEarly: false,
         })
@@ -68,7 +67,10 @@ export default function SignIn() {
 
         Swal.fire('Error...', response.errors, 'error')
       } catch (error) {
-        if (error instanceof Yup.ValidationError) {
+        const { ValidationError } = await import('yup')
+        const { getValidationErrors } = await import('../utils')
+
+        if (error instanceof ValidationError) {
           const errors = getValidationErrors(error)
           formRef.current?.setErrors(errors)
 

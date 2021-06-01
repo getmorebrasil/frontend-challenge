@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Container } from './styles'
 import { Stars } from '../../molecules'
 import { ClassificationProps } from '../../../libs/types/molecules'
@@ -9,4 +10,6 @@ const Classification: React.FC<ClassificationProps> = ({ classification, starsSi
   </Container>
 )
 
-export default Classification
+export default memo(Classification, (prevProps, nextProps) => {
+  return Object.is(prevProps.classification, nextProps.classification)
+})

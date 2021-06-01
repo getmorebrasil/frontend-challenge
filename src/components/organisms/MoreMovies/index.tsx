@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, memo, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { truncateString } from '../../../helpers'
 import { MoreMoviesProps } from '../../../libs/types/organisms'
@@ -7,8 +7,21 @@ import { Classification } from '../../molecules'
 
 import { Container, Movie, MoviePoster, CenterContent, RightSide } from './styles'
 
-const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
+const MoreMovies: React.FC<MoreMoviesProps> = ({ data }) => {
   const router = useRouter()
+
+  const formattedData = useMemo(() => {
+    const result = data.map((movie) => {
+      return {
+        ...movie,
+        title: truncateString(movie.title, 30),
+        overview: truncateString(movie.overview, 250),
+        formattedGenres: truncateString(movie.formattedGenres, 24),
+      }
+    })
+
+    return result
+  }, [data])
 
   const handleGetDetails = useCallback(
     (movieId: number) => {
@@ -21,16 +34,16 @@ const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
     <Container>
       <h2>More Movies</h2>
 
-      {data.map((movie) => (
+      {formattedData.map((movie) => (
         <Movie key={movie.id}>
           <MoviePoster src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} />
           <CenterContent>
-            <h2>{truncateString(movie.title, 30)}</h2>
+            <h2>{movie.title}</h2>
             <h3>Sinopse</h3>
-            <p>{truncateString(movie.overview, 250)}</p>
+            <p>{movie.overview}</p>
           </CenterContent>
           <RightSide>
-            <Categories fontSize={1.6}>{truncateString(movie.formattedGenres, 24)}</Categories>
+            <Categories fontSize={1.6}>{movie.formattedGenres}</Categories>
             <Classification classification={movie.vote_average} />
 
             <Button text="Get Details" handleAction={() => handleGetDetails(movie.id)} />
@@ -47,4 +60,6 @@ const PopularMovies: React.FC<MoreMoviesProps> = ({ data }) => {
   )
 }
 
-export default PopularMovies
+export default memo(MoreMovies, (prevProps, nextProps) => {
+  return Object.is(prevProps.data, nextProps.data)
+})

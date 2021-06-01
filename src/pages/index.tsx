@@ -1,13 +1,17 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
+import { GetStaticProps } from 'next'
 import { truncateString } from '../helpers'
-import { useMovie } from '../hooks'
 import { Button } from '../components/atoms'
 import { Header, Footer, Loading } from '../components/molecules'
 import { PopularMovies, MoreMovies } from '../components/organisms'
 import { backgroundImageStyle } from '../styles/global'
+import getShowCaseMovie from '../services/movie/showCase'
+import listPopulars from '../services/movie/populars'
+import listMovies from '../services/movie/list'
+import { IMovie, IShowCaseIMovie } from '../libs/interfaces/contexts'
 
 const Container = styled.main`
   min-height: calc(100vh - 60px);
@@ -108,38 +112,14 @@ const LeftSide = styled.aside`
   }
 `
 
-export default function Home() {
+interface IHomeProps {
+  formattedShowCase: IShowCaseIMovie
+  populars: IMovie[]
+  movies: IMovie[]
+}
+
+export default function Home({ formattedShowCase, populars, movies }: IHomeProps) {
   const router = useRouter()
-
-  const {
-    movies,
-    loading,
-    populars,
-    getMovies,
-    setLoading,
-    getPopulars,
-    showCaseMovie,
-    getShowCaseMovie,
-  } = useMovie()
-
-  const loadShowCaseMovie = useCallback(async () => {
-    await getShowCaseMovie()
-  }, [getShowCaseMovie])
-
-  const loadPopulars = useCallback(async () => {
-    await getPopulars()
-  }, [getPopulars])
-
-  const loadMovies = useCallback(async () => {
-    await getMovies()
-  }, [getMovies])
-
-  useEffect(() => {
-    loadMovies()
-    loadPopulars()
-    loadShowCaseMovie()
-    setLoading(false)
-  }, [loadPopulars, loadShowCaseMovie, loadMovies, setLoading])
 
   const handleWatchNow = useCallback(() => {
     router.push('/watching')
@@ -156,15 +136,15 @@ export default function Home() {
       </Head>
       <Container>
         <Header />
-        {loading ? (
+        {router.isFallback ? (
           <Loading />
         ) : (
           <>
-            <ShowCase imagePath={showCaseMovie.backdrop_path}>
+            <ShowCase imagePath={formattedShowCase.backdrop_path}>
               <LeftSide>
-                <Title>{truncateString(showCaseMovie.title, 30)}</Title>
+                <Title>{formattedShowCase.title}</Title>
                 <h3>Sinopse</h3>
-                <h4>{truncateString(showCaseMovie.overview, 204)}</h4>
+                <h4>{formattedShowCase.overview}</h4>
               </LeftSide>
 
               <Button text="Watch Now" handleAction={handleWatchNow} />
@@ -179,4 +159,25 @@ export default function Home() {
       </Container>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data: showCase } = await getShowCaseMovie()
+  const { data: populars } = await listPopulars()
+  const { data: movies } = await listMovies()
+
+  let formattedShowCase = {} as IShowCaseIMovie
+
+  if (showCase) {
+    formattedShowCase = {
+      ...showCase,
+      title: truncateString(showCase.title, 30),
+      overview: truncateString(showCase.overview, 204),
+    }
+  }
+
+  return {
+    props: { formattedShowCase, populars, movies },
+    revalidate: 60 * 60 * 24,
+  }
 }

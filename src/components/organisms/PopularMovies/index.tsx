@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, memo, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { Classification } from '../../molecules'
 import { truncateString } from '../../../helpers'
@@ -8,6 +8,17 @@ import { Container, MoviesList, MovieCard, Overlay } from './styles'
 
 const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
   const router = useRouter()
+
+  const formattedData = useMemo(() => {
+    const result = data.map((movie) => {
+      return {
+        ...movie,
+        formattedGenres: truncateString(movie.formattedGenres, 35),
+      }
+    })
+
+    return result
+  }, [data])
 
   const handleGetDetail = useCallback(
     (movieId: number) => {
@@ -21,14 +32,14 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
       <h2>Populars</h2>
 
       <MoviesList>
-        {data.map((movie) => (
+        {formattedData.map((movie) => (
           <MovieCard
             key={movie.id}
             imagePath={movie.poster_path}
             onClick={() => handleGetDetail(movie.id)}
           >
             <Overlay>
-              <Categories>{truncateString(movie.formattedGenres, 35)}</Categories>
+              <Categories>{movie.formattedGenres}</Categories>
               <Classification classification={movie.vote_average} starsSize={1.2} />
             </Overlay>
           </MovieCard>
@@ -39,4 +50,6 @@ const PopularMovies: React.FC<PopularMoviesProps> = ({ data }) => {
   )
 }
 
-export default PopularMovies
+export default memo(PopularMovies, (prevProps, nextProps) => {
+  return Object.is(prevProps.data, nextProps.data)
+})
