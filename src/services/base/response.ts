@@ -8,7 +8,7 @@ const success = (data: any, status: number) => ({
 const error = (requestError: any) => ({
   success: false,
   status: requestError.response.status,
-  errors: requestError.response.data.errors,
+  errors: requestError.response.data.message,
 })
 
 const response = { success, error }

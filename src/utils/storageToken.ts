@@ -1,3 +1,5 @@
+import { setCookie } from 'nookies'
+
 export default function storageToken(token: string) {
-  localStorage.setItem('getmovies.token', token)
+  setCookie(null, 'getmovies.token', token)
 }

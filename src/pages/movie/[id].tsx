@@ -1,14 +1,16 @@
-import { useCallback } from 'react'
-import Head from 'next/head'
+import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import styled from 'styled-components'
 import { Button, Categories } from '../../components/atoms'
-import { Classification, Header, Footer, Loading } from '../../components/molecules'
-import { StarringRoles } from '../../components/organisms'
+import { Classification, Header, Footer } from '../../components/molecules'
+import { StarringRoles, WithSSGAuth } from '../../components/organisms'
 import { IMovie } from '../../libs/interfaces/contexts'
 import { truncateString } from '../../helpers'
 import getMovie from '../../services/movie/get'
+import { withSSGAuth } from '../../utils'
+import { useAuth } from '../../hooks'
+import { IMovieProps } from '../../libs/interfaces/pages'
 
 const Container = styled.main`
   min-height: calc(100vh - 60px);
@@ -188,79 +190,72 @@ const MainInfo = styled.section`
   }
 `
 
-interface IMovieProps {
-  movie: IMovie
-  formattedMovie: IMovie
-}
-
 export default function Movie({ movie, formattedMovie }: IMovieProps) {
   const router = useRouter()
+  const { loading, setLoading, isAuthenticated, setIsAuthenticated } = useAuth()
+
+  useEffect(() => {
+    withSSGAuth({ setLoading, setIsAuthenticated })
+  }, [setIsAuthenticated, setLoading])
 
   const handleWatchNow = useCallback(() => {
     router.push('/watching')
   }, [router])
 
   return (
-    <>
-      {!router.isFallback && (
-        <Head>
-          <title>Detalhes | {movie.title}</title>
-          <meta name="description" content={movie.overview} />
-        </Head>
-      )}
-
+    <WithSSGAuth
+      isLoading={loading}
+      metaContent={movie.overview}
+      isFallback={router.isFallback}
+      isAuthenticated={isAuthenticated}
+      pageTitle={`Detalhes | ${movie.title}`}
+    >
       <Container>
         <Header withBackAction />
 
-        {router.isFallback ? (
-          <Loading />
-        ) : (
-          <>
-            <ShowCase>
-              <section>
-                <MoviePoster
-                  src={`https://image.tmdb.org/t/p/w500/${formattedMovie.poster_path}`}
-                  alt={`Poster do Filme: ${formattedMovie.title}`}
-                />
-              </section>
+        <ShowCase>
+          <section>
+            <MoviePoster
+              src={`https://image.tmdb.org/t/p/w500/${formattedMovie.poster_path}`}
+              alt={`Poster do Filme: ${formattedMovie.title}`}
+            />
+          </section>
 
-              <RightSide>
-                <Title>{formattedMovie.title}</Title>
-                <MainInfo>
-                  <div>
-                    <Categories fontSize={1.6}>{formattedMovie.formattedGenres}</Categories>
+          <RightSide>
+            <Title>{formattedMovie.title}</Title>
+            <MainInfo>
+              <div>
+                <Categories fontSize={1.6}>{formattedMovie.formattedGenres}</Categories>
 
-                    <Classification classification={8.7} />
-                  </div>
-                </MainInfo>
+                <Classification classification={8.7} />
+              </div>
+            </MainInfo>
 
-                <h3>
-                  Director{' '}
-                  <span>
-                    {formattedMovie.directorName ? formattedMovie.directorName : 'Não encontrado'}
-                  </span>{' '}
-                  | Language{' '}
-                  <span>
-                    {formattedMovie.original_language
-                      ? formattedMovie.original_language
-                      : 'Não encontrado'}
-                  </span>{' '}
-                  | Status <span>{formattedMovie.status}</span> | Released at{' '}
-                  <span>{formattedMovie.release_date}</span>
-                </h3>
+            <h3>
+              Director{' '}
+              <span>
+                {formattedMovie.directorName ? formattedMovie.directorName : 'Não encontrado'}
+              </span>{' '}
+              | Language{' '}
+              <span>
+                {formattedMovie.original_language
+                  ? formattedMovie.original_language
+                  : 'Não encontrado'}
+              </span>{' '}
+              | Status <span>{formattedMovie.status}</span> | Released at{' '}
+              <span>{formattedMovie.release_date}</span>
+            </h3>
 
-                <h4>{formattedMovie.overview}</h4>
+            <h4>{formattedMovie.overview}</h4>
 
-                <Button text="Watch Now" handleAction={handleWatchNow} />
-              </RightSide>
-            </ShowCase>
+            <Button text="Watch Now" handleAction={handleWatchNow} />
+          </RightSide>
+        </ShowCase>
 
-            {formattedMovie.credits && <StarringRoles data={formattedMovie.credits.cast} />}
-            <Footer />
-          </>
-        )}
+        {formattedMovie.credits && <StarringRoles data={formattedMovie.credits.cast} />}
+        <Footer />
       </Container>
-    </>
+    </WithSSGAuth>
   )
 }
 

@@ -2,11 +2,11 @@
 import { AxiosInstance } from 'axios'
 
 export function applyToken(token: string, client: AxiosInstance): void {
-  client.defaults.headers.Authorization = `Bearer ${token}`
+  client.defaults.headers.nextAuthorization = `Bearer ${token}`
 }
 
 export function unstickToken(client: AxiosInstance): void {
-  delete client.defaults.headers.Authorization
+  delete client.defaults.headers.nextAuthorization
 }
 
 const actions = { applyToken, unstickToken }

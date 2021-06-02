@@ -1,6 +1,7 @@
+import Head from 'next/head'
 import styled from 'styled-components'
 import { ICONS } from '../constants'
-import { centerFlexContainer } from '../styles/global'
+import { centerFlexContainer, blockContainer } from '../styles/shared'
 
 const Container = styled.main`
   ${centerFlexContainer};
@@ -11,39 +12,26 @@ const TimesIcon = styled(ICONS.AI.AiOutlineClose)`
 `
 
 export const Block = styled.section`
-  display: flex;
-  flex: 1;
-  justify-content: baseline;
-  align-items: center;
-  flex-direction: column;
-  max-width: 580px;
-  border-radius: 1.5rem;
-  background: ${({ theme }) => theme.colors.contrastColor};
-  margin: 8px;
-  padding: 4rem;
-
-  & > h1 {
-    font-size: 2.3rem;
-    color: ${({ theme }) => theme.colors.secondary};
-    font-weight: 400;
-  }
-
-  & > p {
-    font-size: 1rem;
-    color: ${({ theme }) => theme.colors.secondary};
-    font-weight: 400;
-    margin: 1rem 0 2rem 0;
-  }
+  ${blockContainer};
 `
 
 export default function Page404() {
   return (
-    <Container>
-      <Block>
-        <TimesIcon size={140} />
-        <h1>No Route Match!</h1>
-        <p>You are trying to access a route that does not exists...</p>
-      </Block>
-    </Container>
+    <>
+      <Head>
+        <title>Não encontrado | Página solicitada não existe</title>
+        <meta
+          name="description"
+          content="Esta página não existe, por favor reconsidere o link acessado."
+        />
+      </Head>
+      <Container>
+        <Block>
+          <TimesIcon size={140} />
+          <h1>No Route Match!</h1>
+          <p>You are trying to access a route that does not exists...</p>
+        </Block>
+      </Container>
+    </>
   )
 }

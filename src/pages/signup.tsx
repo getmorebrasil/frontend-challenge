@@ -1,15 +1,15 @@
 import { FormHandles } from '@unform/core'
 import { useCallback, useRef } from 'react'
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import Swal from 'sweetalert2'
-import { useAuth, useUser } from '../hooks'
+import { useUser } from '../hooks'
 import { ISignUp } from '../libs/interfaces/pages'
 import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
-import { centerFlex, backgroundImageStyle } from '../styles/global'
+import { centerFlex, backgroundImageStyle } from '../styles/shared'
+import { withSSRGuest } from '../utils'
 
 export const Container = styled.main`
   ${centerFlex};
@@ -39,11 +39,9 @@ export const Content = styled.section`
   }
 `
 
-const SignUp: React.FC = () => {
+export default function SignUp() {
   const formRef = useRef<FormHandles>(null)
-  const router = useRouter()
   const { loading, createUser } = useUser()
-  const { setIsAuthenticated } = useAuth()
 
   const handleSubmit = useCallback(
     async (data: ISignUp): Promise<void> => {
@@ -56,15 +54,11 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         })
 
-        const response = await createUser({
+        await createUser({
           email: data.email,
           password: data.password,
+          confirmPassword: data.confirmPassword,
         })
-
-        if (response?.data?.token) {
-          setIsAuthenticated(true)
-          router.push('/signed')
-        }
       } catch (error) {
         const { ValidationError } = await import('yup')
         const { getValidationErrors } = await import('../utils')
@@ -79,7 +73,7 @@ const SignUp: React.FC = () => {
         Swal.fire('Error...', 'Something went wrong!', 'error')
       }
     },
-    [createUser, router, setIsAuthenticated]
+    [createUser]
   )
 
   return (
@@ -107,4 +101,8 @@ const SignUp: React.FC = () => {
   )
 }
 
-export default SignUp
+export const getServerSideProps = withSSRGuest(async () => {
+  return {
+    props: {},
+  }
+})

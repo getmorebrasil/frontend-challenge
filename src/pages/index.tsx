@@ -1,17 +1,18 @@
-import { useCallback } from 'react'
-import Head from 'next/head'
+import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { GetStaticProps } from 'next'
+import { withSSGAuth } from '../utils'
 import { truncateString } from '../helpers'
 import { Button } from '../components/atoms'
-import { Header, Footer, Loading } from '../components/molecules'
-import { PopularMovies, MoreMovies } from '../components/organisms'
-import { backgroundImageStyle } from '../styles/global'
+import { Header, Footer } from '../components/molecules'
+import { PopularMovies, MoreMovies, WithSSGAuth } from '../components/organisms'
+import { backgroundImageStyle } from '../styles/shared'
 import getShowCaseMovie from '../services/movie/showCase'
 import listPopulars from '../services/movie/populars'
 import listMovies from '../services/movie/list'
 import { IMovie, IShowCaseIMovie } from '../libs/interfaces/contexts'
+import { useAuth } from '../hooks'
 
 const Container = styled.main`
   min-height: calc(100vh - 60px);
@@ -120,44 +121,42 @@ interface IHomeProps {
 
 export default function Home({ formattedShowCase, populars, movies }: IHomeProps) {
   const router = useRouter()
+  const { loading, setLoading, isAuthenticated, setIsAuthenticated } = useAuth()
+
+  useEffect(() => {
+    withSSGAuth({ setLoading, setIsAuthenticated })
+  }, [setIsAuthenticated, setLoading])
 
   const handleWatchNow = useCallback(() => {
     router.push('/watching')
   }, [router])
 
   return (
-    <>
-      <Head>
-        <title>Início | getmovies</title>
-        <meta
-          name="description"
-          content="getmovies o melhor portal informativo sobre filmes do Brasil"
-        />
-      </Head>
+    <WithSSGAuth
+      isLoading={loading}
+      isFallback={router.isFallback}
+      pageTitle="Início | getmovies"
+      isAuthenticated={isAuthenticated}
+      metaContent="getmovies o melhor portal informativo sobre filmes do Brasil"
+    >
       <Container>
         <Header />
-        {router.isFallback ? (
-          <Loading />
-        ) : (
-          <>
-            <ShowCase imagePath={formattedShowCase.backdrop_path}>
-              <LeftSide>
-                <Title>{formattedShowCase.title}</Title>
-                <h3>Sinopse</h3>
-                <h4>{formattedShowCase.overview}</h4>
-              </LeftSide>
+        <ShowCase imagePath={formattedShowCase.backdrop_path}>
+          <LeftSide>
+            <Title>{formattedShowCase.title}</Title>
+            <h3>Sinopse</h3>
+            <h4>{formattedShowCase.overview}</h4>
+          </LeftSide>
 
-              <Button text="Watch Now" handleAction={handleWatchNow} />
-            </ShowCase>
+          <Button text="Watch Now" handleAction={handleWatchNow} />
+        </ShowCase>
 
-            <PopularMovies data={populars} />
+        <PopularMovies data={populars} />
 
-            <MoreMovies data={movies} />
-            <Footer />
-          </>
-        )}
+        <MoreMovies data={movies} />
+        <Footer />
       </Container>
-    </>
+    </WithSSGAuth>
   )
 }
 

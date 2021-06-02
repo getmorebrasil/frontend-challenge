@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
-import { IUserContextData, IUser } from '../libs/interfaces/contexts'
-// import api from '../services/base'
+import { setCookie } from 'nookies'
+import { useRouter } from 'next/router'
+import { IUserContextData } from '../libs/interfaces/contexts'
 import { userService } from '../services'
 import { storageToken } from '../utils'
 
@@ -8,46 +9,41 @@ export const UserContext = React.createContext<IUserContextData>({} as IUserCont
 
 const UserProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = useState(false)
-  const [user, setUser] = useState({} as IUser)
+  const [email, setEmail] = useState('')
+  const router = useRouter()
 
-  const storageUser = useCallback((userData) => {
-    setUser(userData)
-    localStorage.setItem('getmovies.user', JSON.stringify(userData))
+  const storageEmail = useCallback((emailToStorage) => {
+    setEmail(emailToStorage)
+    setCookie(null, 'getmovies.email', emailToStorage)
   }, [])
 
   const persistAuthenticate = useCallback(
-    (token: string, userToPersist: IUser) => {
-      storageUser(userToPersist)
+    (token: string, emailToPersist: string) => {
+      storageEmail(emailToPersist)
       storageToken(token)
-      // api.actions.applyToken(token, api.client)
     },
-    [storageUser]
+    [storageEmail]
   )
 
   const createUser = useCallback(
     async (userData) => {
       setLoading(true)
-
-      const response = await userService.createUser(userData)
-
-      if (response.success && response?.data?.token) {
-        persistAuthenticate(response.data.token, response.data.user)
-      }
-
+      const { data } = await userService.createUser(userData)
       setLoading(false)
 
-      return response
+      if (data) persistAuthenticate(data.token, data.email)
+      router.push('/signed')
     },
-    [persistAuthenticate]
+    [persistAuthenticate, router]
   )
 
   return (
     <UserContext.Provider
       value={{
+        email,
         loading,
         createUser,
         setLoading,
-        user,
       }}
     >
       {children}

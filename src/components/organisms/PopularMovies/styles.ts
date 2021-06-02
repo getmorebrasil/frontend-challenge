@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { backgroundImageStyle, scrollBarStyle } from '../../../styles/global'
+import { backgroundImageStyle, scrollBarStyle } from '../../../styles/shared'
 
 export const Container = styled.section`
   display: flex;

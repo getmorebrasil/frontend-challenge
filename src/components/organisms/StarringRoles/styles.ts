@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { backgroundImageStyle, centerFlex } from '../../../styles/global'
+import { backgroundImageStyle, centerFlex } from '../../../styles/shared'
 
 export const Container = styled.section`
   ${centerFlex};

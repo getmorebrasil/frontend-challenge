@@ -1,5 +1,4 @@
-import { useCallback, useRef } from 'react'
-import { useRouter } from 'next/router'
+import { useCallback, useRef, useState } from 'react'
 import Head from 'next/head'
 import { FormHandles } from '@unform/core'
 import styled from 'styled-components'
@@ -9,7 +8,8 @@ import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
 import { ISignIn } from '../libs/interfaces/pages'
 import { useAuth } from '../hooks'
-import { backgroundImageStyle, centerFlex } from '../styles/global'
+import { backgroundImageStyle, centerFlex } from '../styles/shared'
+import { withSSRGuest } from '../utils'
 
 export const Container = styled.main`
   ${centerFlex};
@@ -41,12 +41,14 @@ export const Content = styled.section`
 
 export default function SignIn() {
   const formRef = useRef<FormHandles>(null)
-  const router = useRouter()
-  const { loading, createAuth } = useAuth()
+  const { createAuth } = useAuth()
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = useCallback(
     async (data: ISignIn): Promise<void> => {
       try {
+        setLoading(true)
+
         formRef.current?.setErrors({})
 
         const { signIn } = await import('../libs/validators')
@@ -55,17 +57,10 @@ export default function SignIn() {
           abortEarly: false,
         })
 
-        const response = await createAuth({
+        await createAuth({
           email: data.email,
           password: data.password,
         })
-
-        if (response.success && response?.data?.token) {
-          router.push('/')
-          return
-        }
-
-        Swal.fire('Error...', response.errors, 'error')
       } catch (error) {
         const { ValidationError } = await import('yup')
         const { getValidationErrors } = await import('../utils')
@@ -78,9 +73,11 @@ export default function SignIn() {
         }
 
         Swal.fire('Error...', 'Something went wrong!', 'error')
+      } finally {
+        setLoading(false)
       }
     },
-    [createAuth, router]
+    [createAuth]
   )
 
   return (
@@ -106,3 +103,9 @@ export default function SignIn() {
     </>
   )
 }
+
+export const getServerSideProps = withSSRGuest(async () => {
+  return {
+    props: {},
+  }
+})

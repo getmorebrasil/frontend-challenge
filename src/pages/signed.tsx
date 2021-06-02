@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
+import { GetServerSideProps } from 'next'
 import { Button } from '../components/atoms'
-import { centerFlex } from '../styles/global'
+import { centerFlex } from '../styles/shared'
+import { withSSRAuth } from '../utils'
 
 export const Container = styled.main`
   display: flex;
@@ -41,7 +43,7 @@ export const CompleteImage = styled.img`
   margin-bottom: 1.8rem;
 `
 
-const Signed: React.FC = () => {
+export default function Signed() {
   const router = useRouter()
 
   const handleGetMovies = useCallback(() => {
@@ -60,4 +62,8 @@ const Signed: React.FC = () => {
   )
 }
 
-export default Signed
+export const getServerSideProps: GetServerSideProps = withSSRAuth(async () => {
+  return {
+    props: {},
+  }
+})

@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import { IResponse } from './services'
 
 export interface IThemeContextData {
@@ -19,35 +20,31 @@ export interface ITheme {
   }
 }
 
-export interface IUser {
-  id: string | number
-  email: string
-}
-
 export interface IAuth {
-  user: IUser
+  email: string
   token: string
 }
 
 export interface ICredentials {
   email: string
   password: string
+  confirmPassword: string
 }
 
 export interface IUserContextData {
-  user: IUser
+  email: string
   loading: boolean
   setLoading(state: boolean): void
-  createUser(userData: ICredentials): Promise<IResponse<IAuth>>
+  createUser(userData: ICredentials): Promise<void>
 }
 
 export interface IAuthContextData {
+  logout(): void
   loading: boolean
   isAuthenticated: boolean
-  setLoading(state: boolean): void
-  setIsAuthenticated(state: boolean): void
-  createAuth(credentials: ICredentials): Promise<IResponse<IAuth>>
-  logout(): void
+  setLoading: Dispatch<SetStateAction<boolean>>
+  setIsAuthenticated: Dispatch<SetStateAction<boolean>>
+  createAuth(credentials: Omit<ICredentials, 'confirmPassword'>): Promise<void>
 }
 
 export interface IMovie {

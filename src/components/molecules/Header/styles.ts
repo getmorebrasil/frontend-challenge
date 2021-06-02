@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { centerFlex } from '../../../styles/global'
+import { centerFlex } from '../../../styles/shared'
 
 export const Container = styled.header`
   ${centerFlex};

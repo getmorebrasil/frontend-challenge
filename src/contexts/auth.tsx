@@ -1,75 +1,57 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { IAuthContextData, IUser } from '../libs/interfaces/contexts'
+import React, { useCallback, useState } from 'react'
+import { setCookie, destroyCookie } from 'nookies'
+import { useRouter } from 'next/router'
+import { IAuthContextData } from '../libs/interfaces/contexts'
 import { authService } from '../services'
 import { storageToken } from '../utils'
-// import api from '../services/base'
 
 export const AuthContext = React.createContext<IAuthContextData>({} as IAuthContextData)
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const storageUser = useCallback((userData) => {
-    localStorage.setItem('getmovies.user', JSON.stringify(userData))
+  const router = useRouter()
+
+  const storageEmail = useCallback((email) => {
+    setCookie(null, 'getmovies.email', email)
   }, [])
 
   const persistAuthenticate = useCallback(
-    (token: string, user: IUser) => {
-      setIsAuthenticated(true)
+    (token: string, email: string) => {
       storageToken(token)
-      storageUser(user)
-      // api.actions.applyToken(token, api.client)
+      storageEmail(email)
     },
-    [storageUser]
+    [storageEmail]
   )
-
-  useEffect(() => {
-    const storagedToken = localStorage.getItem('getmovies.token')
-    const storagedUser = localStorage.getItem('getmovies.user')
-
-    if (storagedUser && storagedToken) {
-      persistAuthenticate(storagedToken, JSON.parse(storagedUser))
-    } else {
-      setIsAuthenticated(false)
-    }
-
-    setLoading(false)
-  }, [persistAuthenticate])
 
   const createAuth = useCallback(
     async (credentials) => {
-      setLoading(true)
+      const { data } = await authService.createAuth(credentials)
 
-      const response = await authService.createAuth(credentials)
-
-      if (response.success && response?.data?.token) {
-        persistAuthenticate(response.data.token, response.data.user)
-      }
-
-      setLoading(false)
-
-      return response
+      if (data) persistAuthenticate(data.token, data.email)
+      router.push('/signed')
     },
-    [persistAuthenticate]
+    [persistAuthenticate, router]
   )
 
   const logout = useCallback(async () => {
-    localStorage.removeItem('getmovies.user')
-    localStorage.removeItem('getmovies.token')
-    setIsAuthenticated(false)
-    // api.actions.unstickToken(api.client)
-  }, [])
+    if (process.browser) {
+      destroyCookie(null, 'getmovies.email')
+      destroyCookie(null, 'getmovies.token')
+      router.push('/signin')
+    }
+  }, [router])
 
   return (
     <AuthContext.Provider
       value={{
+        logout,
         loading,
         setLoading,
         createAuth,
         isAuthenticated,
         setIsAuthenticated,
-        logout,
       }}
     >
       {children}

@@ -1,41 +1,5 @@
-import { createGlobalStyle, css } from 'styled-components'
-
-export const centerFlex = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-export const centerFlexContainer = css`
-  min-height: 100vh;
-  ${centerFlex};
-`
-
-export const backgroundImageStyle = css`
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-`
-
-export const scrollBarStyle = css`
-  &::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  scrollbar-width: thin;
-  scrollbar-color: blue transparent;
-
-  &::-webkit-scrollbar-track {
-    background: transparent; /* color of the tracking area */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.neutralColor};
-    border-radius: 10px;
-  }
-`
+import { createGlobalStyle } from 'styled-components'
+import { scrollBarStyle } from './shared'
 
 const GlobalStyle = createGlobalStyle`
   * {

@@ -1,12 +1,13 @@
 import { useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { ICONS } from '../../../constants'
-import { useTheme } from '../../../hooks'
+import { useAuth, useTheme } from '../../../hooks'
 import { Logo, BackActionIcon, FlexOffset } from '../../atoms'
 import { Container, GroupActions, ThemeSwitch } from './styles'
 
 const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
   const { theme, toggleTheme } = useTheme()
+  const { logout } = useAuth()
   const router = useRouter()
 
   const handleNavigatePerfil = useCallback(() => {
@@ -14,8 +15,8 @@ const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
   }, [router])
 
   const handleLogout = useCallback(() => {
-    router.push('/signin')
-  }, [router])
+    logout()
+  }, [logout])
 
   return (
     <Container>

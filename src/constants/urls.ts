@@ -1,6 +1,8 @@
 const POPULARS = 'movie/popular'
 const GENRES = 'genre/movie/list'
 const TOP_RATED = 'movie/top_rated'
+const AUTH = 'api/auth'
+const USERS = 'api/users'
 
 function IMAGE(path: string) {
   return `https://image.tmdb.org/t/p/w500/${path}`
@@ -21,6 +23,8 @@ const URLS = {
   CREDITS,
   POPULARS,
   TOP_RATED,
+  AUTH,
+  USERS,
 }
 
 export default URLS
