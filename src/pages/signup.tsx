@@ -1,6 +1,5 @@
 import { FormHandles } from '@unform/core'
 import { useCallback, useRef } from 'react'
-import styled from 'styled-components'
 import Head from 'next/head'
 import Link from 'next/link'
 import Swal from 'sweetalert2'
@@ -8,36 +7,8 @@ import { useUser } from '../hooks'
 import { ISignUp } from '../libs/interfaces/pages'
 import { Button, Input } from '../components/atoms'
 import { FormContainer } from '../components/molecules'
-import { centerFlex, backgroundImageStyle } from '../styles/shared'
 import { withSSRGuest } from '../utils'
-
-export const Container = styled.main`
-  ${centerFlex};
-  ${backgroundImageStyle};
-  background: url('/background.jpg') rgba(0, 0, 0, 0.9);
-  min-height: 100vh;
-  padding: 1rem;
-`
-
-export const Content = styled.section`
-  ${centerFlex};
-  flex-direction: column;
-
-  & p {
-    margin-top: 2rem;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: ${({ theme }) =>
-      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
-    cursor: pointer;
-
-    & > span {
-      margin-left: 6px;
-      color: ${({ theme }) => theme.colors.primary};
-      text-decoration: underline;
-    }
-  }
-`
+import { Container, Content } from '../styles/pages/signup'
 
 export default function SignUp() {
   const formRef = useRef<FormHandles>(null)

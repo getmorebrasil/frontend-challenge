@@ -18,6 +18,25 @@ export const backgroundImageStyle = css`
   background-blend-mode: multiply;
 `
 
+export const authContent = css`
+  flex-direction: column;
+
+  & p {
+    margin-top: 2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: ${({ theme }) =>
+      theme.name === 'light' ? theme.colors.contrastColor : theme.colors.secondary};
+    cursor: pointer;
+
+    & > span {
+      margin-left: 6px;
+      color: ${({ theme }) => theme.colors.primary};
+      text-decoration: underline;
+    }
+  }
+`
+
 export const blockContainer = css`
   display: flex;
   flex: 1;

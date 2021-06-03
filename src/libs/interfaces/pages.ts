@@ -1,4 +1,10 @@
-import { IMovie } from './contexts'
+import { IMovie, IShowCaseIMovie } from './contexts'
+
+export interface IHomeProps {
+  formattedShowCase: IShowCaseIMovie
+  populars: IMovie[]
+  movies: IMovie[]
+}
 
 export interface ISignIn {
   email: string

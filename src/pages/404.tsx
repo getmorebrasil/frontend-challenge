@@ -1,19 +1,5 @@
 import Head from 'next/head'
-import styled from 'styled-components'
-import { ICONS } from '../constants'
-import { centerFlexContainer, blockContainer } from '../styles/shared'
-
-const Container = styled.main`
-  ${centerFlexContainer};
-`
-
-const TimesIcon = styled(ICONS.AI.AiOutlineClose)`
-  color: ${({ theme }) => theme.colors.primary};
-`
-
-export const Block = styled.section`
-  ${blockContainer};
-`
+import { Container, TimesIcon, Block } from '../styles/pages/404'
 
 export default function Page404() {
   return (
