@@ -8,7 +8,7 @@ export interface IResponse<Data> {
 
 export interface ITheMovieDBListResponse<Data> {
   page: number
-  results: Data[]
+  results: Data
   status: number
   total_pages: number
   total_results: number

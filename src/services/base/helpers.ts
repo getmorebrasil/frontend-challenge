@@ -10,4 +10,5 @@ export function unstickToken(client: AxiosInstance): void {
 }
 
 const actions = { applyToken, unstickToken }
+
 export default actions

@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from 'react'
-import { setCookie } from 'nookies'
+import React, { useCallback, useEffect, useState } from 'react'
+import { parseCookies, setCookie } from 'nookies'
 import { useRouter } from 'next/router'
 import { IUserContextData } from '../libs/interfaces/contexts'
 import { userService } from '../services'
 import { storageToken } from '../utils'
+import { truncateString } from '../helpers'
 
 export const UserContext = React.createContext<IUserContextData>({} as IUserContextData)
 
@@ -11,6 +12,12 @@ const UserProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const router = useRouter()
+
+  useEffect(() => {
+    const { 'getmovies.email': storagedEmail } = parseCookies()
+
+    setEmail(truncateString(storagedEmail, 38))
+  }, [])
 
   const storageEmail = useCallback((emailToStorage) => {
     setEmail(emailToStorage)

@@ -9,7 +9,7 @@ export const Container = styled.header`
   padding: 0 5rem;
 
   background: ${({ theme }) =>
-    theme.name === 'light' ? theme.colors.contrastColor : theme.colors.darkNeutralColor};
+    theme.name === 'light' ? theme.colors.emphasizedContrastColor : theme.colors.darkNeutralColor};
 
   @media only screen and (max-width: 1080px) {
     padding: 0 4rem;
@@ -29,6 +29,18 @@ export const Container = styled.header`
 
   @media only screen and (max-width: 560px) {
     padding: 0 1rem;
+  }
+`
+
+export const Email = styled.span`
+  display: block;
+  font-size: 1.2rem;
+  margin-right: 1.4rem;
+  color: ${({ theme }) =>
+    theme.name === 'light' ? theme.colors.darkNeutralColor : theme.colors.secondary};
+
+  @media only screen and (max-width: 780px) {
+    display: none;
   }
 `
 

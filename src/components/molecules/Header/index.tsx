@@ -1,13 +1,14 @@
 import { useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { ICONS } from '../../../constants'
-import { useAuth, useTheme } from '../../../hooks'
+import { useAuth, useTheme, useUser } from '../../../hooks'
 import { Logo, BackActionIcon, FlexOffset } from '../../atoms'
-import { Container, GroupActions, ThemeSwitch } from './styles'
+import { Container, GroupActions, Email, ThemeSwitch } from './styles'
 
 const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
-  const { theme, toggleTheme } = useTheme()
   const { logout } = useAuth()
+  const { email } = useUser()
+  const { theme, toggleTheme } = useTheme()
   const router = useRouter()
 
   const handleNavigatePerfil = useCallback(() => {
@@ -23,6 +24,8 @@ const Header: React.FC<{ withBackAction?: boolean }> = ({ withBackAction }) => {
       {withBackAction && <BackActionIcon />}
 
       <Logo size={68} />
+
+      {email && <Email>{email}</Email>}
 
       <GroupActions>
         <ThemeSwitch>

@@ -1,11 +1,11 @@
 import api from '../base'
 import { URLS } from '../../constants'
+import { ICredits } from '../../libs/interfaces/contexts'
 import { IResponse } from '../../libs/interfaces/services'
-import { IGenre } from '../../libs/interfaces/contexts'
 
-export default async function listGenres(): Promise<IResponse<IGenre[]>> {
+export default async function listMovieCredits(id: number): Promise<IResponse<ICredits>> {
   try {
-    const response = await api.client.get<{ genres: IGenre[] }>(URLS.GENRES)
+    const response = await api.client.get<ICredits[]>(URLS.CREDITS(String(id)))
 
     return api.response.success(response.data, response.status)
   } catch (error) {

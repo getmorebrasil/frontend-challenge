@@ -14,6 +14,7 @@ export interface ITheme {
     neutralColor: string
     darkNeutralColor: string
     contrastColor: string
+    emphasizedContrastColor: string
     background: string
     border: string
     error: string
@@ -109,10 +110,6 @@ export interface IMovieContextData {
   populars: IMovie[]
   showCaseMovie: IShowCaseIMovie
   setLoading(state: boolean): void
-  getMovies(): Promise<IResponse<IMovie[]>>
-  getPopulars(): Promise<IResponse<IMovie[]>>
-  getMovie(id: number): Promise<IResponse<IMovie>>
-  getShowCaseMovie(): Promise<IResponse<IShowCaseIMovie>>
 }
 
 export interface IGenreContextData {
