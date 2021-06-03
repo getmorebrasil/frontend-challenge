@@ -7,9 +7,10 @@ const success = (data: any, status: number) => ({
 
 const error = (requestError: any) => ({
   success: false,
-  status: requestError.response.status,
-  errors: requestError.response.data.message,
+  status: requestError.response?.status,
+  errors: requestError.response?.data.message,
 })
 
 const response = { success, error }
+
 export default response

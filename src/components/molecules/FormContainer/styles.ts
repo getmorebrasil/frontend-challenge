@@ -1,5 +1,6 @@
 import { Form } from '@unform/web'
 import styled from 'styled-components'
+import { centerFlex } from '../../../styles/shared'
 
 export const Container = styled.div`
   display: flex;
@@ -15,10 +16,9 @@ export const Container = styled.div`
 `
 
 export const FormChildren = styled(Form)`
-  display: flex;
+  ${centerFlex};
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   width: 100%;
   margin-top: 3rem;
 

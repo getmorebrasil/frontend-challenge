@@ -6,7 +6,7 @@ import { URLS } from '../../constants'
 export default async function getShowCaseMovie(): Promise<IResponse<IShowCaseIMovie>> {
   try {
     const response = await api.client.get<ITheMovieDBListResponse<IShowCaseIMovie[]>>(
-      URLS.TOP_RATED
+      URLS.TOP_RATED(1)
     )
 
     return api.response.success(response.data.results[0], response.status)

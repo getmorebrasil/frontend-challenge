@@ -4,10 +4,10 @@ import { IInputProps } from '../../../libs/interfaces/atoms'
 import { Container } from './styles'
 
 const Input: React.FC<IInputProps> = ({ name, label, required, ...rest }) => {
-  const inputRef = useRef<HTMLInputElement>(null)
   const { fieldName, defaultValue, error, registerField } = useField(name)
   const [isFocused, setIsFocused] = useState(false)
   const [isFilled, setIsFilled] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     registerField({

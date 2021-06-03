@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Container } from './styles'
 import { Loading, Unauthorized } from '../../molecules'
 import { IWithSSGAuthProps } from '../../../libs/interfaces/molecules'
 
@@ -19,26 +18,24 @@ const WithSSGAuth: React.FC<IWithSSGAuthProps> = ({
             <title>Carregando...</title>
             <meta name="carregando" content="O Conteúdo está carregando..." />
           </Head>
-          <Container>
+          <main>
             <Loading />
-          </Container>
+          </main>
         </>
       ) : (
-        <Container>
-          <>
-            {isAuthenticated ? (
-              <>
-                <Head>
-                  <title>{pageTitle}</title>
-                  <meta name="description" content={metaContent} />
-                </Head>
-                {children}
-              </>
-            ) : (
-              <Unauthorized />
-            )}
-          </>
-        </Container>
+        <>
+          {isAuthenticated ? (
+            <>
+              <Head>
+                <title>{pageTitle}</title>
+                <meta name="description" content={metaContent} />
+              </Head>
+              {children}
+            </>
+          ) : (
+            <Unauthorized />
+          )}
+        </>
       )}
     </>
   )

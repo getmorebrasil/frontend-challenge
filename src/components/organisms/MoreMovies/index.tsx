@@ -1,17 +1,42 @@
-import { useCallback, memo, useMemo } from 'react'
+import { useCallback, memo, useMemo, useRef, useEffect, useState, MutableRefObject } from 'react'
 import { useRouter } from 'next/router'
 import { truncateString } from '../../../helpers'
 import { MoreMoviesProps } from '../../../libs/types/organisms'
 import { Button, Categories } from '../../atoms'
-import { Classification } from '../../molecules'
-
+import { Classification, Loading } from '../../molecules'
 import { Container, Movie, MoviePoster, CenterContent, RightSide } from './styles'
+import listMovies from '../../../services/movies/list'
 
 const MoreMovies: React.FC<MoreMoviesProps> = ({ data }) => {
+  const [currentPage, setCurrentPage] = useState(2)
+  const loadMoreRef = useRef<HTMLDivElement>()
+  const [movies, setMovies] = useState(data)
   const router = useRouter()
 
-  const formattedData = useMemo(() => {
-    const result = data.map((movie) => {
+  const handleRequest = useCallback(async () => {
+    const { data: moreMovies } = await listMovies(currentPage)
+
+    if (moreMovies) setMovies((old) => [...old, ...moreMovies])
+  }, [currentPage])
+
+  useEffect(() => {
+    handleRequest()
+  }, [currentPage, handleRequest])
+
+  useEffect(() => {
+    const options = { root: null, rootMargin: '20px', threshold: 1.0 }
+
+    const observer = new IntersectionObserver((entities) => {
+      const target = entities[0]
+
+      if (target.isIntersecting) setCurrentPage((old) => old + 1)
+    }, options)
+
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current)
+  }, [])
+
+  const formattedMovies = useMemo(() => {
+    const result = movies.map((movie) => {
       return {
         ...movie,
         title: truncateString(movie.title, 30),
@@ -21,20 +46,13 @@ const MoreMovies: React.FC<MoreMoviesProps> = ({ data }) => {
     })
 
     return result
-  }, [data])
-
-  const handleGetDetails = useCallback(
-    (movieId: number) => {
-      router.push(`/movie/${movieId}`)
-    },
-    [router]
-  )
+  }, [movies])
 
   return (
     <Container>
       <h2>More Movies</h2>
 
-      {formattedData.map((movie) => (
+      {formattedMovies.map((movie) => (
         <Movie key={movie.id}>
           <MoviePoster src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} />
           <CenterContent>
@@ -42,11 +60,12 @@ const MoreMovies: React.FC<MoreMoviesProps> = ({ data }) => {
             <h3>Sinopse</h3>
             <p>{movie.overview}</p>
           </CenterContent>
+
           <RightSide>
             <Categories fontSize={1.6}>{movie.formattedGenres}</Categories>
             <Classification classification={movie.vote_average} />
 
-            <Button text="Get Details" handleAction={() => handleGetDetails(movie.id)} />
+            <Button text="Get Details" handleAction={() => router.push(`/movie/${movie.id}`)} />
 
             {movie.directorName && (
               <h5>
@@ -56,6 +75,10 @@ const MoreMovies: React.FC<MoreMoviesProps> = ({ data }) => {
           </RightSide>
         </Movie>
       ))}
+
+      <div ref={loadMoreRef as MutableRefObject<HTMLDivElement>}>
+        <Loading size={40} />
+      </div>
     </Container>
   )
 }

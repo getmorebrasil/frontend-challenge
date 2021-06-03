@@ -1,6 +1,5 @@
 const POPULARS = 'movie/popular'
 const GENRES = 'genre/movie/list'
-const TOP_RATED = 'movie/top_rated'
 const AUTH = 'api/auth'
 const USERS = 'api/users'
 
@@ -10,6 +9,10 @@ function IMAGE(path: string) {
 
 function CREDITS(id: string) {
   return `movie/${id}/credits`
+}
+
+function TOP_RATED(page: number) {
+  return `movie/top_rated?page=${page}`
 }
 
 function DETAIL(id: string) {
