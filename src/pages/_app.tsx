@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <AppProvider>
       <GlobalStyle />
       <TopProgressBar />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </AppProvider>
   )
 }

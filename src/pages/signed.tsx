@@ -9,14 +9,14 @@ export default function Signed() {
   const router = useRouter()
 
   const handleGetMovies = useCallback(() => {
-    router.push('/')
+    router.push('/home')
   }, [router])
 
   return (
     <Container>
       <WhiteBlock>
         <CompleteImage src="done-icon.png" />
-        <h1>Successful registration!</h1>
+        <h1>Authenticated successfully</h1>
         <p>Nice! Now you can access our platform, find your favorite movie clicking below</p>
         <Button text="Get Movies" handleAction={handleGetMovies} />
       </WhiteBlock>

@@ -23,7 +23,7 @@ const Unauthorized: React.FC = () => {
           create a new account...
         </p>
 
-        <Button handleAction={() => router.push('/signin')} text="Sign In" />
+        <Button handleAction={() => router.push('/')} text="Sign In" />
       </Block>
     </Container>
   )

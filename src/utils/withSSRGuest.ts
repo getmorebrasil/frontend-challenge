@@ -9,7 +9,7 @@ export default function withSSRGuest<P>(fn: GetServerSideProps<P>) {
 
     return {
       redirect: {
-        destination: '/',
+        destination: '/home',
         permanent: false,
       },
     }

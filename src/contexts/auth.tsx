@@ -32,7 +32,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
       if (success && data) {
         persistAuthenticate(data.token, data.email)
-        router.push('/signed')
+        router.push('/home')
         return
       }
 
@@ -48,7 +48,7 @@ const AuthProvider: React.FC = ({ children }) => {
     destroyCookie(null, 'getmovies.email')
     destroyCookie(null, 'getmovies.token')
 
-    router.push('/signin')
+    router.push('/')
   }, [router])
 
   return (

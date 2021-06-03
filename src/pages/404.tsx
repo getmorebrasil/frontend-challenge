@@ -1,7 +1,11 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { Button } from '../components/atoms'
 import { Container, TimesIcon, Block } from '../styles/pages/404'
 
 export default function Page404() {
+  const router = useRouter()
+
   return (
     <>
       <Head>
@@ -16,6 +20,8 @@ export default function Page404() {
           <TimesIcon size={140} />
           <h1>No Route Match!</h1>
           <p>You are trying to access a route that does not exists...</p>
+
+          <Button handleAction={() => router.push('/home')} text="Go Home" />
         </Block>
       </Container>
     </>

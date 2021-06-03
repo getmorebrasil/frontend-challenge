@@ -9,7 +9,7 @@ export default function withSSRAuth<P>(fn: GetServerSideProps<P>) {
 
     return {
       redirect: {
-        destination: '/signin',
+        destination: '/',
         permanent: false,
       },
     }

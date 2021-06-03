@@ -57,11 +57,11 @@ export default function SignUp() {
         <Content>
           <FormContainer formRef={formRef} handleSubmit={handleSubmit}>
             <Input name="email" label="Email" required />
-            <Input name="password" label="Password" required />
-            <Input name="confirmPassword" label="Confirm Password" required />
+            <Input type="password" name="password" label="Password" required />
+            <Input type="password" name="confirmPassword" label="Confirm Password" required />
             <Button text="Sign Up Now" isLoading={loading} />
           </FormContainer>
-          <Link href="/signin">
+          <Link href="/">
             <p>
               Already have an account? <span>Sign In</span>
             </p>

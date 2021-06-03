@@ -1,34 +1,130 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# getmovies
 
-## Getting Started
+## Project
 
-First, run the development server:
+**_EN:_** As a practical challenge proposed by the technology company getmore, I developed this project which is basically an informative portal of the most recent and popular movies of today extracting real data from the movies through themoviedb API. Application built using the power of the nextjs tool where it is possible for the user to create their account and search for the desired movies.
+
+**_PT-BR:_** Como um desafio prático proposto pela empresa de tecnologia getmore, desenvolvi este projeto que é basicamente um portal informativo dos mais novos e populares filmes da atualidade extraindo dados reais dos filmes através da themoviedb API. Aplicação construída utilizando o poder da ferramenta nextjs onde é possível ao usuário criar sua conta e procurar pelos filmes desejados.
+
+This project was developed with the following technologies & libs:
+
+- nextjs
+- yup
+- axios
+- faunaDB
+- nookies
+- nprogress
+- typescript
+- react-icons
+- @unform/web
+- sweetalert2
+- react-spinners
+- styled-components
+- jsonwebtoken & bcryptjs
+
+## Preview Web
+
+![preview-web](preview.png)
+
+---
+
+## Vercel Deploy
+
+[getmovies in production](https://getmovies.vercel.app/)
+
+---
+
+### How To Install
+
+To clone and run this application, you'll need Git, Node.js & NPM/Yarn or docker + docker-compose installed on your computer.
+
+From your command line:
+
+#### Install without docker
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone this repository
+$ git clone https://github.com/gideonfernandes/frontend-challenge.git
+
+# Go into the repository
+$ cd frontend-challenge
+
+# Install dependencies
+$ npm i or yarn
+
+# Start server
+$ npm run dev or yarn dev
+
+# running on port 3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Install with docker & docker-compose
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+# Clone this repository
+$ git clone https://github.com/gideonfernandes/frontend-challenge.git
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Go into the repository
+$ cd frontend-challenge
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Build container
+$ docker-compose build
 
-## Learn More
+# Start container app
+$ docker-compose up
 
-To learn more about Next.js, take a look at the following resources:
+(use sudo if necessary)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# running on port 3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### License
 
-## Deploy on Vercel
+This project is under the MIT license.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Challenge info - Desafio Frontend Getmore
+
+Você foi selecionado para desenvolver um site que terá duas funções:
+
+- Listagem dados;
+- Mostrar detalhes;
+
+## Recursos
+
+Fique à vontade para escolher qualquer dados disponíveis publicamente em api na internet, aqui vão alguns exemplos:
+
+- [The Movie DB](https://developers.themoviedb.org/3/getting-started/introduction)
+- [Pokemon API](https://pokeapi.co/)
+- [Spotify](https://developer.spotify.com/)
+
+## Pré-requisitos
+
+- A aplicação deve ser desenvolvida usando ReactJs
+- O código do site deverá ser versionando no Github em repositório público;
+- O README do repositório deverá conter instruções de como executar a aplicação localmente;
+
+## Avaliação
+
+- Uso de React moderno (componentes funcionais, react hooks, context API)
+- Uso efetivo do git (commits concisos, títulos auto-explicativos, etc);
+- Boas práticas de programação (clean code, uso de padrões, nomes de identificadores, tamanho de funções, perfomance);
+- Organização do projeto;
+- UX do site (layout agradável, leiturabilidade, usabilidade, etc);
+
+## Bônus
+
+- Fetching assíncrono usando hooks
+- Quantidade de informações disponíveis na API escolhida
+- Aplicação construida com [NextJs](https://nextjs.org/)
+- Uso de componentes da lib [Material-Ui](https://material-ui.com/)
+- Uso de [styled-components](https://styled-components.com/)
+- Deploy em site de hospedagem (ex: Heroku)
+
+## Como começo?
+
+Aqui vão as etapas:
+
+- Faça um fork desse repositório;
+- Crie uma Pull Request com seu código pronto;

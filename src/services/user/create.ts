@@ -11,8 +11,10 @@ export default async function createUser(data: ICredentials): Promise<IResponse<
   } catch (error) {
     const { message, description } = error.response.data
 
-    if (description) error.response.data.message = `${message} ${description}`
-
+    if (description)
+      error.response.data.message = `${message} ${
+        description.includes('unique') ? 'Email is already used...' : description
+      }`
     return api.response.error(error)
   }
 }

@@ -12,4 +12,8 @@ export const TimesIcon = styled(ICONS.AI.AiOutlineClose)`
 
 export const Block = styled.section`
   ${blockContainer};
+
+  & > p {
+    margin-bottom: 4rem;
+  }
 `
