@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { setCookie, destroyCookie } from 'nookies'
 import { useRouter } from 'next/router'
+import Swal from 'sweetalert2'
 import { IAuthContextData } from '../libs/interfaces/contexts'
 import { authService } from '../services'
 import { storageToken } from '../utils'
@@ -27,20 +28,27 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const createAuth = useCallback(
     async (credentials) => {
-      const { data } = await authService.createAuth(credentials)
+      const { success, data, errors } = await authService.createAuth(credentials)
 
-      if (data) persistAuthenticate(data.token, data.email)
-      router.push('/signed')
+      if (success && data) {
+        persistAuthenticate(data.token, data.email)
+        router.push('/signed')
+        return
+      }
+
+      let errorMessage = 'Something went wrong!'
+      if (errors) errorMessage = errors
+
+      Swal.fire('Error...', errorMessage, 'error')
     },
     [persistAuthenticate, router]
   )
 
   const logout = useCallback(async () => {
-    if (process.browser) {
-      destroyCookie(null, 'getmovies.email')
-      destroyCookie(null, 'getmovies.token')
-      router.push('/signin')
-    }
+    destroyCookie(null, 'getmovies.email')
+    destroyCookie(null, 'getmovies.token')
+
+    router.push('/signin')
   }, [router])
 
   return (

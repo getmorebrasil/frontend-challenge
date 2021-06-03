@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { parseCookies, setCookie } from 'nookies'
 import { useRouter } from 'next/router'
+import Swal from 'sweetalert2'
 import { IUserContextData } from '../libs/interfaces/contexts'
 import { userService } from '../services'
 import { storageToken } from '../utils'
@@ -35,11 +36,19 @@ const UserProvider: React.FC = ({ children }) => {
   const createUser = useCallback(
     async (userData) => {
       setLoading(true)
-      const { data } = await userService.createUser(userData)
+      const { success, data, errors } = await userService.createUser(userData)
       setLoading(false)
 
-      if (data) persistAuthenticate(data.token, data.email)
-      router.push('/signed')
+      if (success && data) {
+        persistAuthenticate(data.token, data.email)
+        router.push('/signed')
+        return
+      }
+
+      let errorMessage = 'Something went wrong!'
+      if (errors) errorMessage = errors
+
+      Swal.fire('Error...', errorMessage, 'error')
     },
     [persistAuthenticate, router]
   )
