@@ -4,7 +4,7 @@ export const light = {
   header:
     'linear-gradient(90deg, #F3003A 24.53%, rgba(243, 0, 0, 0.51) 38.49%, rgba(243, 0, 30, 0.66) 66.75%, #F3003A 93.23%)',
 
-  primaryBackground: '##E2E8F0',
+  primaryBackground: '#E2E8F0',
   secondaryBackground: '#FFF',
   tertiaryBackground: '#F3003A',
 
@@ -18,6 +18,8 @@ export const light = {
     primary: '#F3003A',
     secondary: '#FFF',
   },
+
+  matchDate: '#F3003A',
 };
 
 export const dark = {
@@ -39,4 +41,6 @@ export const dark = {
     primary: '#F3003A',
     secondary: '#FFF',
   },
+
+  matchDate: '#333',
 };

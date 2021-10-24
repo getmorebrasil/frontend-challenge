@@ -13,7 +13,10 @@ const Header: React.FC = () => {
       <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
       <div className="switcher-container">
         <span>🌞</span>
-        <ThemeSwitch onChange={handleToggleTheme} />
+        <ThemeSwitch
+          onChange={handleToggleTheme}
+          checked={theme.name === 'dark'}
+        />
         <span>🌚</span>
       </div>
     </Container>

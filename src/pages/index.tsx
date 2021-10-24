@@ -1,11 +1,30 @@
+import { useCallback } from 'react';
 import Head from 'next/head';
+import { useTheme } from '../Context/ThemeContext';
+import { Grid } from '@material-ui/core';
+import Link from 'next/link';
+
+import { useCompetitionContext } from '../Context/CompetitionContext';
 
 import Header from '../Components/Header';
 import CompetitionCard from '../Components/CompetitionCard';
 
-import { Container } from '../styles/Home';
+import {
+  Container,
+  SaudationContainer,
+  CompetitionsContainer,
+} from '../styles/pages/Home';
 
 const Home: React.FC = () => {
+  const { theme } = useTheme();
+  const { idCompetitionDefault, toggleIdCompetitionDefault } =
+    useCompetitionContext();
+
+  const handleIdCompetition = useCallback(
+    (id: string) => toggleIdCompetitionDefault(id),
+    [idCompetitionDefault]
+  );
+
   return (
     <div>
       <Head>
@@ -15,29 +34,94 @@ const Home: React.FC = () => {
 
       <Container>
         <Header />
-        <section>
-          <div>
+
+        <SaudationContainer
+          container
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item md={12} lg={6} id="saudation-container">
             <h1>
-              Seja bem-vindo(a) ao <span>getmoreSports!</span>
+              Seja bem-vindo(a) a <span>getmoreSports!</span>
             </h1>
 
             <h4>
               Aqui você terá acesso a classificação e jogos atualizados dos
               principais campeonatos de futebol do mundo.
             </h4>
-          </div>
+          </Grid>
 
-          <img src="/assets/playerIllustration.svg" />
-        </section>
+          <Grid item md={12} lg={4} justifyContent="center" alignItems="center">
+            <img src="/assets/playerIllustration.svg" />
+          </Grid>
+        </SaudationContainer>
 
-        <section>
+        <CompetitionsContainer>
           <h1>Escolha aqui o campeonato desejado:</h1>
 
-          <CompetitionCard />
-          <img src="/assets/logos/serieALogo.png" alt="Série A TIM" />
-          <img src="/assets/logos/premierLogoPurple.svg" alt="Premier League" />
-          <img src="/assets/logos/brasileiraoLogo.png" alt="Brasileirão" />
-        </section>
+          <Grid
+            container
+            spacing={10}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <Link href="/competition/2014">
+                <a>
+                  <CompetitionCard
+                    onClick={() => handleIdCompetition('2014')}
+                    image={
+                      theme.name === 'light'
+                        ? '/assets/logos/laLigaLogo.png'
+                        : '/assets/logos/laLigaLogoWhite.svg'
+                    }
+                    alt="La Liga"
+                    textButton="La Liga - ESP"
+                  />
+                </a>
+              </Link>
+            </Grid>
+
+            <Grid item>
+              <Link href="/competition/2019">
+                <a>
+                  <CompetitionCard
+                    onClick={() => handleIdCompetition('2019')}
+                    image="/assets/logos/serieALogo.png"
+                    alt="Série A TIM"
+                    textButton="Série A TIM - ITA"
+                  />
+                </a>
+              </Link>
+            </Grid>
+
+            <Grid item>
+              <Link href="/competition/2021">
+                <a>
+                  <CompetitionCard
+                    onClick={() => handleIdCompetition('2021')}
+                    image="/assets/logos/premierLogoPurple.svg"
+                    alt="Premier League"
+                    textButton="Premier League - ING"
+                  />
+                </a>
+              </Link>
+            </Grid>
+
+            <Grid item>
+              <Link href="/competition/2013">
+                <a>
+                  <CompetitionCard
+                    onClick={() => handleIdCompetition('2013')}
+                    image="/assets/logos/brasileiraoLogo.png"
+                    alt="Brasileirão"
+                    textButton="Brasileirão - BRA"
+                  />
+                </a>
+              </Link>
+            </Grid>
+          </Grid>
+        </CompetitionsContainer>
       </Container>
     </div>
   );

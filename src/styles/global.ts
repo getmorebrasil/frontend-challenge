@@ -7,5 +7,11 @@ export default createGlobalStyle`
     box-sizing: border-box;
 
     font-family: 'Poppins', sans-serif;
+
+    outline: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
