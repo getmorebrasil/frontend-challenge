@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Box, Grid, TableContainer } from '@material-ui/core';
 
 export const Container = styled(Box)`
@@ -111,5 +111,62 @@ export const MatchesTable = styled(Box)`
         transform: rotate(180deg);
       }
     }
+  }
+`;
+
+const loading = keyframes`
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+`;
+
+export const LoadingContainer = styled(Box)`
+  background: ${({ theme }) => theme.primaryBackground};
+
+  height: 100vh;
+
+  .background {
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(7px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader {
+    width: 80px;
+
+    -webkit-animation: ${loading} 2s linear infinite;
+    animation: ${loading} 2s linear infinite;
+  }
+`;
+
+export const LoadingMatchesContainer = styled(Box)`
+  background: ${({ theme }) => theme.secondaryBackground};
+
+  .background {
+    height: 1170px;
+
+    min-width: 347.22px;
+
+    padding: 0 0.852vw;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(7px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .loader {
+    width: 50px;
+
+    margin-top: 30px;
+
+    -webkit-animation: ${loading} 2s linear infinite;
+    animation: ${loading} 2s linear infinite;
   }
 `;

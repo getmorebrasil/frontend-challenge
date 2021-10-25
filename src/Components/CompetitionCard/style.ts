@@ -10,7 +10,7 @@ export const Container = styled(Card)`
   width: 200px;
   height: 200px;
 
-  background: ${({ theme }) => theme.secondaryBackground};
+  background: ${({ theme }) => theme.secondaryBackground} !important;
 
   -webkit-box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 1);
   -moz-box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 1);

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box, Switch } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 export const Container = styled(Box)`
   background: ${({ theme }) => theme.header};
@@ -21,19 +21,5 @@ export const Container = styled(Box)`
     position: absolute;
 
     right: 10px;
-  }
-`;
-
-export const ThemeSwitch = styled(Switch)`
-  .Mui-checked {
-    color: #fff;
-  }
-
-  .MuiSwitch-track {
-    background: #fff;
-  }
-
-  .Mui-checked + .MuiSwitch-track {
-    background: #fff;
   }
 `;

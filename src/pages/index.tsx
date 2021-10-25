@@ -1,10 +1,7 @@
-import { useCallback } from 'react';
 import Head from 'next/head';
 import { useTheme } from '../Context/ThemeContext';
 import { Grid } from '@material-ui/core';
 import Link from 'next/link';
-
-import { useCompetitionContext } from '../Context/CompetitionContext';
 
 import Header from '../Components/Header';
 import CompetitionCard from '../Components/CompetitionCard';
@@ -17,13 +14,6 @@ import {
 
 const Home: React.FC = () => {
   const { theme } = useTheme();
-  const { idCompetitionDefault, toggleIdCompetitionDefault } =
-    useCompetitionContext();
-
-  const handleIdCompetition = useCallback(
-    (id: string) => toggleIdCompetitionDefault(id),
-    [idCompetitionDefault]
-  );
 
   return (
     <div>
@@ -42,7 +32,7 @@ const Home: React.FC = () => {
         >
           <Grid item md={12} lg={6} id="saudation-container">
             <h1>
-              Seja bem-vindo(a) a <span>getmoreSports!</span>
+              Seja bem-vindo(a) à <span>getmoreSports!</span>
             </h1>
 
             <h4>
@@ -69,7 +59,6 @@ const Home: React.FC = () => {
               <Link href="/competition/2014">
                 <a>
                   <CompetitionCard
-                    onClick={() => handleIdCompetition('2014')}
                     image={
                       theme.name === 'light'
                         ? '/assets/logos/laLigaLogo.png'
@@ -86,7 +75,6 @@ const Home: React.FC = () => {
               <Link href="/competition/2019">
                 <a>
                   <CompetitionCard
-                    onClick={() => handleIdCompetition('2019')}
                     image="/assets/logos/serieALogo.png"
                     alt="Série A TIM"
                     textButton="Série A TIM - ITA"
@@ -99,7 +87,6 @@ const Home: React.FC = () => {
               <Link href="/competition/2021">
                 <a>
                   <CompetitionCard
-                    onClick={() => handleIdCompetition('2021')}
                     image="/assets/logos/premierLogoPurple.svg"
                     alt="Premier League"
                     textButton="Premier League - ING"
@@ -112,7 +99,6 @@ const Home: React.FC = () => {
               <Link href="/competition/2013">
                 <a>
                   <CompetitionCard
-                    onClick={() => handleIdCompetition('2013')}
                     image="/assets/logos/brasileiraoLogo.png"
                     alt="Brasileirão"
                     textButton="Brasileirão - BRA"

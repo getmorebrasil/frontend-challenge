@@ -1,7 +1,9 @@
 import { useCallback } from 'react';
 import { useTheme } from '../../Context/ThemeContext';
 
-import { Container, ThemeSwitch } from './style';
+import { Switch, Box } from '@material-ui/core';
+
+import { Container } from './style';
 
 const Header: React.FC = () => {
   const { toggleTheme, theme } = useTheme();
@@ -11,14 +13,11 @@ const Header: React.FC = () => {
   return (
     <Container>
       <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
-      <div className="switcher-container">
+      <Box className="switcher-container">
         <span>🌞</span>
-        <ThemeSwitch
-          onChange={handleToggleTheme}
-          checked={theme.name === 'dark'}
-        />
+        <Switch onChange={handleToggleTheme} checked={theme.name === 'dark'} />
         <span>🌚</span>
-      </div>
+      </Box>
     </Container>
   );
 };
