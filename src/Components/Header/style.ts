@@ -22,4 +22,8 @@ export const Container = styled(Box)`
 
     right: 10px;
   }
+
+  img#logo-without-words {
+    max-width: 60px;
+  }
 `;
