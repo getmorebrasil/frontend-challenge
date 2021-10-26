@@ -16,6 +16,15 @@ export const Container = styled(Card)`
   -moz-box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 1);
   box-shadow: 0px 1px 10px 0px rgba(50, 50, 50, 1);
 
+  @media (max-width: 500px) {
+    width: 140px;
+    height: 140px;
+
+    .MuiGrid-item {
+      padding: 20px;
+    }
+  }
+
   button#external-button {
     height: 100%;
 

@@ -1,20 +1,12 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { useTheme } from '../Context/ThemeContext';
-import { Grid, Typography } from '@material-ui/core';
 
 import Header from '../Components/Header';
-import CompetitionCard from '../Components/CompetitionCard';
+import Saudation from '../Components/Saudation';
+import Main from '../Components/Main';
 
-import {
-  Container,
-  SaudationContainer,
-  CompetitionsContainer,
-} from '../styles/pages/Home';
+import { Container } from '../styles/pages/Home';
 
 const Home: React.FC = () => {
-  const { theme } = useTheme();
-
   return (
     <div>
       <Head>
@@ -26,98 +18,9 @@ const Home: React.FC = () => {
       <Container>
         <Header />
 
-        <SaudationContainer
-          container
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item md={12} lg={6} id="saudation-container">
-            <Typography variant="h2">
-              Seja bem-vindo(a) à <span>getmoreSports!</span>
-            </Typography>
+        <Saudation />
 
-            <Typography variant="h4">
-              Aqui você terá acesso a classificação e jogos atualizados dos
-              principais campeonatos de futebol do mundo.
-            </Typography>
-          </Grid>
-
-          <Grid
-            className="grid-item-image"
-            item
-            md={12}
-            lg={4}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <img src="/assets/playerIllustration.svg" />
-          </Grid>
-        </SaudationContainer>
-
-        <CompetitionsContainer>
-          <Typography variant="h4">
-            Escolha aqui o campeonato desejado:
-          </Typography>
-
-          <Grid
-            container
-            spacing={10}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item>
-              <Link href="/competition/2014">
-                <a>
-                  <CompetitionCard
-                    image={
-                      theme.name === 'light'
-                        ? '/assets/logos/laLigaLogo.png'
-                        : '/assets/logos/laLigaLogoWhite.svg'
-                    }
-                    alt="La Liga"
-                    textButton="La Liga - ESP"
-                  />
-                </a>
-              </Link>
-            </Grid>
-
-            <Grid item>
-              <Link href="/competition/2019">
-                <a>
-                  <CompetitionCard
-                    image="/assets/logos/serieALogo.png"
-                    alt="Série A TIM"
-                    textButton="Série A TIM - ITA"
-                  />
-                </a>
-              </Link>
-            </Grid>
-
-            <Grid item>
-              <Link href="/competition/2021">
-                <a>
-                  <CompetitionCard
-                    image="/assets/logos/premierLogoPurple.svg"
-                    alt="Premier League"
-                    textButton="Premier League - ING"
-                  />
-                </a>
-              </Link>
-            </Grid>
-
-            <Grid item>
-              <Link href="/competition/2013">
-                <a>
-                  <CompetitionCard
-                    image="/assets/logos/brasileiraoLogo.png"
-                    alt="Brasileirão"
-                    textButton="Brasileirão - BRA"
-                  />
-                </a>
-              </Link>
-            </Grid>
-          </Grid>
-        </CompetitionsContainer>
+        <Main />
       </Container>
     </div>
   );
