@@ -2,8 +2,7 @@ export const listLeagues = () => [
   {
     id: '2014',
     name: 'La Liga',
-    logoUrl: '/assets/logos/laLigaLogo.png',
-    alternativeLogoUrl: '/assets/logos/laLigaLogoWhite.svg',
+    logoUrl: '/assets/logos/laligaLogo.png',
     apiUrl: '/competition/2014',
   },
   {
