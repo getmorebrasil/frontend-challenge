@@ -6,6 +6,8 @@ import League from './League';
 import LeagueData from '../../utils/LeagueData';
 import listLeagues from './mock';
 
+import { Container } from './style';
+
 export const Leagues: React.FC = () => {
   useEffect(() => {
     const listleague: LeagueData[] = listLeagues();
@@ -16,11 +18,16 @@ export const Leagues: React.FC = () => {
   const [leagues, setLeagues] = useState<LeagueData[]>();
 
   return (
-    <Grid container spacing={10} justifyContent="center" alignItems="center">
+    <Container
+      container
+      spacing={10}
+      justifyContent="center"
+      alignItems="center"
+    >
       {leagues?.map((league) => (
         <League key={league.id} league={league} />
       ))}
-    </Grid>
+    </Container>
   );
 };
 

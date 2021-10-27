@@ -19,10 +19,11 @@ export const Container = styled(Card)`
   @media (max-width: 500px) {
     width: 140px;
     height: 140px;
+  }
 
-    .MuiGrid-item {
-      padding: 20px;
-    }
+  @media (max-width: 365px) {
+    width: 120px;
+    height: 120px;
   }
 
   button#external-button {
@@ -44,6 +45,15 @@ export const Container = styled(Card)`
 
       margin-top: auto;
       margin-bottom: auto;
+
+      @media (max-width: 500px) {
+        max-height: 90px;
+        max-width: 120px;
+      }
+      @media (max-width: 365px) {
+        max-height: 70px;
+        max-width: 100px;
+      }
     }
 
     .MuiCardActions-root {

@@ -18,6 +18,14 @@ export const Container = styled(Box)`
       font-size: 15px;
       text-align: center;
     }
+
+    @media (max-width: 320px) {
+      & > span {
+        padding: 3px 8px;
+
+        font-size: 10px;
+      }
+    }
   }
 
   .match-content {
@@ -38,6 +46,10 @@ export const Container = styled(Box)`
 
         @media (max-width: 865px) {
           max-width: 30px;
+        }
+
+        @media (max-width: 320px) {
+          max-width: 20px;
         }
       }
     }
@@ -60,6 +72,12 @@ export const Container = styled(Box)`
 
         display: flex;
         justify-content: center;
+
+        @media (max-width: 320px) {
+          min-width: 50px;
+
+          font-size: 15px;
+        }
       }
     }
   }

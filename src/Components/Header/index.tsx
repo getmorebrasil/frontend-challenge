@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../Context/ThemeContext';
 
+import Link from 'next/link';
+
 import { Switch, Box } from '@material-ui/core';
 
 import { Container } from './style';
@@ -17,15 +19,20 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      {smallLogo ? (
-        <img
-          id="logo-without-words"
-          src={'/assets/logos/getmoreOnlyLogo.svg'}
-          alt="GetmoreSports"
-        />
-      ) : (
-        <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
-      )}
+      <Link href="/">
+        <a>
+          {smallLogo ? (
+            <img
+              id="logo-without-words"
+              src={'/assets/logos/getmoreOnlyLogo.svg'}
+              alt="GetmoreSports"
+            />
+          ) : (
+            <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
+          )}
+        </a>
+      </Link>
+      
       <Box className="switcher-container">
         <span>🌞</span>
         <Switch onChange={handleToggleTheme} checked={theme.name === 'dark'} />
