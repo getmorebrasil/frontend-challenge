@@ -14,6 +14,10 @@ export const Container = styled(Box)`
 
   max-width: 900px;
 
+  @media (max-width: 1366px) {
+    width: 90vw;
+  }
+
   div#header-modal {
     background: ${({ theme }) => theme.colors.primary};
 
@@ -72,34 +76,38 @@ export const Container = styled(Box)`
         }
       }
     }
-  }
 
-  @media (max-width: 900px) {
-    width: 700px;
-  }
-
-  @media (max-width: 730px) {
-    width: 400px;
-
-    img {
-      width: 90px;
-      height: 90px;
-    }
-
-    div#requisition-error-content {
-      h1 {
-        margin-bottom: 40px;
-
-        font-size: 1rem;
+    @media (max-width: 730px) {
+      img {
+        display: none;
       }
 
-      a {
-        svg {
-          margin-right: 10px;
+      div#requisition-error-content {
+        h4,
+        h5 {
+          margin-left: 0;
         }
 
-        h2 {
-          font-size: 0.8rem;
+        a {
+          svg {
+            margin-right: 10px;
+          }
+
+          h2 {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 370px) {
+      div#requisition-error-content {
+        h4 {
+          font-size: 25px;
+        }
+
+        h5 {
+          font-size: 18px;
         }
       }
     }

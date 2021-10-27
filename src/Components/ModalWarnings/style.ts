@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Modal, Box } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 export const Container = styled(Box)`
   position: absolute;
@@ -13,6 +13,10 @@ export const Container = styled(Box)`
 
   max-width: 600px;
   border-top-right-radius: 10px;
+
+  @media (max-width: 1100px) {
+    width: 80vw;
+  }
 
   div#header-modal {
     background: ${({ theme }) => theme.colors.primary};
@@ -37,6 +41,14 @@ export const Container = styled(Box)`
 
       color: ${({ theme }) => theme.colors.secondary};
     }
+
+    @media (max-width: 800px) {
+      padding: 10px 0;
+
+      h4 {
+        font-size: 25px;
+      }
+    }
   }
 
   #text-content {
@@ -52,18 +64,10 @@ export const Container = styled(Box)`
       color: ${({ theme }) => theme.primaryText};
       text-decoration: underline;
     }
-  }
 
-  @media (max-width: 600px) {
-    div#warnings-container {
-      max-height: 90vh;
-
-      h1 {
-        margin-bottom: 10px;
-      }
-
-      section {
-        font-size: 0.85rem;
+    @media (max-width: 600px) {
+      p {
+        font-size: 12px;
       }
     }
   }

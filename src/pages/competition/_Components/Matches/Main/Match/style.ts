@@ -19,7 +19,7 @@ export const Container = styled(Box)`
       text-align: center;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 350px) {
       & > span {
         padding: 3px 8px;
 
@@ -48,7 +48,7 @@ export const Container = styled(Box)`
           max-width: 30px;
         }
 
-        @media (max-width: 320px) {
+        @media (max-width: 350px) {
           max-width: 20px;
         }
       }
@@ -73,7 +73,7 @@ export const Container = styled(Box)`
         display: flex;
         justify-content: center;
 
-        @media (max-width: 320px) {
+        @media (max-width: 350px) {
           min-width: 50px;
 
           font-size: 15px;
