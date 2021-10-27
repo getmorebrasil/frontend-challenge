@@ -22,7 +22,7 @@ export const Standing = styled(TableContainer)`
   }
 
   @media (max-width: 850px) {
-    width: 90vw;
+    width: 90vw !important;
 
     margin-bottom: 50px;
   }
