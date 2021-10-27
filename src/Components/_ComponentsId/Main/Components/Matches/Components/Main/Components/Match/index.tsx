@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { Box } from '@material-ui/core';
-import CompetitionContext from '../../../../../../../../../../Context/CompetitionContext';
+import CompetitionContext from '../../../../../../../../../Context/CompetitionContext';
 
-import NameTeamRegex from '../../../../../../../../../../utils/NameTeamRegex';
-import DataMatchRegex from '../../../../../../../../../../utils/DataMatchRegex';
-import MatchData from '../../../../../../../../../../utils/MatchData';
-import TeamData from '../../../../../../../../../../utils/TeamDataInterface';
+import NameTeamRegex from '../../../../../../../../../utils/NameTeamRegex';
+import DataMatchRegex from '../../../../../../../../../utils/DataMatchRegex';
+import MatchData from '../../../../../../../../../utils/MatchData';
+import TeamData from '../../../../../../../../../utils/TeamDataInterface';
 
 import { Container } from './style';
 

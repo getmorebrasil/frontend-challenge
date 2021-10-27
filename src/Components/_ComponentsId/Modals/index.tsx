@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import CompetitionContext from '../../../../Context/CompetitionContext';
+import CompetitionContext from '../../../Context/CompetitionContext';
 import { useRouter } from 'next/router';
 
-import ModalWarnings from '../../../../Components/ModalWarnings';
-import ModalErrorRequisition from '../../../../Components/ModalErrorRequisition';
+import ModalWarnings from '../../ModalWarnings';
+import ModalErrorRequisition from '../../ModalErrorRequisition';
 import Loader from '../Loader';
 
-import isValidId from '../../../../utils/isValidId';
+import isValidId from '../../../utils/isValidId';
 
 import { Container } from './style';
 

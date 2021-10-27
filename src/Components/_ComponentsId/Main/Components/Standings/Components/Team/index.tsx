@@ -1,7 +1,7 @@
 import { TableRow, TableCell } from '@material-ui/core';
 
-import NameTeamRegex from '../../../../../../../../utils/NameTeamRegex';
-import TeamData from '../../../../../../../../utils/TeamDataInterface';
+import NameTeamRegex from '../../../../../../../utils/NameTeamRegex';
+import TeamData from '../../../../../../../utils/TeamDataInterface';
 
 interface TeamProps {
   team: TeamData;

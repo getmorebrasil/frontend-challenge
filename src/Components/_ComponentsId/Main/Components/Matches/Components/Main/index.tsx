@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import api from '../../../../../../../../services/api';
-import CompetitionContext from '../../../../../../../../Context/CompetitionContext';
+import api from '../../../../../../../services/api';
+import CompetitionContext from '../../../../../../../Context/CompetitionContext';
 
 import Match from './Components/Match';
 import Loader from './Components/Loader';
 
-import MatchData from '../../../../../../../../utils/MatchData';
-import isValidId from '../../../../../../../../utils/isValidId';
+import MatchData from '../../../../../../../utils/MatchData';
+import isValidId from '../../../../../../../utils/isValidId';
 
 import { Container } from './style';
 

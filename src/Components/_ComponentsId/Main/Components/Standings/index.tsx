@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import CompetitionContext from '../../../../../../Context/CompetitionContext';
-import api from '../../../../../../services/api';
+import CompetitionContext from '../../../../../Context/CompetitionContext';
+import api from '../../../../../services/api';
 
 import {
   Typography,
@@ -16,9 +16,9 @@ import {
 import Team from './Components/Team';
 import Statistics from './Components/Statistics';
 
-import getCompetitionName from '../../../../../../utils/getCompetitionName';
-import isValidId from '../../../../../../utils/isValidId';
-import TeamData from '../../../../../../utils/TeamDataInterface';
+import getCompetitionName from '../../../../../utils/getCompetitionName';
+import isValidId from '../../../../../utils/isValidId';
+import TeamData from '../../../../../utils/TeamDataInterface';
 
 import { Container, Standing } from './style';
 

@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import Header from '../../Components/Header';
-import Main from './_Components/Main';
-import Modals from './_Components/Modals';
+import Main from '../../Components/_ComponentsId/Main';
+import Modals from '../../Components/_ComponentsId/Modals';
 
 import getCompetitionName from '../../utils/getCompetitionName';
 
