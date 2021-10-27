@@ -1,4 +1,3 @@
-import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 

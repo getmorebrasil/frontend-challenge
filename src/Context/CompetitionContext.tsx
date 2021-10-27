@@ -6,6 +6,7 @@ interface CompetitionContextData {
   setMatchday: React.Dispatch<React.SetStateAction<number>>;
   isLoadingEnd: boolean;
   setIsTableReady: React.Dispatch<React.SetStateAction<boolean>>;
+  isMatchesReady: boolean;
   setIsMatchesReady: React.Dispatch<React.SetStateAction<boolean>>;
   isErrorRequest: boolean;
   setIsErrorRequest: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,6 +39,7 @@ export const CompetitionProvider: React.FC = ({ children }) => {
         setMatchday,
         isLoadingEnd,
         setIsTableReady,
+        isMatchesReady,
         setIsMatchesReady,
         isErrorRequest,
         setIsErrorRequest,

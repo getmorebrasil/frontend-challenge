@@ -16,6 +16,7 @@ export const Container = styled(Box)`
 
   .background {
     height: 100vh;
+    width: 100vw;
 
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(7px);

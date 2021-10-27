@@ -3,6 +3,9 @@ import { Box } from '@material-ui/core';
 
 export const Container = styled(Box)`
   min-height: 100vh;
+  max-width: 100vw;
+
+  overflow: hidden;
 
   background: ${({ theme }) => theme.primaryBackground};
 

@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
-import { Box, IconButton, Typography } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import { IoIosArrowBack } from 'react-icons/io';
-import CompetitionContext from '../../../../../Context/CompetitionContext';
+import CompetitionContext from '../../../../../../../../Context/CompetitionContext';
 
 import { Container } from './style';
 
