@@ -40,8 +40,8 @@ export const Container = styled(Box)`
 
   @media (max-width: 970px) {
     .MuiGrid-item {
-      display: flex;
-      justify-content: center;
+      display: flex !important;
+      justify-content: center !important;
     }
   }
 `;
