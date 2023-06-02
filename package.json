@@ -9,9 +9,6 @@
     "lint": "next lint",
     "heroku-postbuild": "yarn run build"
   },
-  "engines": {
-    "node": "18.16.0"
-  },
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
