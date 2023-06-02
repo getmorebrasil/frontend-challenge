@@ -13,17 +13,15 @@ interface LeagueProps {
 const League = ({ league }: LeagueProps) => (
   <Grid item>
     <Link href={league.apiUrl}>
-      <a>
-        <Container>
-          <Button id="external-button">
-            <img src={league.logoUrl} alt={league.name} />
+      <Container>
+        <Button id="external-button">
+          <img src={league.logoUrl} alt={league.name} />
 
-            <CardActions>
-              <Box id="internal-button">{league.name}</Box>
-            </CardActions>
-          </Button>
-        </Container>
-      </a>
+          <CardActions>
+            <Box id="internal-button">{league.name}</Box>
+          </CardActions>
+        </Button>
+      </Container>
     </Link>
   </Grid>
 );

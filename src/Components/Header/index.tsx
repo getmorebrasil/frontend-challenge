@@ -20,19 +20,17 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Link href="/">
-        <a>
-          {smallLogo ? (
-            <img
-              id="logo-without-words"
-              src={'/assets/logos/getmoreOnlyLogo.svg'}
-              alt="GetmoreSports"
-            />
-          ) : (
-            <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
-          )}
-        </a>
+        {smallLogo ? (
+          <img
+            id="logo-without-words"
+            src={'/assets/logos/getmoreOnlyLogo.svg'}
+            alt="GetmoreSports"
+          />
+        ) : (
+          <img src={'/assets/logos/getmoreLogo.png'} alt="GetmoreSports" />
+        )}
       </Link>
-      
+
       <Box className="switcher-container">
         <span>🌞</span>
         <Switch onChange={handleToggleTheme} checked={theme.name === 'dark'} />

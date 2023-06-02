@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import api from '../../../../../../../services/api';
 import CompetitionContext from '../../../../../../../Context/CompetitionContext';
 
 import Match from './Components/Match';
@@ -10,6 +9,7 @@ import MatchData from '../../../../../../../utils/MatchData';
 import isValidId from '../../../../../../../utils/isValidId';
 
 import { Container } from './style';
+import axios from 'axios';
 
 interface MatchesData {
   data: {
@@ -35,8 +35,8 @@ const Main: React.FC = () => {
 
     (async () => {
       try {
-        const { data }: MatchesData = await api.get(
-          `/v2/competitions/${query.id}/matches?matchday=${matchday}`
+        const { data }: MatchesData = await axios.get(
+          `/api/matches/${query.id}?matchday=${matchday}`
         );
         setIsMatchesReady(true);
         setMatches(data.matches);

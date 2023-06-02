@@ -21,6 +21,7 @@ import isValidId from '../../../../../utils/isValidId';
 import TeamData from '../../../../../utils/TeamDataInterface';
 
 import { Container, Standing } from './style';
+import axios from 'axios';
 
 interface StandingData {
   data: {
@@ -59,8 +60,8 @@ const Standings: React.FC = () => {
 
     (async () => {
       try {
-        const { data }: StandingData = await api.get(
-          `/v2/competitions/${query.id}/standings`
+        const { data }: StandingData = await axios.get(
+          `/api/standings/${query.id}`
         );
 
         setMatchday(data.season.currentMatchday);
