@@ -10,7 +10,7 @@
     "heroku-postbuild": "yarn run build"
   },
   "engines": {
-    "node": "14.18.1"
+    "node": "18.16.0"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
