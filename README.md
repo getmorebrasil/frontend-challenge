@@ -1,6 +1,8 @@
 # GETMORESPORTS
 
 ## 🚀 Rodando <GETMORESPORTS>
+  
+Acesso ao projeto: https://getmoresports-mw1zs6qv6-hugo-cfc.vercel.app/
 
 Para abrir o <GETMORESPORTS> localmente, siga estas etapas:
 
